@@ -1,1441 +1,1291 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Ali Yassine | AI & Software Engineering Student</title>
 
-    <meta
-        name="description"
-        content="Ali Yassine - Engineering student specialized in Artificial Intelligence, Embedded Systems, Robotics and Web Development."
-    >
+    <meta name="description"
+        content="Ali Yassine - Engineering student specialized in Artificial Intelligence, Embedded Systems, Robotics, IoT and Web Development.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
-        rel="stylesheet"
-    >
+        rel="stylesheet">
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #080b12;
+            color: #f5f7fb;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
+        :root {
+            --bg: #080b12;
+            --bg-secondary: #0d111a;
+            --card: #10151f;
+            --border: #242b38;
+            --text: #f5f7fb;
+            --muted: #9ba6b7;
+            --purple: #8b5cf6;
+            --blue: #38bdf8;
+            --green: #34d399;
+            --gradient: linear-gradient(135deg, #8b5cf6, #38bdf8);
+        }
+
+        /* =========================================================
+           CONTAINER
+        ========================================================= */
+
+        .container {
+            width: min(1200px, 90%);
+            margin: auto;
+        }
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 82px;
+            z-index: 1000;
+
+            background: rgba(8, 11, 18, 0.88);
+            backdrop-filter: blur(16px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        nav {
+            height: 82px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--purple);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
 
+        .nav-links a {
+            color: #aeb7c7;
+            font-size: 15px;
+            font-weight: 600;
 
-<style>
+            transition: 0.25s;
+        }
 
-/* =====================================================
-   RESET
-===================================================== */
+        .nav-links a:hover {
+            color: white;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        /* =========================================================
+           NAV BUTTONS
+        ========================================================= */
 
-html {
-    scroll-behavior: smooth;
-}
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-body {
-    font-family: "Inter", sans-serif;
-    background: #080b12;
-    color: #f5f7fb;
-    line-height: 1.6;
-    overflow-x: hidden;
-}
+        .cv-nav {
+            padding: 10px 18px;
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            border-radius: 12px;
 
-button {
-    font-family: inherit;
-}
+            font-weight: 700;
+            font-size: 14px;
 
-:root {
-    --bg: #080b12;
-    --card: rgba(17, 23, 35, 0.75);
-    --border: rgba(255, 255, 255, 0.09);
-    --text: #f5f7fb;
-    --muted: #9ca7b8;
-    --accent: #7c5cff;
-    --accent-2: #00d4ff;
-    --green: #35d07f;
-    --max-width: 1180px;
-}
+            transition: 0.3s;
+        }
 
+        .cv-nav:hover {
+            background: rgba(139, 92, 246, 0.12);
+            border-color: var(--purple);
+        }
 
-/* =====================================================
-   BACKGROUND
-===================================================== */
+        /* =========================================================
+           LANGUAGE SWITCHER
+        ========================================================= */
 
-body::before {
-    content: "";
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            gap: 5px;
 
-    position: fixed;
+            padding: 4px;
 
-    width: 600px;
-    height: 600px;
+            border: 1px solid rgba(139, 92, 246, 0.45);
+            background: #10131d;
 
-    top: -250px;
-    left: -250px;
+            border-radius: 12px;
+        }
 
-    background: rgba(124, 92, 255, 0.13);
+        .lang-btn {
+            border: none;
+            background: transparent;
 
-    filter: blur(100px);
+            color: #8f99aa;
 
-    border-radius: 50%;
+            padding: 8px 10px;
 
-    pointer-events: none;
+            border-radius: 8px;
 
-    z-index: -2;
-}
+            font-size: 12px;
+            font-weight: 800;
 
-body::after {
-    content: "";
+            cursor: pointer;
 
-    position: fixed;
+            transition: 0.25s;
+        }
 
-    width: 500px;
-    height: 500px;
+        .lang-btn:hover {
+            color: white;
+            background: rgba(139, 92, 246, 0.12);
+        }
 
-    right: -250px;
-    bottom: -200px;
+        .lang-btn.active {
+            color: white;
+            background: var(--gradient);
 
-    background: rgba(0, 212, 255, 0.09);
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.25);
+        }
 
-    filter: blur(100px);
+        .lang-separator {
+            color: #444c5b;
+        }
 
-    border-radius: 50%;
+        /* =========================================================
+           MOBILE MENU
+        ========================================================= */
 
-    pointer-events: none;
+        .menu-btn {
+            display: none;
 
-    z-index: -2;
-}
+            background: none;
+            border: none;
 
-.container {
-    width: min(var(--max-width), calc(100% - 40px));
-    margin: auto;
-}
+            color: white;
+            font-size: 26px;
 
+            cursor: pointer;
+        }
 
-/* =====================================================
-   NAVBAR
-===================================================== */
+        /* =========================================================
+           HERO
+        ========================================================= */
 
-nav {
-    position: fixed;
+        .hero {
+            min-height: 100vh;
 
-    top: 0;
-    left: 0;
-    right: 0;
+            padding-top: 150px;
+            padding-bottom: 100px;
 
-    height: 76px;
+            display: flex;
+            align-items: center;
 
-    display: flex;
-    align-items: center;
+            position: relative;
+        }
 
-    z-index: 1000;
+        .hero::before {
+            content: "";
 
-    background: rgba(8, 11, 18, 0.72);
+            position: absolute;
 
-    backdrop-filter: blur(18px);
+            width: 550px;
+            height: 550px;
 
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-}
+            left: -250px;
+            top: 80px;
 
-.nav-container {
-    width: min(var(--max-width), calc(100% - 40px));
+            background: rgba(92, 63, 190, 0.15);
 
-    margin: auto;
+            filter: blur(120px);
 
-    display: flex;
+            pointer-events: none;
+        }
 
-    align-items: center;
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
 
-    justify-content: space-between;
-}
+            align-items: center;
+        }
 
-.logo {
-    font-family: "JetBrains Mono", monospace;
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
 
-    font-size: 20px;
+            padding: 9px 16px;
 
-    font-weight: 600;
-}
+            border: 1px solid rgba(52, 211, 153, 0.3);
 
-.logo span {
-    color: var(--accent);
-}
+            background: rgba(52, 211, 153, 0.06);
 
-.nav-links {
-    display: flex;
+            color: #8de4be;
 
-    align-items: center;
+            border-radius: 30px;
 
-    gap: 24px;
+            font-size: 14px;
+            font-weight: 600;
 
-    list-style: none;
-}
+            margin-bottom: 28px;
+        }
 
-.nav-links a {
-    color: #aeb7c7;
+        .status-dot {
+            width: 9px;
+            height: 9px;
 
-    font-size: 13px;
+            background: var(--green);
 
-    font-weight: 500;
+            border-radius: 50%;
 
-    transition: 0.25s;
-}
+            box-shadow: 0 0 12px rgba(52, 211, 153, 0.8);
+        }
 
-.nav-links a:hover {
-    color: white;
-}
+        .hero h1 {
+            font-size: clamp(60px, 8vw, 100px);
 
-.nav-cv {
-    padding: 9px 15px;
+            line-height: 0.95;
 
-    border: 1px solid rgba(124,92,255,0.5);
+            letter-spacing: -5px;
 
-    border-radius: 9px;
+            margin-bottom: 30px;
 
-    color: white !important;
-}
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #c4b5fd,
+                #38bdf8
+            );
 
-.nav-cv:hover {
-    background: rgba(124,92,255,0.15);
-}
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
+        .hero-role {
+            font-size: 23px;
+            font-weight: 700;
 
-/* LANGUAGE BUTTON */
+            color: #c3cad7;
 
-.language-btn {
-    padding: 8px 12px;
+            margin-bottom: 22px;
+        }
 
-    border: 1px solid rgba(124, 92, 255, 0.45);
+        .hero-description {
+            color: #9da8ba;
 
-    border-radius: 9px;
+            font-size: 17px;
 
-    background: rgba(124, 92, 255, 0.08);
+            max-width: 700px;
 
-    color: white;
+            margin-bottom: 35px;
+        }
 
-    font-size: 12px;
+        /* =========================================================
+           HERO BUTTONS
+        ========================================================= */
 
-    font-weight: 600;
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
 
-    cursor: pointer;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
 
-    transition: 0.25s;
-}
+            padding: 15px 22px;
 
-.language-btn:hover {
-    background: rgba(124, 92, 255, 0.18);
+            border-radius: 12px;
 
-    transform: translateY(-1px);
-}
+            border: 1px solid var(--border);
 
+            background: #111620;
 
-.menu-btn {
-    display: none;
+            color: white;
 
-    border: none;
+            font-weight: 700;
 
-    background: transparent;
+            transition: 0.3s;
+        }
 
-    color: white;
+        .btn:hover {
+            transform: translateY(-3px);
 
-    font-size: 25px;
+            border-color: #465064;
+        }
 
-    cursor: pointer;
-}
+        .btn-primary {
+            color: #080b12;
 
+            background: white;
 
-/* =====================================================
-   HERO
-===================================================== */
+            border-color: white;
+        }
 
-.hero {
-    min-height: 100vh;
+        .btn-primary:hover {
+            background: #e9e9ef;
+        }
 
-    display: flex;
+        /* =========================================================
+           CODE CARD
+        ========================================================= */
 
-    align-items: center;
+        .code-window {
+            background: #0b0f17;
 
-    padding: 130px 0 80px;
-}
+            border: 1px solid #29303d;
 
-.hero-grid {
-    display: grid;
+            border-radius: 20px;
 
-    grid-template-columns: 1.15fr 0.85fr;
+            overflow: hidden;
 
-    align-items: center;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+        }
 
-    gap: 70px;
-}
+        .code-header {
+            height: 52px;
 
-.status {
-    display: inline-flex;
+            display: flex;
+            align-items: center;
 
-    align-items: center;
+            padding: 0 18px;
 
-    gap: 9px;
+            gap: 8px;
 
-    padding: 8px 13px;
+            border-bottom: 1px solid #222936;
+        }
 
-    border-radius: 30px;
+        .circle {
+            width: 13px;
+            height: 13px;
 
-    border: 1px solid rgba(53,208,127,0.2);
+            border-radius: 50%;
 
-    background: rgba(53,208,127,0.06);
+            background: #596272;
+        }
 
-    color: #a8e9c6;
+        .filename {
+            margin-left: 10px;
 
-    font-size: 13px;
+            color: #778194;
 
-    margin-bottom: 24px;
-}
+            font-family: "JetBrains Mono", monospace;
 
-.status-dot {
-    width: 7px;
-    height: 7px;
+            font-size: 13px;
+        }
 
-    background: var(--green);
+        .code {
+            padding: 35px;
 
-    border-radius: 50%;
+            font-family: "JetBrains Mono", monospace;
 
-    box-shadow: 0 0 12px rgba(53,208,127,0.7);
-}
+            font-size: 14px;
 
-.hero h1 {
-    font-size: clamp(48px, 7vw, 82px);
+            color: #aab3c3;
 
-    line-height: 0.98;
+            line-height: 2;
+        }
 
-    letter-spacing: -4px;
+        .keyword {
+            color: #c084fc;
+        }
 
-    margin-bottom: 22px;
-}
+        .property {
+            color: #7db2ff;
+        }
 
-.hero h1 span {
-    background: linear-gradient(
-        100deg,
-        #ffffff,
-        #9c8aff 45%,
-        #5bdcff
-    );
+        .string {
+            color: #b6dd75;
+        }
 
-    -webkit-background-clip: text;
+        /* =========================================================
+           SECTION
+        ========================================================= */
 
-    -webkit-text-fill-color: transparent;
-}
+        section {
+            padding: 110px 0;
+        }
 
-.hero-subtitle {
-    font-size: 20px;
+        .section-header {
+            margin-bottom: 55px;
+        }
 
-    color: #c4cbd7;
+        .section-number {
+            font-family: "JetBrains Mono", monospace;
 
-    margin-bottom: 18px;
+            color: var(--purple);
 
-    font-weight: 600;
-}
+            font-size: 13px;
 
-.hero-description {
-    max-width: 650px;
+            margin-bottom: 10px;
+        }
 
-    color: var(--muted);
+        .section-title {
+            font-size: clamp(36px, 5vw, 55px);
 
-    font-size: 16px;
+            letter-spacing: -2px;
 
-    margin-bottom: 32px;
-}
+            margin-bottom: 15px;
+        }
 
-.hero-buttons {
-    display: flex;
+        .section-description {
+            color: var(--muted);
 
-    gap: 13px;
+            max-width: 700px;
 
-    flex-wrap: wrap;
-}
+            font-size: 16px;
+        }
 
-.btn {
-    display: inline-flex;
+        /* =========================================================
+           ABOUT
+        ========================================================= */
 
-    align-items: center;
+        .about-grid {
+            display: grid;
 
-    justify-content: center;
+            grid-template-columns: 1.1fr 0.9fr;
 
-    gap: 9px;
+            gap: 60px;
+        }
 
-    padding: 13px 19px;
+        .about-text p {
+            color: #aab4c5;
 
-    border-radius: 10px;
+            margin-bottom: 20px;
 
-    font-size: 14px;
+            font-size: 17px;
+        }
 
-    font-weight: 600;
+        .info-card {
+            background: var(--card);
 
-    transition: 0.25s;
+            border: 1px solid var(--border);
 
-    border: 1px solid var(--border);
-}
+            border-radius: 18px;
 
-.btn-primary {
-    background: white;
+            padding: 30px;
+        }
 
-    color: #080b12;
-}
+        .info-item {
+            display: flex;
 
-.btn-primary:hover {
-    transform: translateY(-2px);
+            justify-content: space-between;
 
-    box-shadow: 0 10px 35px rgba(255,255,255,0.13);
-}
+            padding: 16px 0;
 
-.btn-secondary {
-    color: white;
+            border-bottom: 1px solid #202633;
 
-    background: rgba(255,255,255,0.035);
-}
+            gap: 20px;
+        }
 
-.btn-secondary:hover {
-    background: rgba(255,255,255,0.08);
+        .info-item:last-child {
+            border-bottom: none;
+        }
 
-    transform: translateY(-2px);
-}
+        .info-label {
+            color: #6f7a8d;
+        }
 
+        .info-value {
+            text-align: right;
 
-/* =====================================================
-   CODE CARD
-===================================================== */
+            color: #e5e9f0;
 
-.code-card {
-    border: 1px solid var(--border);
+            font-weight: 600;
+        }
 
-    background: rgba(12,16,25,0.82);
+        /* =========================================================
+           SKILLS
+        ========================================================= */
 
-    border-radius: 17px;
+        .skills-grid {
+            display: grid;
 
-    overflow: hidden;
+            grid-template-columns: repeat(4, 1fr);
 
-    box-shadow: 0 30px 80px rgba(0,0,0,0.3);
-}
+            gap: 18px;
+        }
 
-.code-top {
-    height: 42px;
+        .skill-card {
+            padding: 25px;
 
-    display: flex;
+            background: var(--card);
 
-    align-items: center;
+            border: 1px solid var(--border);
 
-    padding: 0 15px;
+            border-radius: 16px;
 
-    gap: 7px;
+            transition: 0.3s;
+        }
 
-    border-bottom: 1px solid var(--border);
-}
+        .skill-card:hover {
+            transform: translateY(-5px);
 
-.code-dot {
-    width: 10px;
-    height: 10px;
+            border-color: rgba(139,92,246,0.5);
+        }
 
-    border-radius: 50%;
+        .skill-icon {
+            font-size: 28px;
 
-    background: #5c6471;
-}
+            margin-bottom: 15px;
+        }
 
-.code-title {
-    margin-left: 8px;
+        .skill-card h3 {
+            margin-bottom: 15px;
 
-    color: #737d8d;
+            font-size: 17px;
+        }
 
-    font-family: "JetBrains Mono", monospace;
+        .skill-list {
+            display: flex;
 
-    font-size: 11px;
-}
+            flex-wrap: wrap;
 
-pre {
-    padding: 28px 25px;
+            gap: 8px;
+        }
 
-    overflow-x: auto;
+        .skill-tag {
+            padding: 6px 10px;
 
-    font-family: "JetBrains Mono", monospace;
+            border-radius: 7px;
 
-    font-size: 13px;
+            background: #181e29;
 
-    color: #aeb9ca;
-}
+            color: #aab4c4;
 
-.keyword {
-    color: #c792ea;
-}
+            font-size: 12px;
 
-.property {
-    color: #82aaff;
-}
+            font-family: "JetBrains Mono", monospace;
+        }
 
-.string {
-    color: #c3e88d;
-}
+        /* =========================================================
+           PROJECT CATEGORY
+        ========================================================= */
 
+        .project-category {
+            margin-bottom: 80px;
+        }
 
-/* =====================================================
-   SECTIONS
-===================================================== */
+        .category-header {
+            display: flex;
+            align-items: center;
 
-section {
-    padding: 100px 0;
-}
+            gap: 15px;
 
-.section-label {
-    font-family: "JetBrains Mono", monospace;
+            margin-bottom: 25px;
+        }
 
-    color: var(--accent);
+        .category-icon {
+            width: 46px;
+            height: 46px;
 
-    font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    letter-spacing: 1px;
+            background: rgba(139,92,246,0.1);
 
-    text-transform: uppercase;
+            border: 1px solid rgba(139,92,246,0.25);
 
-    margin-bottom: 11px;
-}
+            border-radius: 12px;
 
-.section-title {
-    font-size: 38px;
+            font-size: 21px;
+        }
 
-    letter-spacing: -1.5px;
+        .category-header h3 {
+            font-size: 25px;
+        }
 
-    margin-bottom: 14px;
-}
+        .category-header p {
+            color: var(--muted);
+            font-size: 13px;
+        }
 
-.section-description {
-    max-width: 680px;
+        /* =========================================================
+           PROJECTS
+        ========================================================= */
 
-    color: var(--muted);
+        .projects-grid {
+            display: grid;
 
-    font-size: 15px;
-}
+            grid-template-columns: repeat(3, 1fr);
 
+            gap: 20px;
+        }
 
-/* =====================================================
-   ABOUT
-===================================================== */
+        .project-card {
+            background: var(--card);
 
-.about-grid {
-    display: grid;
+            border: 1px solid var(--border);
 
-    grid-template-columns: 1fr 1fr;
+            border-radius: 18px;
 
-    gap: 60px;
+            padding: 28px;
 
-    margin-top: 45px;
-}
+            display: flex;
+            flex-direction: column;
 
-.about-text p {
-    color: #aeb7c5;
+            min-height: 310px;
 
-    margin-bottom: 17px;
-}
+            transition: 0.3s;
+        }
 
-.info-grid {
-    display: grid;
+        .project-card:hover {
+            transform: translateY(-7px);
 
-    grid-template-columns: 1fr 1fr;
+            border-color: rgba(139,92,246,0.45);
 
-    gap: 13px;
-}
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        }
 
-.info-card {
-    padding: 20px;
+        .project-number {
+            font-family: "JetBrains Mono", monospace;
 
-    border: 1px solid var(--border);
+            color: #687386;
 
-    border-radius: 13px;
+            font-size: 12px;
 
-    background: rgba(255,255,255,0.025);
-}
+            margin-bottom: 20px;
+        }
 
-.info-card small {
-    display: block;
+        .project-card h4 {
+            font-size: 21px;
 
-    color: #727d8e;
+            margin-bottom: 13px;
+        }
 
-    font-size: 11px;
+        .project-card p {
+            color: #929daf;
 
-    text-transform: uppercase;
+            font-size: 14px;
 
-    letter-spacing: 0.7px;
+            margin-bottom: 20px;
+        }
 
-    margin-bottom: 5px;
-}
+        .project-tech {
+            display: flex;
 
-.info-card strong {
-    font-size: 14px;
+            flex-wrap: wrap;
 
-    color: #e6eaf1;
-}
+            gap: 7px;
 
+            margin-top: auto;
 
-/* =====================================================
-   SKILLS
-===================================================== */
+            margin-bottom: 22px;
+        }
 
-.skills-grid {
-    margin-top: 45px;
+        .tech {
+            font-family: "JetBrains Mono", monospace;
 
-    display: grid;
+            font-size: 11px;
 
-    grid-template-columns: repeat(3, 1fr);
+            color: #b5a2ff;
 
-    gap: 17px;
-}
+            background: rgba(139,92,246,0.08);
 
-.skill-card {
-    border: 1px solid var(--border);
+            border: 1px solid rgba(139,92,246,0.16);
 
-    background: var(--card);
+            padding: 5px 8px;
 
-    padding: 25px;
+            border-radius: 6px;
+        }
 
-    border-radius: 15px;
+        .project-links {
+            display: flex;
 
-    transition: 0.25s;
-}
+            gap: 10px;
+        }
 
-.skill-card:hover {
-    transform: translateY(-4px);
+        .project-link {
+            font-size: 13px;
 
-    border-color: rgba(124,92,255,0.35);
-}
+            font-weight: 700;
 
-.skill-icon {
-    width: 42px;
-    height: 42px;
+            color: #d8def0;
 
-    border-radius: 10px;
+            transition: 0.25s;
+        }
 
-    display: flex;
+        .project-link:hover {
+            color: #a78bfa;
+        }
 
-    align-items: center;
-    justify-content: center;
+        /* =========================================================
+           EXPERIENCE
+        ========================================================= */
 
-    background: rgba(124,92,255,0.12);
+        .timeline {
+            position: relative;
 
-    color: #a99cff;
+            max-width: 900px;
+        }
 
-    margin-bottom: 18px;
+        .timeline::before {
+            content: "";
 
-    font-family: "JetBrains Mono", monospace;
+            position: absolute;
 
-    font-weight: bold;
+            left: 7px;
+            top: 8px;
+            bottom: 8px;
 
-    font-size: 11px;
-}
+            width: 1px;
 
-.skill-card h3 {
-    font-size: 17px;
+            background: #303746;
+        }
 
-    margin-bottom: 10px;
-}
+        .timeline-item {
+            position: relative;
 
-.skill-card p {
-    color: var(--muted);
+            padding-left: 45px;
 
-    font-size: 13px;
+            margin-bottom: 50px;
+        }
 
-    line-height: 1.7;
-}
+        .timeline-dot {
+            position: absolute;
 
+            left: 0;
+            top: 8px;
 
-/* =====================================================
-   PROJECT CATEGORIES
-===================================================== */
+            width: 15px;
+            height: 15px;
 
-.project-category {
-    margin-top: 70px;
-}
+            border-radius: 50%;
 
-.category-header {
-    display: flex;
+            background: var(--purple);
 
-    align-items: center;
+            border: 4px solid var(--bg);
+        }
 
-    justify-content: space-between;
+        .timeline-date {
+            font-family: "JetBrains Mono", monospace;
 
-    gap: 20px;
+            font-size: 12px;
 
-    margin-bottom: 25px;
+            color: var(--purple);
 
-    padding-bottom: 14px;
+            margin-bottom: 7px;
+        }
 
-    border-bottom: 1px solid var(--border);
-}
+        .timeline-item h3 {
+            font-size: 21px;
 
-.category-title {
-    display: flex;
+            margin-bottom: 5px;
+        }
 
-    align-items: center;
+        .timeline-company {
+            color: #d0d6e0;
 
-    gap: 12px;
+            margin-bottom: 10px;
+        }
 
-    font-size: 22px;
-}
+        .timeline-item p {
+            color: #919bad;
 
-.category-icon {
-    width: 38px;
-    height: 38px;
+            font-size: 14px;
 
-    display: flex;
+            max-width: 750px;
+        }
 
-    align-items: center;
-    justify-content: center;
+        /* =========================================================
+           CONTACT
+        ========================================================= */
 
-    border-radius: 9px;
+        .contact-box {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(139,92,246,0.08),
+                    rgba(56,189,248,0.04)
+                );
 
-    background: rgba(124,92,255,0.12);
+            border: 1px solid rgba(139,92,246,0.2);
 
-    color: #a99cff;
+            border-radius: 22px;
 
-    font-family: "JetBrains Mono", monospace;
+            padding: 55px;
 
-    font-size: 11px;
-}
+            text-align: center;
+        }
 
-.category-description {
-    color: #727d8e;
+        .contact-box h2 {
+            font-size: clamp(35px, 5vw, 55px);
 
-    font-size: 12px;
-}
+            margin-bottom: 15px;
+        }
 
+        .contact-box p {
+            color: var(--muted);
 
-/* =====================================================
-   PROJECTS
-===================================================== */
+            max-width: 650px;
 
-.projects-grid {
-    display: grid;
+            margin: 0 auto 30px;
+        }
 
-    grid-template-columns: repeat(2, 1fr);
+        .contact-links {
+            display: flex;
 
-    gap: 18px;
-}
+            justify-content: center;
 
-.project {
-    position: relative;
+            flex-wrap: wrap;
 
-    padding: 27px;
+            gap: 12px;
+        }
 
-    border-radius: 16px;
+        /* =========================================================
+           FOOTER
+        ========================================================= */
 
-    border: 1px solid var(--border);
+        footer {
+            border-top: 1px solid #1d2330;
 
-    background: var(--card);
+            padding: 30px 0;
 
-    overflow: hidden;
+            color: #687386;
 
-    transition: 0.3s;
-}
+            font-size: 13px;
+        }
 
-.project:hover {
-    transform: translateY(-5px);
+        .footer-content {
+            display: flex;
 
-    border-color: rgba(124,92,255,0.35);
-}
+            justify-content: space-between;
 
-.project-top {
-    display: flex;
+            gap: 20px;
+        }
 
-    justify-content: space-between;
+        /* =========================================================
+           REVEAL
+        ========================================================= */
 
-    align-items: center;
+        .reveal {
+            opacity: 0;
 
-    margin-bottom: 18px;
-}
+            transform: translateY(30px);
 
-.project-number {
-    font-family: "JetBrains Mono", monospace;
+            transition: 0.8s ease;
+        }
 
-    color: #626d7e;
+        .reveal.visible {
+            opacity: 1;
 
-    font-size: 12px;
-}
+            transform: translateY(0);
+        }
 
-.project-type {
-    font-family: "JetBrains Mono", monospace;
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
 
-    font-size: 10px;
+        @media (max-width: 1050px) {
 
-    color: #8993a3;
-}
+            .nav-links {
+                gap: 18px;
+            }
 
-.project h3 {
-    font-size: 20px;
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
 
-    margin-bottom: 9px;
-}
+            .code-window {
+                max-width: 700px;
+            }
 
-.project p {
-    color: var(--muted);
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
 
-    font-size: 13px;
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-    margin-bottom: 19px;
-}
+        @media (max-width: 800px) {
 
-.tags {
-    display: flex;
+            header,
+            nav {
+                height: 72px;
+            }
 
-    flex-wrap: wrap;
+            .nav-links {
+                display: none;
 
-    gap: 7px;
+                position: absolute;
 
-    margin-bottom: 21px;
-}
+                top: 72px;
+                left: 0;
 
-.tag {
-    font-family: "JetBrains Mono", monospace;
+                width: 100%;
 
-    padding: 5px 8px;
+                padding: 25px;
 
-    border-radius: 6px;
+                background: #0a0d14;
 
-    background: rgba(255,255,255,0.05);
+                border-bottom: 1px solid var(--border);
 
-    color: #aab4c4;
+                flex-direction: column;
+            }
 
-    font-size: 10px;
-}
+            .nav-links.show {
+                display: flex;
+            }
 
-.project-link {
-    display: inline-flex;
+            .menu-btn {
+                display: block;
+            }
 
-    align-items: center;
+            .nav-actions {
+                margin-left: auto;
+                margin-right: 12px;
+            }
 
-    gap: 7px;
+            .cv-nav {
+                display: none;
+            }
 
-    color: #b8adff;
+            .hero {
+                padding-top: 120px;
+            }
 
-    font-size: 13px;
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
 
-    font-weight: 600;
-}
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
 
-.project-link:hover {
-    color: white;
-}
+            .hero h1 {
+                letter-spacing: -3px;
+            }
 
+            .hero-role {
+                font-size: 18px;
+            }
 
-/* =====================================================
-   TIMELINE
-===================================================== */
+            .contact-box {
+                padding: 35px 20px;
+            }
 
-.timeline {
-    margin-top: 45px;
+            .footer-content {
+                flex-direction: column;
 
-    border-left: 1px solid rgba(255,255,255,0.1);
+                text-align: center;
+            }
+        }
 
-    padding-left: 30px;
-}
+        @media (max-width: 500px) {
 
-.timeline-item {
-    position: relative;
+            .container {
+                width: 92%;
+            }
 
-    padding-bottom: 45px;
-}
+            .logo {
+                font-size: 20px;
+            }
 
-.timeline-item:last-child {
-    padding-bottom: 0;
-}
+            .language-switcher {
+                transform: scale(0.9);
+            }
 
-.timeline-item::before {
-    content: "";
+            .hero-buttons {
+                flex-direction: column;
+            }
 
-    position: absolute;
+            .btn {
+                width: 100%;
+            }
 
-    width: 9px;
-    height: 9px;
+            .code {
+                padding: 22px;
 
-    background: var(--accent);
+                font-size: 11px;
+            }
 
-    border-radius: 50%;
+            .info-item {
+                flex-direction: column;
+                gap: 5px;
+            }
 
-    left: -35px;
+            .info-value {
+                text-align: left;
+            }
+        }
 
-    top: 7px;
-
-    box-shadow: 0 0 0 5px rgba(124,92,255,0.09);
-}
-
-.timeline-date {
-    color: var(--accent);
-
-    font-family: "JetBrains Mono", monospace;
-
-    font-size: 11px;
-
-    margin-bottom: 6px;
-}
-
-.timeline-item h3 {
-    font-size: 18px;
-
-    margin-bottom: 3px;
-}
-
-.timeline-company {
-    color: #8d98a9;
-
-    font-size: 13px;
-
-    margin-bottom: 13px;
-}
-
-.timeline-item p {
-    color: var(--muted);
-
-    font-size: 13px;
-
-    max-width: 800px;
-}
-
-
-/* =====================================================
-   EDUCATION
-===================================================== */
-
-.education-grid {
-    margin-top: 45px;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 18px;
-}
-
-.education-card {
-    padding: 27px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 15px;
-
-    background: var(--card);
-}
-
-.education-year {
-    font-family: "JetBrains Mono", monospace;
-
-    color: var(--accent);
-
-    font-size: 11px;
-
-    margin-bottom: 12px;
-}
-
-.education-card h3 {
-    font-size: 18px;
-
-    margin-bottom: 7px;
-}
-
-.education-card p {
-    color: var(--muted);
-
-    font-size: 13px;
-}
-
-
-/* =====================================================
-   CONTACT
-===================================================== */
-
-.contact-box {
-    margin-top: 45px;
-
-    padding: 50px;
-
-    border-radius: 20px;
-
-    border: 1px solid var(--border);
-
-    background:
-        radial-gradient(
-            circle at top right,
-            rgba(124,92,255,0.12),
-            transparent 40%
-        ),
-        rgba(255,255,255,0.025);
-
-    text-align: center;
-}
-
-.contact-box h2 {
-    font-size: 35px;
-
-    margin-bottom: 12px;
-}
-
-.contact-box p {
-    color: var(--muted);
-
-    max-width: 600px;
-
-    margin: auto auto 27px;
-
-    font-size: 14px;
-}
-
-.contact-links {
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 10px;
-}
-
-.contact-link {
-    padding: 11px 15px;
-
-    border: 1px solid var(--border);
-
-    border-radius: 9px;
-
-    background: rgba(255,255,255,0.035);
-
-    color: #c3cbd7;
-
-    font-size: 13px;
-
-    transition: 0.25s;
-}
-
-.contact-link:hover {
-    color: white;
-
-    background: rgba(255,255,255,0.08);
-
-    transform: translateY(-2px);
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer {
-    border-top: 1px solid var(--border);
-
-    padding: 30px 0;
-
-    margin-top: 30px;
-}
-
-.footer-content {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    color: #6e7888;
-
-    font-size: 12px;
-}
-
-.footer-socials {
-    display: flex;
-
-    gap: 20px;
-}
-
-.footer-socials a:hover {
-    color: white;
-}
-
-
-/* =====================================================
-   ANIMATION
-===================================================== */
-
-.reveal {
-    opacity: 0;
-
-    transform: translateY(25px);
-
-    transition: 0.7s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-
-    transform: translateY(0);
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 900px) {
-
-    .hero-grid {
-        grid-template-columns: 1fr;
-
-        gap: 45px;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-
-@media (max-width: 700px) {
-
-    .container,
-    .nav-container {
-        width: min(100% - 28px, var(--max-width));
-    }
-
-    .nav-links {
-
-        position: absolute;
-
-        top: 76px;
-
-        left: 14px;
-        right: 14px;
-
-        display: none;
-
-        flex-direction: column;
-
-        align-items: stretch;
-
-        padding: 15px;
-
-        background: rgba(10,14,22,0.97);
-
-        border: 1px solid var(--border);
-
-        border-radius: 12px;
-
-        gap: 5px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links a {
-        display: block;
-
-        padding: 11px;
-    }
-
-    .language-btn {
-        width: 100%;
-    }
-
-    .menu-btn {
-        display: block;
-    }
-
-    .hero h1 {
-        font-size: 52px;
-
-        letter-spacing: -2.5px;
-    }
-
-    .hero-subtitle {
-        font-size: 17px;
-    }
-
-    section {
-        padding: 75px 0;
-    }
-
-    .section-title {
-        font-size: 31px;
-    }
-
-    .skills-grid,
-    .projects-grid,
-    .education-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .info-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .category-header {
-        align-items: flex-start;
-
-        flex-direction: column;
-
-        gap: 5px;
-    }
-
-    .contact-box {
-        padding: 35px 20px;
-    }
-
-    .contact-box h2 {
-        font-size: 28px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-
-        gap: 15px;
-    }
-
-    pre {
-        font-size: 11px;
-    }
-
-}
-
-</style>
-
+    </style>
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
+    <!-- =========================================================
+         NAVBAR
+    ========================================================= -->
 
-<nav>
+    <header>
 
-    <div class="nav-container">
+        <div class="container">
 
-        <a href="#home" class="logo">
-            ali<span>.</span>yassine
-        </a>
+            <nav>
 
-
-        <button class="menu-btn" id="menuBtn">
-            ☰
-        </button>
-
-
-        <ul class="nav-links" id="navLinks">
-
-            <li>
-                <a href="#home"
-                   data-en="Home"
-                   data-fr="Accueil">
-                    Home
+                <a href="#home" class="logo">
+                    ali<span>.</span>yassine
                 </a>
-            </li>
 
-            <li>
-                <a href="#about"
-                   data-en="About"
-                   data-fr="À propos">
-                    About
-                </a>
-            </li>
 
-            <li>
-                <a href="#skills"
-                   data-en="Skills"
-                   data-fr="Compétences">
-                    Skills
-                </a>
-            </li>
+                <div class="nav-links" id="navLinks">
 
-            <li>
-                <a href="#projects"
-                   data-en="Projects"
-                   data-fr="Projets">
-                    Projects
-                </a>
-            </li>
+                    <a href="#home" id="navHome">Accueil</a>
 
-            <li>
-                <a href="#experience"
-                   data-en="Experience"
-                   data-fr="Expérience">
-                    Experience
-                </a>
-            </li>
+                    <a href="#about" id="navAbout">À propos</a>
 
-            <li>
-                <a href="#education"
-                   data-en="Education"
-                   data-fr="Formation">
-                    Education
-                </a>
-            </li>
+                    <a href="#skills" id="navSkills">Compétences</a>
 
-            <li>
-                <a href="#contact"
-                   data-en="Contact"
-                   data-fr="Contact">
-                    Contact
-                </a>
-            </li>
+                    <a href="#projects" id="navProjects">Projets</a>
 
-            <li>
-                <a
-                    href="cv_ali_yassine.pdf"
-                    target="_blank"
-                    class="nav-cv"
-                    data-en="My CV"
-                    data-fr="Mon CV"
-                >
-                    My CV
-                </a>
-            </li>
+                    <a href="#experience" id="navExperience">Expérience</a>
 
-            <li>
+                    <a href="#education" id="navEducation">Formation</a>
+
+                    <a href="#contact" id="navContact">Contact</a>
+
+                </div>
+
+
+                <div class="nav-actions">
+
+                    <a href="cv.pdf"
+                       class="cv-nav"
+                       target="_blank"
+                       id="cvNav">
+                        Mon CV
+                    </a>
+
+
+                    <div class="language-switcher">
+
+                        <button
+                            class="lang-btn active"
+                            id="frBtn"
+                            onclick="changeLanguage('fr')">
+
+                            🇫🇷 FR
+
+                        </button>
+
+                        <span class="lang-separator">|</span>
+
+                        <button
+                            class="lang-btn"
+                            id="enBtn"
+                            onclick="changeLanguage('en')">
+
+                            🇬🇧 EN
+
+                        </button>
+
+                    </div>
+
+                </div>
+
 
                 <button
-                    id="languageBtn"
-                    class="language-btn"
-                >
-                    🇫🇷 FR
+                    class="menu-btn"
+                    id="menuBtn"
+                    aria-label="Menu">
+
+                    ☰
+
                 </button>
 
-            </li>
+            </nav>
 
-        </ul>
+        </div>
 
-    </div>
-
-</nav>
+    </header>
 
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
 
-<main id="home">
+    <main>
 
-<section class="hero">
+        <section class="hero" id="home">
 
-    <div class="container">
+            <div class="container">
 
-        <div class="hero-grid">
-
-
-            <div class="hero-content reveal">
-
-                <div class="status">
-
-                    <span class="status-dot"></span>
-
-                    <span
-                        data-en="Open to opportunities"
-                        data-fr="Ouvert aux opportunités"
-                    >
-                        Open to opportunities
-                    </span>
-
-                </div>
+                <div class="hero-grid">
 
 
-                <h1>
-                    Ali <span>Yassine</span>
-                </h1>
+                    <div class="hero-content reveal">
 
 
-                <div
-                    class="hero-subtitle"
-                    data-en="Engineering Student · AI · Embedded Systems · Software"
-                    data-fr="Étudiant Ingénieur · IA · Systèmes Embarqués · Logiciel"
-                >
-                    Engineering Student · AI · Embedded Systems · Software
-                </div>
+                        <div class="status">
+
+                            <span class="status-dot"></span>
+
+                            <span id="available">
+                                Ouvert aux opportunités
+                            </span>
+
+                        </div>
 
 
-                <p
-                    class="hero-description"
-                    data-en="Engineering student passionate about Artificial Intelligence, Embedded Systems, Robotics and Web Development. I enjoy building intelligent software, connected systems and real-world technological solutions."
-                    data-fr="Étudiant ingénieur passionné par l'Intelligence Artificielle, les Systèmes Embarqués, la Robotique et le Développement Web. J'aime concevoir des logiciels intelligents, des systèmes connectés et des solutions technologiques concrètes."
-                >
-                    Engineering student passionate about Artificial Intelligence,
-                    Embedded Systems, Robotics and Web Development. I enjoy building
-                    intelligent software, connected systems and real-world technological
-                    solutions.
-                </p>
+                        <h1 id="heroTitle">
+                            Ali Yassine
+                        </h1>
 
 
-                <div class="hero-buttons">
+                        <div
+                            class="hero-role"
+                            id="heroRole">
 
-                    <a
-                        href="#projects"
-                        class="btn btn-primary"
-                        data-en="Explore my projects →"
-                        data-fr="Découvrir mes projets →"
-                    >
-                        Explore my projects →
-                    </a>
+                            Étudiant Ingénieur · IA · Systèmes Embarqués · Logiciel
+
+                        </div>
 
 
-                    <a
-                        href="cv_ali_yassine.pdf"
-                        target="_blank"
-                        class="btn btn-secondary"
-                        data-en="Download CV"
-                        data-fr="Télécharger le CV"
-                    >
-                        Download CV
-                    </a>
+                        <p
+                            class="hero-description"
+                            id="heroDescription">
+
+                            Étudiant ingénieur passionné par
+                            l'Intelligence Artificielle, les Systèmes
+                            Embarqués, la Robotique et le Développement
+                            Web. J'aime concevoir des logiciels intelligents,
+                            des systèmes connectés et des solutions
+                            technologiques concrètes.
+
+                        </p>
 
 
-                    <a
-                        href="https://github.com/aliyassine101"
-                        target="_blank"
-                        class="btn btn-secondary"
-                    >
-                        GitHub
-                    </a>
+                        <div class="hero-buttons">
 
-                </div>
+                            <a
+                                href="#projects"
+                                class="btn btn-primary"
+                                id="projectsBtn">
 
-            </div>
+                                Découvrir mes projets →
 
+                            </a>
 
 
-            <div class="code-card reveal">
+                            <a
+                                href="cv.pdf"
+                                class="btn"
+                                target="_blank"
+                                id="cvBtn">
 
-                <div class="code-top">
+                                Télécharger le CV
 
-                    <span class="code-dot"></span>
+                            </a>
 
-                    <span class="code-dot"></span>
 
-                    <span class="code-dot"></span>
+                            <a
+                                href="https://github.com/aliyassine101"
+                                class="btn"
+                                target="_blank"
+                                rel="noopener"
+                                id="githubBtn">
 
-                    <span class="code-title">
-                        ali-yassine.js
-                    </span>
+                                GitHub
 
-                </div>
+                            </a>
 
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- CODE CARD -->
+
+                    <div class="code-window reveal">
+
+                        <div class="code-header">
+
+                            <span class="circle"></span>
+                            <span class="circle"></span>
+                            <span class="circle"></span>
+
+                            <span class="filename">
+                                ali-yassine.js
+                            </span>
+
+                        </div>
+
+
+                        <div class="code">
 
 <pre><span class="keyword">const</span> engineer = {
 
-    <span class="property">name</span>: <span class="string">"Ali Yassine"</span>,
+    <span class="property">name</span>:
+        <span class="string">"Ali Yassine"</span>,
 
     <span class="property">role</span>:
         <span class="string">"Engineering Student"</span>,
@@ -1456,1781 +1306,2065 @@ footer {
         <span class="string">"STM32"</span>,
         <span class="string">"MQTT"</span>
 
-    ],
+    ]
 
-    <span class="property">location</span>:
-        <span class="string">"Brest, France"</span>
 };</pre>
 
-            </div>
+                        </div>
 
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section id="about">
-
-    <div class="container">
-
-
-        <div class="reveal">
-
-            <div class="section-label">
-                01 / <span data-en="About" data-fr="À propos">About</span>
-            </div>
-
-
-            <h2
-                class="section-title"
-                data-en="A developer who likes to build."
-                data-fr="Un développeur qui aime construire."
-            >
-                A developer who likes to build.
-            </h2>
-
-
-            <p
-                class="section-description"
-                data-en="Combining Artificial Intelligence, embedded systems and software engineering to create practical solutions."
-                data-fr="Je combine l'Intelligence Artificielle, les systèmes embarqués et l'ingénierie logicielle pour créer des solutions concrètes."
-            >
-                Combining Artificial Intelligence, embedded systems
-                and software engineering to create practical solutions.
-            </p>
-
-        </div>
-
-
-        <div class="about-grid">
-
-
-            <div class="about-text reveal">
-
-                <p
-                    data-en="I am an engineering student with a strong interest in Artificial Intelligence, Embedded Systems, Robotics, IoT and Web Development."
-                    data-fr="Je suis étudiant ingénieur avec un fort intérêt pour l'Intelligence Artificielle, les Systèmes Embarqués, la Robotique, l'IoT et le Développement Web."
-                >
-                    I am an engineering student with a strong interest
-                    in Artificial Intelligence, Embedded Systems,
-                    Robotics, IoT and Web Development.
-                </p>
-
-
-                <p
-                    data-en="My experience includes developing complete AI pipelines, embedded applications, communication systems and web applications."
-                    data-fr="Mon expérience comprend le développement de pipelines IA complets, d'applications embarquées, de systèmes de communication et d'applications web."
-                >
-                    My experience includes developing complete AI
-                    pipelines, embedded applications, communication
-                    systems and web applications.
-                </p>
-
-
-                <p
-                    data-en="I have worked with technologies ranging from Machine Learning and Deep Learning to STM32, sensors, I2C, UART, Zigbee and MQTT."
-                    data-fr="J'ai travaillé avec des technologies allant du Machine Learning et du Deep Learning jusqu'aux STM32, capteurs, I2C, UART, Zigbee et MQTT."
-                >
-                    I have worked with technologies ranging from
-                    Machine Learning and Deep Learning to STM32,
-                    sensors, I2C, UART, Zigbee and MQTT.
-                </p>
-
-
-                <p
-                    data-en="I am motivated, autonomous, rigorous and always interested in learning new technologies and transforming ideas into working systems."
-                    data-fr="Je suis motivé, autonome, rigoureux et toujours intéressé par l'apprentissage de nouvelles technologies et la transformation d'idées en systèmes fonctionnels."
-                >
-                    I am motivated, autonomous, rigorous and always
-                    interested in learning new technologies and
-                    transforming ideas into working systems.
-                </p>
-
-            </div>
-
-
-            <div class="info-grid reveal">
-
-
-                <div class="info-card">
-
-                    <small
-                        data-en="Name"
-                        data-fr="Nom"
-                    >
-                        Name
-                    </small>
-
-                    <strong>
-                        Ali Yassine
-                    </strong>
-
-                </div>
-
-
-                <div class="info-card">
-
-                    <small
-                        data-en="Location"
-                        data-fr="Localisation"
-                    >
-                        Location
-                    </small>
-
-                    <strong>
-                        Brest, France
-                    </strong>
-
-                </div>
-
-
-                <div class="info-card">
-
-                    <small>
-                        Email
-                    </small>
-
-                    <strong>
-                        aliyassine901@gmail.com
-                    </strong>
-
-                </div>
-
-
-                <div class="info-card">
-
-                    <small
-                        data-en="Phone"
-                        data-fr="Téléphone"
-                    >
-                        Phone
-                    </small>
-
-                    <strong>
-                        +33 6 02 37 80 79
-                    </strong>
-
-                </div>
-
-
-                <div class="info-card">
-
-                    <small
-                        data-en="Languages"
-                        data-fr="Langues"
-                    >
-                        Languages
-                    </small>
-
-                    <strong>
-                        Arabic · French · English
-                    </strong>
-
-                </div>
-
-
-                <div class="info-card">
-
-                    <small
-                        data-en="Focus"
-                        data-fr="Domaines"
-                    >
-                        Focus
-                    </small>
-
-                    <strong>
-                        AI · Embedded · Web
-                    </strong>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SKILLS
-===================================================== -->
-
-<section id="skills">
-
-    <div class="container">
-
-
-        <div class="reveal">
-
-            <div class="section-label">
-                02 / <span data-en="Skills" data-fr="Compétences">Skills</span>
-            </div>
-
-
-            <h2
-                class="section-title"
-                data-en="Technical toolkit."
-                data-fr="Mes compétences techniques."
-            >
-                Technical toolkit.
-            </h2>
-
-
-            <p
-                class="section-description"
-                data-en="Technologies and tools I use to develop intelligent, connected and software-based systems."
-                data-fr="Technologies et outils que j'utilise pour développer des systèmes intelligents, connectés et logiciels."
-            >
-                Technologies and tools I use to develop intelligent,
-                connected and software-based systems.
-            </p>
-
-        </div>
-
-
-        <div class="skills-grid">
-
-
-            <div class="skill-card reveal">
-
-                <div class="skill-icon">
-                    AI
-                </div>
-
-                <h3
-                    data-en="Artificial Intelligence"
-                    data-fr="Intelligence Artificielle"
-                >
-                    Artificial Intelligence
-                </h3>
-
-                <p
-                    data-en="Machine Learning, Deep Learning, data preprocessing, normalization, feature extraction, feature engineering, model training and evaluation."
-                    data-fr="Machine Learning, Deep Learning, prétraitement des données, normalisation, extraction et ingénierie des caractéristiques, entraînement et évaluation des modèles."
-                >
-                    Machine Learning, Deep Learning, data preprocessing,
-                    normalization, feature extraction, feature engineering,
-                    model training and evaluation.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card reveal">
-
-                <div class="skill-icon">
-                    PY
-                </div>
-
-                <h3
-                    data-en="Python & Data Science"
-                    data-fr="Python & Data Science"
-                >
-                    Python & Data Science
-                </h3>
-
-                <p
-                    data-en="Python, TensorFlow, Keras, Scikit-learn, Pandas, NumPy, Matplotlib, Tkinter and data processing."
-                    data-fr="Python, TensorFlow, Keras, Scikit-learn, Pandas, NumPy, Matplotlib, Tkinter et traitement des données."
-                >
-                    Python, TensorFlow, Keras, Scikit-learn, Pandas,
-                    NumPy, Matplotlib, Tkinter and data processing.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card reveal">
-
-                <div class="skill-icon">
-                    MCU
-                </div>
-
-                <h3
-                    data-en="Embedded Systems"
-                    data-fr="Systèmes Embarqués"
-                >
-                    Embedded Systems
-                </h3>
-
-                <p
-                    data-en="STM32, embedded programming, sensor integration, I2C, UART, TMG39931, real-time sensor data processing and embedded communication."
-                    data-fr="STM32, programmation embarquée, intégration de capteurs, I2C, UART, TMG39931, traitement des données en temps réel et communication embarquée."
-                >
-                    STM32, embedded programming, sensor integration,
-                    I2C, UART, TMG39931, real-time sensor data processing
-                    and embedded communication.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card reveal">
-
-                <div class="skill-icon">
-                    IOT
-                </div>
-
-                <h3
-                    data-en="Robotics & IoT"
-                    data-fr="Robotique & IoT"
-                >
-                    Robotics & IoT
-                </h3>
-
-                <p
-                    data-en="TXT 4.0 robotics, MQTT, Zigbee, obstacle avoidance, wall following, line following, remote robot control and sensor-based systems."
-                    data-fr="Robotique TXT 4.0, MQTT, Zigbee, évitement d'obstacles, suivi de mur, suivi de ligne, contrôle robotique à distance et systèmes basés sur des capteurs."
-                >
-                    TXT 4.0 robotics, MQTT, Zigbee, obstacle avoidance,
-                    wall following, line following, remote robot control
-                    and sensor-based systems.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card reveal">
-
-                <div class="skill-icon">
-                    WEB
-                </div>
-
-                <h3
-                    data-en="Web Development"
-                    data-fr="Développement Web"
-                >
-                    Web Development
-                </h3>
-
-                <p
-                    data-en="HTML, CSS, JavaScript, TypeScript, PHP, Node.js, Express.js and ASP.NET."
-                    data-fr="HTML, CSS, JavaScript, TypeScript, PHP, Node.js, Express.js et ASP.NET."
-                >
-                    HTML, CSS, JavaScript, TypeScript, PHP,
-                    Node.js, Express.js and ASP.NET.
-                </p>
-
-            </div>
-
-
-            <div class="skill-card reveal">
-
-                <div class="skill-icon">
-                    DB
-                </div>
-
-                <h3
-                    data-en="Databases & Tools"
-                    data-fr="Bases de données & Outils"
-                >
-                    Databases & Tools
-                </h3>
-
-                <p
-                    data-en="MongoDB, MySQL, SQLite, Git, NPM, VS Code, Anaconda, Spyder, Jupyter Notebook and WaveForms."
-                    data-fr="MongoDB, MySQL, SQLite, Git, NPM, VS Code, Anaconda, Spyder, Jupyter Notebook et WaveForms."
-                >
-                    MongoDB, MySQL, SQLite, Git, NPM, VS Code,
-                    Anaconda, Spyder, Jupyter Notebook and WaveForms.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PROJECTS
-===================================================== -->
-
-<section id="projects">
-
-    <div class="container">
-
-
-        <div class="reveal">
-
-            <div class="section-label">
-                03 / <span data-en="Projects" data-fr="Projets">Projects</span>
-            </div>
-
-
-            <h2
-                class="section-title"
-                data-en="Projects by domain."
-                data-fr="Projets par domaine."
-            >
-                Projects by domain.
-            </h2>
-
-
-            <p
-                class="section-description"
-                data-en="Explore my work across Artificial Intelligence, Web Development and Embedded Systems & Robotics."
-                data-fr="Découvrez mes projets en Intelligence Artificielle, Développement Web, Systèmes Embarqués et Robotique."
-            >
-                Explore my work across Artificial Intelligence,
-                Web Development and Embedded Systems & Robotics.
-            </p>
-
-        </div>
-
-
-
-        <!-- AI -->
-
-        <div class="project-category">
-
-            <div class="category-header">
-
-                <div class="category-title">
-
-                    <div class="category-icon">
-                        AI
                     </div>
 
-                    <span
-                        data-en="AI & Data Science"
-                        data-fr="IA & Data Science"
-                    >
-                        AI & Data Science
-                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             ABOUT
+        ========================================================= -->
+
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <div class="section-number">
+                        01 / ABOUT
+                    </div>
+
+                    <h2
+                        class="section-title"
+                        id="aboutTitle">
+
+                        À propos de moi
+
+                    </h2>
+
+                    <p
+                        class="section-description"
+                        id="aboutSubtitle">
+
+                        Profil technique, parcours et domaines d'intérêt.
+
+                    </p>
 
                 </div>
 
-                <span
-                    class="category-description"
-                    data-en="Machine Learning · Deep Learning · Data"
-                    data-fr="Machine Learning · Deep Learning · Données"
-                >
-                    Machine Learning · Deep Learning · Data
+
+                <div class="about-grid">
+
+
+                    <div class="about-text reveal">
+
+                        <p id="aboutP1">
+
+                            Je suis étudiant ingénieur à l'École Nationale
+                            d'Ingénieurs de Brest (ENIB), avec un intérêt
+                            particulier pour l'Intelligence Artificielle,
+                            les systèmes embarqués, la robotique et le
+                            développement logiciel.
+
+                        </p>
+
+
+                        <p id="aboutP2">
+
+                            Mon parcours en Réseaux et Télécommunications
+                            m'a permis de développer une solide base en
+                            informatique, programmation, réseaux et systèmes.
+
+                        </p>
+
+
+                        <p id="aboutP3">
+
+                            J'aime transformer des idées en projets concrets,
+                            allant des applications Web aux systèmes
+                            embarqués intelligents et aux solutions basées
+                            sur l'IA.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card reveal">
+
+                        <div class="info-item">
+
+                            <span class="info-label">
+                                Nom
+                            </span>
+
+                            <span class="info-value">
+                                Ali Yassine
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span class="info-label">
+                                Téléphone
+                            </span>
+
+                            <span class="info-value">
+                                +33 06 02 37 80 79
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span class="info-label">
+                                Email
+                            </span>
+
+                            <span class="info-value">
+                                aliyasine901@gmail.com
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span class="info-label">
+                                Localisation
+                            </span>
+
+                            <span class="info-value">
+                                Brest, France
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-item">
+
+                            <span class="info-label">
+                                Domaine
+                            </span>
+
+                            <span class="info-value">
+                                AI · Software · Embedded
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             SKILLS
+        ========================================================= -->
+
+        <section id="skills">
+
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <div class="section-number">
+                        02 / SKILLS
+                    </div>
+
+                    <h2
+                        class="section-title"
+                        id="skillsTitle">
+
+                        Compétences
+
+                    </h2>
+
+                    <p
+                        class="section-description"
+                        id="skillsSubtitle">
+
+                        Technologies et outils que j'utilise pour concevoir
+                        des solutions techniques.
+
+                    </p>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+
+                    <!-- AI -->
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            🧠
+                        </div>
+
+                        <h3 id="skillAI">
+                            Intelligence Artificielle
+                        </h3>
+
+                        <div class="skill-list">
+
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">Scikit-learn</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">Keras</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">OpenCV</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- WEB -->
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            🌐
+                        </div>
+
+                        <h3 id="skillWeb">
+                            Développement Web
+                        </h3>
+
+                        <div class="skill-list">
+
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">MySQL</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMBEDDED -->
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            ⚙️
+                        </div>
+
+                        <h3 id="skillEmbedded">
+                            Systèmes Embarqués
+                        </h3>
+
+                        <div class="skill-list">
+
+                            <span class="skill-tag">STM32</span>
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">I2C</span>
+                            <span class="skill-tag">MQTT</span>
+                            <span class="skill-tag">Embedded C</span>
+                            <span class="skill-tag">Microcontrollers</span>
+                            <span class="skill-tag">Sensors</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- OTHER -->
+
+                    <div class="skill-card reveal">
+
+                        <div class="skill-icon">
+                            🛠️
+                        </div>
+
+                        <h3 id="skillTools">
+                            Outils & Langages
+                        </h3>
+
+                        <div class="skill-list">
+
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">GitHub</span>
+                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">C#</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Linux</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             PROJECTS
+        ========================================================= -->
+
+        <section id="projects">
+
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <div class="section-number">
+                        03 / PROJECTS
+                    </div>
+
+                    <h2
+                        class="section-title"
+                        id="projectsTitle">
+
+                        Projets
+
+                    </h2>
+
+                    <p
+                        class="section-description"
+                        id="projectsSubtitle">
+
+                        Une sélection de projets organisés par domaine.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     WEB PROJECTS
+                ================================================= -->
+
+                <div class="project-category">
+
+                    <div class="category-header reveal">
+
+                        <div class="category-icon">
+                            🌐
+                        </div>
+
+                        <div>
+
+                            <h3 id="webProjectsTitle">
+                                Web Development
+                            </h3>
+
+                            <p id="webProjectsSubtitle">
+                                Frontend, Backend & Full-Stack
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="projects-grid">
+
+
+                        <!-- Project -->
+
+                        <article class="project-card reveal">
+
+                            <div class="project-number">
+                                WEB / 01
+                            </div>
+
+                            <h4>
+                                Backend User Category Note
+                            </h4>
+
+                            <p id="projectBackendDesc">
+
+                                Backend application for managing users,
+                                categories and notes with a structured
+                                TypeScript architecture.
+
+                            </p>
+
+                            <div class="project-tech">
+
+                                <span class="tech">TypeScript</span>
+                                <span class="tech">Node.js</span>
+                                <span class="tech">Express</span>
+                                <span class="tech">Backend</span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://github.com/aliyassine101/Backend_User_categorie_Note"
+                                    target="_blank"
+                                    class="project-link">
+
+                                    GitHub ↗
+
+                                </a>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- Project -->
+
+                        <article class="project-card reveal">
+
+                            <div class="project-number">
+                                WEB / 02
+                            </div>
+
+                            <h4>
+                                Todo List Frontend
+                            </h4>
+
+                            <p id="projectTodoFrontDesc">
+
+                                Interactive frontend Todo List application
+                                focused on clean UI and JavaScript
+                                functionality.
+
+                            </p>
+
+                            <div class="project-tech">
+
+                                <span class="tech">HTML</span>
+                                <span class="tech">CSS</span>
+                                <span class="tech">JavaScript</span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://github.com/aliyassine101/Todo-list-FrontEnd"
+                                    target="_blank"
+                                    class="project-link">
+
+                                    GitHub ↗
+
+                                </a>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- Project -->
+
+                        <article class="project-card reveal">
+
+                            <div class="project-number">
+                                WEB / 03
+                            </div>
+
+                            <h4>
+                                Todo List Backend
+                            </h4>
+
+                            <p id="projectTodoBackDesc">
+
+                                Backend project designed to manage Todo
+                                operations and application data.
+
+                            </p>
+
+                            <div class="project-tech">
+
+                                <span class="tech">JavaScript</span>
+                                <span class="tech">Node.js</span>
+                                <span class="tech">Express</span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://github.com/aliyassine101/Todo-list-backEnd"
+                                    target="_blank"
+                                    class="project-link">
+
+                                    GitHub ↗
+
+                                </a>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- Project -->
+
+                        <article class="project-card reveal">
+
+                            <div class="project-number">
+                                WEB / 04
+                            </div>
+
+                            <h4>
+                                Weather Web App
+                            </h4>
+
+                            <p id="projectWeatherDesc">
+
+                                Web application for displaying weather
+                                information through a simple and intuitive
+                                interface.
+
+                            </p>
+
+                            <div class="project-tech">
+
+                                <span class="tech">HTML</span>
+                                <span class="tech">CSS</span>
+                                <span class="tech">JavaScript</span>
+                                <span class="tech">API</span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://github.com/aliyassine101/Weather-WebAys"
+                                    target="_blank"
+                                    class="project-link">
+
+                                    GitHub ↗
+
+                                </a>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- Project -->
+
+                        <article class="project-card reveal">
+
+                            <div class="project-number">
+                                WEB / 05
+                            </div>
+
+                            <h4>
+                                Todo List Ays
+                            </h4>
+
+                            <p id="projectTodoAysDesc">
+
+                                Another Todo List implementation focused on
+                                frontend development and user interaction.
+
+                            </p>
+
+                            <div class="project-tech">
+
+                                <span class="tech">HTML</span>
+                                <span class="tech">CSS</span>
+                                <span class="tech">JavaScript</span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://github.com/aliyassine101/Todo-List-ays"
+                                    target="_blank"
+                                    class="project-link">
+
+                                    GitHub ↗
+
+                                </a>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- Knights -->
+
+                        <article class="project-card reveal">
+
+                            <div class="project-number">
+                                WEB / 06
+                            </div>
+
+                            <h4>
+                                KnightsOfCars
+                            </h4>
+
+                            <p id="projectCarsDesc">
+
+                                Web project focused on creating a structured
+                                website interface using HTML and CSS.
+
+                            </p>
+
+                            <div class="project-tech">
+
+                                <span class="tech">HTML</span>
+                                <span class="tech">CSS</span>
+                                <span class="tech">Web</span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://github.com/aliyassine101/KnightsOfCars"
+                                    target="_blank"
+                                    class="project-link">
+
+                                    GitHub ↗
+
+                                </a>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     AI PROJECTS
+                ================================================= -->
+
+                <div class="project-category">
+
+                    <div class="category-header reveal">
+
+                        <div class="category-icon">
+                            🧠
+                        </div>
+
+                        <div>
+
+                            <h3 id="aiProjectsTitle">
+                                Artificial Intelligence
+                            </h3>
+
+                            <p id="aiProjectsSubtitle">
+                                Machine Learning, Deep Learning & Computer Vision
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="projects-grid">
+
+
+                        <article class="project-card reveal">
+
+                            <div class="project-number">
+                                AI / 01
+                            </div>
+
+                            <h4>
+                                COPD / BPCO Detection
+                            </h4>
+
+                            <p id="projectCOPDDesc">
+
+                                Deep Learning project based on respiratory
+                                sound analysis for COPD detection using
+                                the ICBHI respiratory sound dataset.
+
+                            </p>
+
+                            <div class="project-tech">
+
+                                <span class="tech">Python</span>
+                                <span class="tech">TensorFlow</span>
+                                <span class="tech">Keras</span>
+                                <span class="tech">Deep Learning</span>
+                                <span class="tech">MFCC</span>
+                                <span class="tech">Audio</span>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <article class="project-card reveal">
+
+                            <div class="project-number">
+                                AI / 02
+                            </div>
+
+                            <h4>
+                                Diabetic Neuropathy Detection
+                            </h4>
+
+                            <p id="projectDPNDesc">
+
+                                AI project using plantar pressure data to
+                                investigate diabetic peripheral neuropathy
+                                detection.
+
+                            </p>
+
+                            <div class="project-tech">
+
+                                <span class="tech">Python</span>
+                                <span class="tech">Machine Learning</span>
+                                <span class="tech">CNN</span>
+                                <span class="tech">Zebris</span>
+                                <span class="tech">Data Analysis</span>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <article class="project-card reveal">
+
+                            <div class="project-number">
+                                AI / 03
+                            </div>
+
+                            <h4>
+                                ML Feature Engineering
+                            </h4>
+
+                            <p id="projectMLDesc">
+
+                                Machine Learning experiments involving
+                                feature engineering, classification and
+                                model evaluation.
+
+                            </p>
+
+                            <div class="project-tech">
+
+                                <span class="tech">Python</span>
+                                <span class="tech">Scikit-learn</span>
+                                <span class="tech">Pandas</span>
+                                <span class="tech">NumPy</span>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     EMBEDDED PROJECTS
+                ================================================= -->
+
+                <div class="project-category">
+
+                    <div class="category-header reveal">
+
+                        <div class="category-icon">
+                            ⚙️
+                        </div>
+
+                        <div>
+
+                            <h3 id="embeddedProjectsTitle">
+                                Embedded Systems & Robotics
+                            </h3>
+
+                            <p id="embeddedProjectsSubtitle">
+                                STM32, I2C, MQTT, Robotics & IoT
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="projects-grid">
+
+
+                        <!-- STM32 -->
+
+                        <article class="project-card reveal">
+
+                            <div class="project-number">
+                                EMBEDDED / 01
+                            </div>
+
+                            <h4>
+                                STM32 & I2C
+                            </h4>
+
+                            <p id="projectSTM32Desc">
+
+                                Embedded systems work based on STM32
+                                microcontrollers and I2C communication,
+                                focusing on hardware-software interaction.
+
+                            </p>
+
+                            <div class="project-tech">
+
+                                <span class="tech">STM32</span>
+                                <span class="tech">Embedded C</span>
+                                <span class="tech">I2C</span>
+                                <span class="tech">Microcontrollers</span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://www.linkedin.com/posts/ali-yassine-ays_stm32-embeddedsystems-i2c-activity-7474562191636123648-SXzj"
+                                    target="_blank"
+                                    class="project-link">
+
+                                    LinkedIn ↗
+
+                                </a>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- STM32 second -->
+
+                        <article class="project-card reveal">
+
+                            <div class="project-number">
+                                EMBEDDED / 02
+                            </div>
+
+                            <h4>
+                                STM32 Embedded System
+                            </h4>
+
+                            <p id="projectSTM32SecondDesc">
+
+                                Practical embedded systems development using
+                                STM32 and low-level hardware communication.
+
+                            </p>
+
+                            <div class="project-tech">
+
+                                <span class="tech">STM32</span>
+                                <span class="tech">C</span>
+                                <span class="tech">I2C</span>
+                                <span class="tech">Embedded Systems</span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://www.linkedin.com/posts/ali-yassine-ays_stm32-embeddedsystems-i2c-activity-7474558970465177600-zsnW"
+                                    target="_blank"
+                                    class="project-link">
+
+                                    LinkedIn ↗
+
+                                </a>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- ROBOTICS -->
+
+                        <article class="project-card reveal">
+
+                            <div class="project-number">
+                                EMBEDDED / 03
+                            </div>
+
+                            <h4>
+                                Robotics & MQTT
+                            </h4>
+
+                            <p id="projectRobotDesc">
+
+                                Robotics project combining embedded systems
+                                and MQTT communication for connected
+                                and intelligent systems.
+
+                            </p>
+
+                            <div class="project-tech">
+
+                                <span class="tech">Robotics</span>
+                                <span class="tech">MQTT</span>
+                                <span class="tech">IoT</span>
+                                <span class="tech">Embedded Systems</span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://www.linkedin.com/posts/ali-yassine-ays_robotique-systaeymesembarquaezs-mqtt-activity-7474573993107394561-1C-T"
+                                    target="_blank"
+                                    class="project-link">
+
+                                    LinkedIn ↗
+
+                                </a>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- ROBOTICS 2 -->
+
+                        <article class="project-card reveal">
+
+                            <div class="project-number">
+                                EMBEDDED / 04
+                            </div>
+
+                            <h4>
+                                Connected Robotics
+                            </h4>
+
+                            <p id="projectRobotSecondDesc">
+
+                                Connected robotics work involving MQTT,
+                                embedded systems and communication between
+                                intelligent devices.
+
+                            </p>
+
+                            <div class="project-tech">
+
+                                <span class="tech">Robotics</span>
+                                <span class="tech">MQTT</span>
+                                <span class="tech">IoT</span>
+                                <span class="tech">Embedded</span>
+
+                            </div>
+
+                            <div class="project-links">
+
+                                <a
+                                    href="https://www.linkedin.com/posts/ali-yassine-ays_robotique-systaeymesembarquaezs-mqtt-activity-7474571972295872513-ZIfT"
+                                    target="_blank"
+                                    class="project-link">
+
+                                    LinkedIn ↗
+
+                                </a>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             EXPERIENCE
+        ========================================================= -->
+
+        <section id="experience">
+
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <div class="section-number">
+                        04 / EXPERIENCE
+                    </div>
+
+                    <h2
+                        class="section-title"
+                        id="experienceTitle">
+
+                        Expérience
+
+                    </h2>
+
+                </div>
+
+
+                <div class="timeline">
+
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-date">
+                            03/2025 — 06/2025
+                        </div>
+
+                        <h3 id="expTitle">
+                            Stage — Détection de neuropathie diabétique
+                        </h3>
+
+                        <div
+                            class="timeline-company"
+                            id="expCompany">
+
+                            Together For Chehim
+
+                        </div>
+
+                        <p id="expDescription">
+
+                            Développement d'une approche basée sur
+                            l'intelligence artificielle pour l'analyse de
+                            données de pression plantaire et la détection
+                            de neuropathie périphérique diabétique.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-date">
+                            2025
+                        </div>
+
+                        <h3 id="expSecondTitle">
+                            Projets académiques — IA & Développement
+                        </h3>
+
+                        <div
+                            class="timeline-company"
+                            id="expSecondCompany">
+
+                            Lebanese University — Faculty of Technology
+
+                        </div>
+
+                        <p id="expSecondDescription">
+
+                            Réalisation de plusieurs projets en
+                            programmation, développement Web, réseaux,
+                            intelligence artificielle et analyse de données.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             EDUCATION
+        ========================================================= -->
+
+        <section id="education">
+
+            <div class="container">
+
+                <div class="section-header reveal">
+
+                    <div class="section-number">
+                        05 / EDUCATION
+                    </div>
+
+                    <h2
+                        class="section-title"
+                        id="educationTitle">
+
+                        Formation
+
+                    </h2>
+
+                </div>
+
+
+                <div class="timeline">
+
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-date">
+                            2025 — Present
+                        </div>
+
+                        <h3>
+                            Diplôme d'ingénieur
+                        </h3>
+
+                        <div class="timeline-company">
+                            École Nationale d'Ingénieurs de Brest — ENIB
+                        </div>
+
+                        <p id="educationENIB">
+
+                            Formation d'ingénieur avec un intérêt pour
+                            l'intelligence artificielle, le logiciel,
+                            les systèmes embarqués et les technologies
+                            numériques.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-date">
+                            2022 — 2025
+                        </div>
+
+                        <h3>
+                            Licence — Réseaux & Télécommunications
+                        </h3>
+
+                        <div class="timeline-company">
+                            Lebanese University — Faculty of Technology
+                        </div>
+
+                        <p id="educationUL">
+
+                            Technologie et Science de Génie des Réseaux
+                            Informatiques et Télécommunication.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================================
+             CONTACT
+        ========================================================= -->
+
+        <section id="contact">
+
+            <div class="container">
+
+                <div class="contact-box reveal">
+
+                    <div class="section-number">
+                        06 / CONTACT
+                    </div>
+
+                    <h2 id="contactTitle">
+                        Travaillons ensemble.
+                    </h2>
+
+                    <p id="contactDescription">
+
+                        Vous avez un projet, une opportunité de stage,
+                        d'alternance ou de collaboration ? N'hésitez pas
+                        à me contacter.
+
+                    </p>
+
+
+                    <div class="contact-links">
+
+                        <a
+                            href="mailto:aliyasine901@gmail.com"
+                            class="btn btn-primary">
+
+                            ✉ Email
+
+                        </a>
+
+
+                        <a
+                            href="tel:+330602378079"
+                            class="btn">
+
+                            ☎ +33 06 02 37 80 79
+
+                        </a>
+
+
+                        <a
+                            href="https://www.linkedin.com/in/ali-yassine-ays"
+                            target="_blank"
+                            class="btn">
+
+                            LinkedIn
+
+                        </a>
+
+
+                        <a
+                            href="https://github.com/aliyassine101"
+                            target="_blank"
+                            class="btn">
+
+                            GitHub
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <span>
+                    © 2026 Ali Yassine
+                </span>
+
+                <span>
+                    AI · Embedded Systems · Software · Web
                 </span>
 
             </div>
 
-
-            <div class="projects-grid">
-
-
-                <article class="project reveal">
-
-                    <div class="project-top">
-
-                        <span class="project-number">
-                            AI / 01
-                        </span>
-
-                        <span class="project-type">
-                            DEEP LEARNING
-                        </span>
-
-                    </div>
-
-
-                    <h3
-                        data-en="COPD Detection from Respiratory Sounds"
-                        data-fr="Détection de la BPCO à partir de sons respiratoires"
-                    >
-                        COPD Detection from Respiratory Sounds
-                    </h3>
-
-
-                    <p
-                        data-en="Development of an automatic system for COPD detection using respiratory sounds, including audio preprocessing, respiratory-cycle segmentation, feature extraction and CNN encoder-decoder classification."
-                        data-fr="Développement d'un système automatique de détection de la BPCO à partir de sons respiratoires, comprenant le prétraitement audio, la segmentation des cycles respiratoires, l'extraction des caractéristiques et une classification basée sur un CNN encodeur-décodeur."
-                    >
-                        Development of an automatic system for COPD
-                        detection using respiratory sounds.
-                    </p>
-
-
-                    <div class="tags">
-
-                        <span class="tag">Python</span>
-
-                        <span class="tag">TensorFlow</span>
-
-                        <span class="tag">CNN</span>
-
-                        <span class="tag">Deep Learning</span>
-
-                        <span class="tag">Audio</span>
-
-                    </div>
-
-
-                    <span
-                        class="project-link"
-                        data-en="Academic AI Project"
-                        data-fr="Projet académique en IA"
-                    >
-                        Academic AI Project
-                    </span>
-
-                </article>
-
-
-
-                <article class="project reveal">
-
-                    <div class="project-top">
-
-                        <span class="project-number">
-                            AI / 02
-                        </span>
-
-                        <span class="project-type">
-                            MACHINE LEARNING
-                        </span>
-
-                    </div>
-
-
-                    <h3
-                        data-en="Diabetic Peripheral Neuropathy Detection"
-                        data-fr="Détection de la neuropathie périphérique diabétique"
-                    >
-                        Diabetic Peripheral Neuropathy Detection
-                    </h3>
-
-
-                    <p
-                        data-en="AI project based on plantar pressure data. The pipeline includes preprocessing, feature engineering, Machine Learning, Deep Learning and SHAP-based analysis."
-                        data-fr="Projet d'IA basé sur des données de pression plantaire. Le pipeline comprend le prétraitement, l'ingénierie des caractéristiques, le Machine Learning, le Deep Learning et l'analyse avec SHAP."
-                    >
-                        AI project based on plantar pressure data.
-                        The pipeline includes preprocessing,
-                        feature engineering, Machine Learning,
-                        Deep Learning and SHAP-based analysis.
-                    </p>
-
-
-                    <div class="tags">
-
-                        <span class="tag">Python</span>
-
-                        <span class="tag">Scikit-learn</span>
-
-                        <span class="tag">CNN</span>
-
-                        <span class="tag">Random Forest</span>
-
-                        <span class="tag">SHAP</span>
-
-                    </div>
-
-
-                    <span
-                        class="project-link"
-                        data-en="Internship Project"
-                        data-fr="Projet de stage"
-                    >
-                        Internship Project
-                    </span>
-
-                </article>
-
-            </div>
-
         </div>
 
+    </footer>
 
 
-        <!-- WEB -->
 
-        <div class="project-category">
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
 
-            <div class="category-header">
+    <script>
 
-                <div class="category-title">
+        /* =========================================================
+           TRANSLATIONS
+        ========================================================= */
 
-                    <div class="category-icon">
-                        WEB
-                    </div>
+        const translations = {
 
-                    <span
-                        data-en="Web Development"
-                        data-fr="Développement Web"
-                    >
-                        Web Development
-                    </span>
+            fr: {
 
-                </div>
+                navHome: "Accueil",
+                navAbout: "À propos",
+                navSkills: "Compétences",
+                navProjects: "Projets",
+                navExperience: "Expérience",
+                navEducation: "Formation",
+                navContact: "Contact",
 
-                <span
-                    class="category-description"
-                    data-en="Frontend · Backend · APIs · Databases"
-                    data-fr="Frontend · Backend · APIs · Bases de données"
-                >
-                    Frontend · Backend · APIs · Databases
-                </span>
+                cvNav: "Mon CV",
 
-            </div>
+                available: "Ouvert aux opportunités",
 
+                heroTitle: "Ali Yassine",
 
-            <div class="projects-grid">
+                heroRole:
+                    "Étudiant Ingénieur · IA · Systèmes Embarqués · Logiciel",
 
+                heroDescription:
+                    "Étudiant ingénieur passionné par l'Intelligence Artificielle, les Systèmes Embarqués, la Robotique et le Développement Web. J'aime concevoir des logiciels intelligents, des systèmes connectés et des solutions technologiques concrètes.",
 
-                <article class="project reveal">
+                projectsBtn:
+                    "Découvrir mes projets →",
 
-                    <div class="project-top">
+                cvBtn:
+                    "Télécharger le CV",
 
-                        <span class="project-number">
-                            WEB / 01
-                        </span>
+                githubBtn:
+                    "GitHub",
 
-                        <span class="project-type">
-                            BACKEND
-                        </span>
+                aboutTitle:
+                    "À propos de moi",
 
-                    </div>
+                aboutSubtitle:
+                    "Profil technique, parcours et domaines d'intérêt.",
 
+                aboutP1:
+                    "Je suis étudiant ingénieur à l'École Nationale d'Ingénieurs de Brest (ENIB), avec un intérêt particulier pour l'Intelligence Artificielle, les systèmes embarqués, la robotique et le développement logiciel.",
 
-                    <h3>
-                        Backend User Category Note
-                    </h3>
+                aboutP2:
+                    "Mon parcours en Réseaux et Télécommunications m'a permis de développer une solide base en informatique, programmation, réseaux et systèmes.",
 
+                aboutP3:
+                    "J'aime transformer des idées en projets concrets, allant des applications Web aux systèmes embarqués intelligents et aux solutions basées sur l'IA.",
 
-                    <p
-                        data-en="Backend application for managing users, categories and notes using TypeScript, Node.js and Express.js."
-                        data-fr="Application backend permettant de gérer des utilisateurs, des catégories et des notes avec TypeScript, Node.js et Express.js."
-                    >
-                        Backend application for managing users,
-                        categories and notes using TypeScript,
-                        Node.js and Express.js.
-                    </p>
+                skillsTitle:
+                    "Compétences",
 
+                skillsSubtitle:
+                    "Technologies et outils que j'utilise pour concevoir des solutions techniques.",
 
-                    <div class="tags">
+                skillAI:
+                    "Intelligence Artificielle",
 
-                        <span class="tag">TypeScript</span>
+                skillWeb:
+                    "Développement Web",
 
-                        <span class="tag">Node.js</span>
+                skillEmbedded:
+                    "Systèmes Embarqués",
 
-                        <span class="tag">Express.js</span>
+                skillTools:
+                    "Outils & Langages",
 
-                        <span class="tag">Backend</span>
+                projectsTitle:
+                    "Projets",
 
-                    </div>
+                projectsSubtitle:
+                    "Une sélection de projets organisés par domaine.",
 
+                webProjectsTitle:
+                    "Web Development",
 
-                    <a
-                        href="https://github.com/aliyassine101/Backend_User_categorie_Note"
-                        target="_blank"
-                        class="project-link"
-                    >
-                        GitHub →
-                    </a>
+                webProjectsSubtitle:
+                    "Frontend, Backend & Full-Stack",
 
-                </article>
+                aiProjectsTitle:
+                    "Artificial Intelligence",
 
+                aiProjectsSubtitle:
+                    "Machine Learning, Deep Learning & Computer Vision",
 
+                embeddedProjectsTitle:
+                    "Embedded Systems & Robotics",
 
-                <article class="project reveal">
+                embeddedProjectsSubtitle:
+                    "STM32, I2C, MQTT, Robotics & IoT",
 
-                    <div class="project-top">
+                projectBackendDesc:
+                    "Backend application for managing users, categories and notes with a structured TypeScript architecture.",
 
-                        <span class="project-number">
-                            WEB / 02
-                        </span>
+                projectTodoFrontDesc:
+                    "Interactive frontend Todo List application focused on clean UI and JavaScript functionality.",
 
-                        <span class="project-type">
-                            FRONTEND
-                        </span>
+                projectTodoBackDesc:
+                    "Backend project designed to manage Todo operations and application data.",
 
-                    </div>
+                projectWeatherDesc:
+                    "Web application for displaying weather information through a simple and intuitive interface.",
 
+                projectTodoAysDesc:
+                    "Another Todo List implementation focused on frontend development and user interaction.",
 
-                    <h3>
-                        Todo List Frontend
-                    </h3>
+                projectCarsDesc:
+                    "Web project focused on creating a structured website interface using HTML and CSS.",
 
+                projectCOPDDesc:
+                    "Deep Learning project based on respiratory sound analysis for COPD detection using the ICBHI respiratory sound dataset.",
 
-                    <p
-                        data-en="Interactive frontend application for creating, managing and organizing tasks."
-                        data-fr="Application frontend interactive permettant de créer, gérer et organiser des tâches."
-                    >
-                        Interactive frontend application for creating,
-                        managing and organizing tasks.
-                    </p>
+                projectDPNDesc:
+                    "AI project using plantar pressure data to investigate diabetic peripheral neuropathy detection.",
 
+                projectMLDesc:
+                    "Machine Learning experiments involving feature engineering, classification and model evaluation.",
 
-                    <div class="tags">
+                projectSTM32Desc:
+                    "Embedded systems work based on STM32 microcontrollers and I2C communication, focusing on hardware-software interaction.",
 
-                        <span class="tag">JavaScript</span>
+                projectSTM32SecondDesc:
+                    "Practical embedded systems development using STM32 and low-level hardware communication.",
 
-                        <span class="tag">HTML</span>
+                projectRobotDesc:
+                    "Robotics project combining embedded systems and MQTT communication for connected and intelligent systems.",
 
-                        <span class="tag">CSS</span>
+                projectRobotSecondDesc:
+                    "Connected robotics work involving MQTT, embedded systems and communication between intelligent devices.",
 
-                    </div>
+                experienceTitle:
+                    "Expérience",
 
+                expTitle:
+                    "Stage — Détection de neuropathie diabétique",
 
-                    <a
-                        href="https://github.com/aliyassine101/Todo-list-FrontEnd"
-                        target="_blank"
-                        class="project-link"
-                    >
-                        GitHub →
-                    </a>
+                expCompany:
+                    "Together For Chehim",
 
-                </article>
+                expDescription:
+                    "Développement d'une approche basée sur l'intelligence artificielle pour l'analyse de données de pression plantaire et la détection de neuropathie périphérique diabétique.",
 
+                expSecondTitle:
+                    "Projets académiques — IA & Développement",
 
+                expSecondCompany:
+                    "Lebanese University — Faculty of Technology",
 
-                <article class="project reveal">
+                expSecondDescription:
+                    "Réalisation de plusieurs projets en programmation, développement Web, réseaux, intelligence artificielle et analyse de données.",
 
-                    <div class="project-top">
+                educationTitle:
+                    "Formation",
 
-                        <span class="project-number">
-                            WEB / 03
-                        </span>
+                educationENIB:
+                    "Formation d'ingénieur avec un intérêt pour l'intelligence artificielle, le logiciel, les systèmes embarqués et les technologies numériques.",
 
-                        <span class="project-type">
-                            BACKEND
-                        </span>
+                educationUL:
+                    "Technologie et Science de Génie des Réseaux Informatiques et Télécommunication.",
 
-                    </div>
+                contactTitle:
+                    "Travaillons ensemble.",
 
+                contactDescription:
+                    "Vous avez un projet, une opportunité de stage, d'alternance ou de collaboration ? N'hésitez pas à me contacter."
 
-                    <h3>
-                        Todo List Backend
-                    </h3>
+            },
 
 
-                    <p
-                        data-en="Server-side project providing backend functionality for a Todo List application."
-                        data-fr="Projet côté serveur fournissant les fonctionnalités backend d'une application Todo List."
-                    >
-                        Server-side project providing backend
-                        functionality for a Todo List application.
-                    </p>
+            en: {
 
+                navHome: "Home",
+                navAbout: "About",
+                navSkills: "Skills",
+                navProjects: "Projects",
+                navExperience: "Experience",
+                navEducation: "Education",
+                navContact: "Contact",
 
-                    <div class="tags">
+                cvNav: "My CV",
 
-                        <span class="tag">JavaScript</span>
+                available:
+                    "Open to opportunities",
 
-                        <span class="tag">Node.js</span>
+                heroTitle:
+                    "Ali Yassine",
 
-                        <span class="tag">Backend</span>
+                heroRole:
+                    "Engineering Student · AI · Embedded Systems · Software",
 
-                        <span class="tag">API</span>
+                heroDescription:
+                    "Engineering student passionate about Artificial Intelligence, Embedded Systems, Robotics and Web Development. I enjoy designing intelligent software, connected systems and practical technological solutions.",
 
-                    </div>
+                projectsBtn:
+                    "Discover my projects →",
 
+                cvBtn:
+                    "Download CV",
 
-                    <a
-                        href="https://github.com/aliyassine101/Todo-list-backEnd"
-                        target="_blank"
-                        class="project-link"
-                    >
-                        GitHub →
-                    </a>
+                githubBtn:
+                    "GitHub",
 
-                </article>
+                aboutTitle:
+                    "About Me",
 
+                aboutSubtitle:
+                    "Technical profile, background and areas of interest.",
 
+                aboutP1:
+                    "I am an engineering student at École Nationale d'Ingénieurs de Brest (ENIB), particularly interested in Artificial Intelligence, Embedded Systems, Robotics and Software Development.",
 
-                <article class="project reveal">
+                aboutP2:
+                    "My background in Networks and Telecommunications has allowed me to build a strong foundation in computer science, programming, networks and systems.",
 
-                    <div class="project-top">
+                aboutP3:
+                    "I enjoy turning ideas into practical projects, from Web applications to intelligent embedded systems and AI-based solutions.",
 
-                        <span class="project-number">
-                            WEB / 04
-                        </span>
+                skillsTitle:
+                    "Skills",
 
-                        <span class="project-type">
-                            API
-                        </span>
+                skillsSubtitle:
+                    "Technologies and tools I use to design technical solutions.",
 
-                    </div>
+                skillAI:
+                    "Artificial Intelligence",
 
+                skillWeb:
+                    "Web Development",
 
-                    <h3>
-                        Weather Web App
-                    </h3>
+                skillEmbedded:
+                    "Embedded Systems",
 
+                skillTools:
+                    "Tools & Languages",
 
-                    <p
-                        data-en="Weather application integrating an external API to retrieve and display weather information."
-                        data-fr="Application météo intégrant une API externe pour récupérer et afficher les informations météorologiques."
-                    >
-                        Weather application integrating an external API
-                        to retrieve and display weather information.
-                    </p>
+                projectsTitle:
+                    "Projects",
 
+                projectsSubtitle:
+                    "A selection of projects organized by technical domain.",
 
-                    <div class="tags">
+                webProjectsTitle:
+                    "Web Development",
 
-                        <span class="tag">JavaScript</span>
+                webProjectsSubtitle:
+                    "Frontend, Backend & Full-Stack",
 
-                        <span class="tag">API</span>
+                aiProjectsTitle:
+                    "Artificial Intelligence",
 
-                        <span class="tag">HTML</span>
+                aiProjectsSubtitle:
+                    "Machine Learning, Deep Learning & Computer Vision",
 
-                        <span class="tag">CSS</span>
+                embeddedProjectsTitle:
+                    "Embedded Systems & Robotics",
 
-                    </div>
+                embeddedProjectsSubtitle:
+                    "STM32, I2C, MQTT, Robotics & IoT",
 
+                projectBackendDesc:
+                    "Backend application for managing users, categories and notes with a structured TypeScript architecture.",
 
-                    <a
-                        href="https://github.com/aliyassine101/Weather-WebAys"
-                        target="_blank"
-                        class="project-link"
-                    >
-                        GitHub →
-                    </a>
+                projectTodoFrontDesc:
+                    "Interactive frontend Todo List application focused on clean UI and JavaScript functionality.",
 
-                </article>
+                projectTodoBackDesc:
+                    "Backend project designed to manage Todo operations and application data.",
 
+                projectWeatherDesc:
+                    "Web application for displaying weather information through a simple and intuitive interface.",
 
+                projectTodoAysDesc:
+                    "Another Todo List implementation focused on frontend development and user interaction.",
 
-                <article class="project reveal">
+                projectCarsDesc:
+                    "Web project focused on creating a structured website interface using HTML and CSS.",
 
-                    <div class="project-top">
+                projectCOPDDesc:
+                    "Deep Learning project based on respiratory sound analysis for COPD detection using the ICBHI respiratory sound dataset.",
 
-                        <span class="project-number">
-                            WEB / 05
-                        </span>
+                projectDPNDesc:
+                    "AI project using plantar pressure data to investigate diabetic peripheral neuropathy detection.",
 
-                        <span class="project-type">
-                            FRONTEND
-                        </span>
+                projectMLDesc:
+                    "Machine Learning experiments involving feature engineering, classification and model evaluation.",
 
-                    </div>
+                projectSTM32Desc:
+                    "Embedded systems work based on STM32 microcontrollers and I2C communication, focusing on hardware-software interaction.",
 
+                projectSTM32SecondDesc:
+                    "Practical embedded systems development using STM32 and low-level hardware communication.",
 
-                    <h3>
-                        Todo List
-                    </h3>
+                projectRobotDesc:
+                    "Robotics project combining embedded systems and MQTT communication for connected and intelligent systems.",
 
+                projectRobotSecondDesc:
+                    "Connected robotics work involving MQTT, embedded systems and communication between intelligent devices.",
 
-                    <p
-                        data-en="Web-based Todo List demonstrating frontend development and interactive task management."
-                        data-fr="Todo List web démontrant le développement frontend et la gestion interactive des tâches."
-                    >
-                        Web-based Todo List demonstrating frontend
-                        development and interactive task management.
-                    </p>
+                experienceTitle:
+                    "Experience",
 
+                expTitle:
+                    "Internship — Diabetic Neuropathy Detection",
 
-                    <div class="tags">
+                expCompany:
+                    "Together For Chehim",
 
-                        <span class="tag">HTML</span>
+                expDescription:
+                    "Development of an Artificial Intelligence approach for plantar pressure data analysis and diabetic peripheral neuropathy detection.",
 
-                        <span class="tag">CSS</span>
+                expSecondTitle:
+                    "Academic Projects — AI & Software Development",
 
-                        <span class="tag">JavaScript</span>
+                expSecondCompany:
+                    "Lebanese University — Faculty of Technology",
 
-                    </div>
+                expSecondDescription:
+                    "Development of several projects in programming, Web development, networking, Artificial Intelligence and data analysis.",
 
+                educationTitle:
+                    "Education",
 
-                    <a
-                        href="https://github.com/aliyassine101/Todo-List-ays"
-                        target="_blank"
-                        class="project-link"
-                    >
-                        GitHub →
-                    </a>
+                educationENIB:
+                    "Engineering studies with a focus on Artificial Intelligence, software, embedded systems and digital technologies.",
 
-                </article>
+                educationUL:
+                    "Technology and Engineering Sciences in Computer Networks and Telecommunications.",
 
+                contactTitle:
+                    "Let's work together.",
 
-
-                <article class="project reveal">
-
-                    <div class="project-top">
-
-                        <span class="project-number">
-                            WEB / 06
-                        </span>
-
-                        <span class="project-type">
-                            WEBSITE
-                        </span>
-
-                    </div>
-
-
-                    <h3>
-                        Knights Of Cars
-                    </h3>
-
-
-                    <p
-                        data-en="Web project focused on creating a structured and visually organized website."
-                        data-fr="Projet web axé sur la création d'un site structuré et visuellement organisé."
-                    >
-                        Web project focused on creating a structured
-                        and visually organized website.
-                    </p>
-
-
-                    <div class="tags">
-
-                        <span class="tag">HTML</span>
-
-                        <span class="tag">Frontend</span>
-
-                        <span class="tag">Web</span>
-
-                    </div>
-
-
-                    <a
-                        href="https://github.com/aliyassine101/KnightsOfCars"
-                        target="_blank"
-                        class="project-link"
-                    >
-                        GitHub →
-                    </a>
-
-                </article>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- EMBEDDED -->
-
-        <div class="project-category">
-
-            <div class="category-header">
-
-                <div class="category-title">
-
-                    <div class="category-icon">
-                        MCU
-                    </div>
-
-                    <span
-                        data-en="Embedded Systems & Robotics"
-                        data-fr="Systèmes Embarqués & Robotique"
-                    >
-                        Embedded Systems & Robotics
-                    </span>
-
-                </div>
-
-                <span
-                    class="category-description"
-                    data-en="STM32 · Sensors · MQTT · Robotics · IoT"
-                    data-fr="STM32 · Capteurs · MQTT · Robotique · IoT"
-                >
-                    STM32 · Sensors · MQTT · Robotics · IoT
-                </span>
-
-            </div>
-
-
-            <div class="projects-grid">
-
-
-                <article class="project reveal">
-
-                    <div class="project-top">
-
-                        <span class="project-number">
-                            EMB / 01
-                        </span>
-
-                        <span class="project-type">
-                            STM32
-                        </span>
-
-                    </div>
-
-
-                    <h3
-                        data-en="Gesture Detection with STM32"
-                        data-fr="Détection de gestes avec STM32"
-                    >
-                        Gesture Detection with STM32
-                    </h3>
-
-
-                    <p
-                        data-en="Embedded system for real-time hand gesture detection using an STM32 microcontroller and TMG39931 sensor. The sensor communicates with STM32 through I2C. Gesture data is processed and transmitted through UART and Zigbee to a Python graphical interface."
-                        data-fr="Système embarqué de détection de gestes en temps réel utilisant un microcontrôleur STM32 et un capteur TMG39931. Le capteur communique avec le STM32 via I2C. Les données sont traitées puis transmises via UART et Zigbee vers une interface graphique Python."
-                    >
-                        Embedded system for real-time hand gesture
-                        detection using an STM32 microcontroller
-                        and TMG39931 sensor.
-                    </p>
-
-
-                    <div class="tags">
-
-                        <span class="tag">STM32</span>
-
-                        <span class="tag">TMG39931</span>
-
-                        <span class="tag">I2C</span>
-
-                        <span class="tag">UART</span>
-
-                        <span class="tag">Zigbee</span>
-
-                        <span class="tag">Python</span>
-
-                        <span class="tag">Tkinter</span>
-
-                        <span class="tag">SQLite</span>
-
-                    </div>
-
-
-                    <a
-                        href="https://www.linkedin.com/posts/ali-yassine-ays_stm32-embeddedsystems-i2c-activity-7474558970465177600-zsnW"
-                        target="_blank"
-                        class="project-link"
-                        data-en="View project on LinkedIn →"
-                        data-fr="Voir le projet sur LinkedIn →"
-                    >
-                        View project on LinkedIn →
-                    </a>
-
-                </article>
-
-
-
-                <article class="project reveal">
-
-                    <div class="project-top">
-
-                        <span class="project-number">
-                            EMB / 02
-                        </span>
-
-                        <span class="project-type">
-                            EMBEDDED
-                        </span>
-
-                    </div>
-
-
-                    <h3
-                        data-en="STM32 Gesture Detection Demo"
-                        data-fr="Démonstration de détection de gestes STM32"
-                    >
-                        STM32 Gesture Detection Demo
-                    </h3>
-
-
-                    <p
-                        data-en="Real-time demonstration of gesture detection using TMG39931 and STM32. The complete chain includes sensor acquisition, I2C communication, embedded processing, UART/Zigbee transmission and real-time Python visualization."
-                        data-fr="Démonstration en temps réel de détection de gestes avec TMG39931 et STM32. La chaîne complète comprend l'acquisition des données, la communication I2C, le traitement embarqué, la transmission UART/Zigbee et la visualisation Python en temps réel."
-                    >
-                        Real-time demonstration of gesture detection
-                        using TMG39931 and STM32.
-                    </p>
-
-
-                    <div class="tags">
-
-                        <span class="tag">STM32</span>
-
-                        <span class="tag">I2C</span>
-
-                        <span class="tag">UART</span>
-
-                        <span class="tag">Zigbee</span>
-
-                        <span class="tag">Sensors</span>
-
-                        <span class="tag">Python</span>
-
-                    </div>
-
-
-                    <a
-                        href="https://www.linkedin.com/posts/ali-yassine-ays_stm32-embeddedsystems-i2c-activity-7474562191636123648-SXzj"
-                        target="_blank"
-                        class="project-link"
-                        data-en="View demonstration →"
-                        data-fr="Voir la démonstration →"
-                    >
-                        View demonstration →
-                    </a>
-
-                </article>
-
-
-
-                <article class="project reveal">
-
-                    <div class="project-top">
-
-                        <span class="project-number">
-                            EMB / 03
-                        </span>
-
-                        <span class="project-type">
-                            ROBOTICS
-                        </span>
-
-                    </div>
-
-
-                    <h3
-                        data-en="TXT 4.0 Robot Control via MQTT"
-                        data-fr="Contrôle d'un robot TXT 4.0 via MQTT"
-                    >
-                        TXT 4.0 Robot Control via MQTT
-                    </h3>
-
-
-                    <p
-                        data-en="Robotic control system based on a TXT 4.0 mobile robot. A Python interface communicates with the robot through MQTT, allowing manual control and automatic modes such as obstacle avoidance, wall following and line following."
-                        data-fr="Système de contrôle robotique basé sur un robot mobile TXT 4.0. Une interface Python communique avec le robot via MQTT et permet le contrôle manuel ainsi que des modes automatiques comme l'évitement d'obstacles, le suivi de mur et le suivi de ligne."
-                    >
-                        Robotic control system based on a TXT 4.0
-                        mobile robot and MQTT communication.
-                    </p>
-
-
-                    <div class="tags">
-
-                        <span class="tag">TXT 4.0</span>
-
-                        <span class="tag">MQTT</span>
-
-                        <span class="tag">Python</span>
-
-                        <span class="tag">Tkinter</span>
-
-                        <span class="tag">IoT</span>
-
-                        <span class="tag">Robotics</span>
-
-                    </div>
-
-
-                    <a
-                        href="https://www.linkedin.com/posts/ali-yassine-ays_robotique-systaeymesembarquaezs-mqtt-activity-7474571972295872513-ZIfT"
-                        target="_blank"
-                        class="project-link"
-                        data-en="View project on LinkedIn →"
-                        data-fr="Voir le projet sur LinkedIn →"
-                    >
-                        View project on LinkedIn →
-                    </a>
-
-                </article>
-
-
-
-                <article class="project reveal">
-
-                    <div class="project-top">
-
-                        <span class="project-number">
-                            EMB / 04
-                        </span>
-
-                        <span class="project-type">
-                            ROBOTICS
-                        </span>
-
-                    </div>
-
-
-                    <h3
-                        data-en="Robot MQTT Real-Time Monitoring"
-                        data-fr="Monitoring robotique en temps réel avec MQTT"
-                    >
-                        Robot MQTT Real-Time Monitoring
-                    </h3>
-
-
-                    <p
-                        data-en="Demonstration of remote robot control and real-time sensor monitoring. The Python interface displays MQTT data, robot status, commands and sensor values, with temporal graphs and CSV export."
-                        data-fr="Démonstration du contrôle d'un robot à distance et du suivi des capteurs en temps réel. L'interface Python affiche les données MQTT, l'état du robot, les commandes et les valeurs des capteurs, avec graphiques temporels et export CSV."
-                    >
-                        Demonstration of remote robot control and
-                        real-time sensor monitoring.
-                    </p>
-
-
-                    <div class="tags">
-
-                        <span class="tag">MQTT</span>
-
-                        <span class="tag">Python</span>
-
-                        <span class="tag">Tkinter</span>
-
-                        <span class="tag">Sensors</span>
-
-                        <span class="tag">CSV</span>
-
-                        <span class="tag">IoT</span>
-
-                    </div>
-
-
-                    <a
-                        href="https://www.linkedin.com/posts/ali-yassine-ays_robotique-systaeymesembarquaezs-mqtt-activity-7474573993107394561-1C-T"
-                        target="_blank"
-                        class="project-link"
-                        data-en="View demonstration →"
-                        data-fr="Voir la démonstration →"
-                    >
-                        View demonstration →
-                    </a>
-
-                </article>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     EXPERIENCE
-===================================================== -->
-
-<section id="experience">
-
-    <div class="container">
-
-
-        <div class="reveal">
-
-            <div class="section-label">
-                04 / <span data-en="Experience" data-fr="Expérience">Experience</span>
-            </div>
-
-
-            <h2
-                class="section-title"
-                data-en="Experience."
-                data-fr="Expérience."
-            >
-                Experience.
-            </h2>
-
-
-            <p
-                class="section-description"
-                data-en="Internships and professional experience in AI, web development and IT."
-                data-fr="Stages et expériences professionnelles en IA, développement web et informatique."
-            >
-                Internships and professional experience in AI,
-                web development and IT.
-            </p>
-
-        </div>
-
-
-        <div class="timeline">
-
-
-            <div class="timeline-item reveal">
-
-                <div class="timeline-date">
-                    MAR 2025 — JUN 2025
-                </div>
-
-                <h3
-                    data-en="AI Intern"
-                    data-fr="Stagiaire en Intelligence Artificielle"
-                >
-                    AI Intern
-                </h3>
-
-                <div class="timeline-company">
-                    Together For Chehim — Chehim, Lebanon
-                </div>
-
-                <p
-                    data-en="Worked on early detection of diabetic peripheral neuropathy using plantar pressure data. Developed a complete AI pipeline including preprocessing, feature engineering, Machine Learning, Deep Learning and SHAP analysis."
-                    data-fr="Travail sur la détection précoce de la neuropathie périphérique diabétique à partir de données de pression plantaire. Développement d'un pipeline IA complet comprenant le prétraitement, l'ingénierie des caractéristiques, le Machine Learning, le Deep Learning et l'analyse SHAP."
-                >
-                    Worked on early detection of diabetic peripheral
-                    neuropathy using plantar pressure data.
-                </p>
-
-            </div>
-
-
-
-            <div class="timeline-item reveal">
-
-                <div class="timeline-date">
-                    JUL 2024 — SEP 2024
-                </div>
-
-                <h3
-                    data-en="Web Development Intern"
-                    data-fr="Stagiaire en Développement Web"
-                >
-                    Web Development Intern
-                </h3>
-
-                <div class="timeline-company">
-                    Libanux Software Solutions — Nabatieh, Lebanon
-                </div>
-
-                <p
-                    data-en="Developed frontend and backend applications using HTML, CSS, JavaScript, TypeScript and Express.js. Worked with MongoDB and MySQL, integrated APIs and managed dependencies with NPM."
-                    data-fr="Développement d'applications frontend et backend avec HTML, CSS, JavaScript, TypeScript et Express.js. Travail avec MongoDB et MySQL, intégration d'APIs et gestion des dépendances avec NPM."
-                >
-                    Developed frontend and backend applications using
-                    HTML, CSS, JavaScript, TypeScript and Express.js.
-                </p>
-
-            </div>
-
-
-
-            <div class="timeline-item reveal">
-
-                <div class="timeline-date">
-                    DEC 2023 — FEB 2024
-                </div>
-
-                <h3
-                    data-en="IT Technologies Intern"
-                    data-fr="Stagiaire en Technologies Informatiques"
-                >
-                    IT Technologies Intern
-                </h3>
-
-                <div class="timeline-company">
-                    Lebanese University — Saida, Lebanon
-                </div>
-
-                <p
-                    data-en="Worked on computer maintenance and troubleshooting, network configuration, testing and server management."
-                    data-fr="Travail sur la maintenance et le dépannage informatique, la configuration réseau, les tests et la gestion des serveurs."
-                >
-                    Worked on computer maintenance and troubleshooting,
-                    network configuration, testing and server management.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     EDUCATION
-===================================================== -->
-
-<section id="education">
-
-    <div class="container">
-
-
-        <div class="reveal">
-
-            <div class="section-label">
-                05 / <span data-en="Education" data-fr="Formation">Education</span>
-            </div>
-
-
-            <h2
-                class="section-title"
-                data-en="Education."
-                data-fr="Formation."
-            >
-                Education.
-            </h2>
-
-        </div>
-
-
-        <div class="education-grid">
-
-
-            <div class="education-card reveal">
-
-                <div class="education-year">
-                    2025 — PRESENT
-                </div>
-
-                <h3
-                    data-en="Engineering Degree"
-                    data-fr="Diplôme d'Ingénieur"
-                >
-                    Engineering Degree
-                </h3>
-
-                <p>
-                    École Nationale d'Ingénieurs de Brest (ENIB)
-                </p>
-
-            </div>
-
-
-
-            <div class="education-card reveal">
-
-                <div class="education-year">
-                    2022 — 2025
-                </div>
-
-                <h3
-                    data-en="Licence in Networks & Telecommunications"
-                    data-fr="Licence en Réseaux & Télécommunications"
-                >
-                    Licence in Networks & Telecommunications
-                </h3>
-
-                <p>
-                    Lebanese University — Faculty of Technology
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section id="contact">
-
-    <div class="container">
-
-
-        <div class="contact-box reveal">
-
-            <div class="section-label">
-                06 / Contact
-            </div>
-
-
-            <h2
-                data-en="Let's build something."
-                data-fr="Construisons quelque chose."
-            >
-                Let's build something.
-            </h2>
-
-
-            <p
-                data-en="Interested in AI, embedded systems, robotics, software development or collaboration? Feel free to contact me."
-                data-fr="Vous êtes intéressé par l'IA, les systèmes embarqués, la robotique, le développement logiciel ou une collaboration ? N'hésitez pas à me contacter."
-            >
-                Interested in AI, embedded systems, robotics,
-                software development or collaboration?
-                Feel free to contact me.
-            </p>
-
-
-            <div class="contact-links">
-
-
-                <a
-                    href="mailto:aliyassine901@gmail.com"
-                    class="contact-link"
-                >
-                    ✉ Email
-                </a>
-
-
-                <a
-                    href="tel:+33602378079"
-                    class="contact-link"
-                >
-                    ☎ +33 6 02 37 80 79
-                </a>
-
-
-                <a
-                    href="https://github.com/aliyassine101"
-                    target="_blank"
-                    class="contact-link"
-                >
-                    GitHub
-                </a>
-
-
-                <a
-                    href="https://www.linkedin.com/in/ali-yassine-ays"
-                    target="_blank"
-                    class="contact-link"
-                >
-                    LinkedIn
-                </a>
-
-
-                <a
-                    href="cv_ali_yassine.pdf"
-                    target="_blank"
-                    class="contact-link"
-                    data-en="My CV"
-                    data-fr="Mon CV"
-                >
-                    My CV
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-</main>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer>
-
-    <div class="container">
-
-        <div class="footer-content">
-
-            <span>
-                © <span id="year"></span> Ali Yassine.
-                <span
-                    data-en="All rights reserved."
-                    data-fr="Tous droits réservés."
-                >
-                    All rights reserved.
-                </span>
-            </span>
-
-
-            <div class="footer-socials">
-
-                <a
-                    href="https://github.com/aliyassine101"
-                    target="_blank"
-                >
-                    GitHub
-                </a>
-
-                <a
-                    href="https://www.linkedin.com/in/ali-yassine-ays"
-                    target="_blank"
-                >
-                    LinkedIn
-                </a>
-
-                <a href="mailto:aliyassine901@gmail.com">
-                    Email
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script>
-
-
-/* =====================================================
-   YEAR
-===================================================== */
-
-document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-
-
-/* =====================================================
-   MOBILE MENU
-===================================================== */
-
-const menuBtn =
-    document.getElementById("menuBtn");
-
-const navLinks =
-    document.getElementById("navLinks");
-
-
-menuBtn.addEventListener("click", () => {
-
-    navLinks.classList.toggle("active");
-
-});
-
-
-document
-    .querySelectorAll(".nav-links a")
-    .forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            navLinks.classList.remove("active");
-
-        });
-
-    });
-
-
-
-/* =====================================================
-   SCROLL REVEAL
-===================================================== */
-
-const revealElements =
-    document.querySelectorAll(".reveal");
-
-
-const observer =
-    new IntersectionObserver(
-
-        (entries) => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add("visible");
-
-                    observer.unobserve(entry.target);
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.12
-        }
-
-    );
-
-
-revealElements.forEach(element => {
-
-    observer.observe(element);
-
-});
-
-
-
-/* =====================================================
-   LANGUAGE SWITCHER
-===================================================== */
-
-let currentLanguage = "en";
-
-const languageBtn =
-    document.getElementById("languageBtn");
-
-
-function changeLanguage(language) {
-
-    currentLanguage = language;
-
-
-    document
-        .querySelectorAll("[data-en]")
-        .forEach(element => {
-
-            if (language === "fr") {
-
-                element.textContent =
-                    element.dataset.fr;
-
-            } else {
-
-                element.textContent =
-                    element.dataset.en;
+                contactDescription:
+                    "Have a project, internship, work-study or collaboration opportunity? Feel free to get in touch."
 
             }
 
-        });
+        };
 
 
-    if (language === "fr") {
+        /* =========================================================
+           CHANGE LANGUAGE
+        ========================================================= */
 
-        languageBtn.textContent = "🇬🇧 EN";
+        function changeLanguage(language) {
 
-        document.documentElement.lang = "fr";
+            const t = translations[language];
 
-        document.title =
-            "Ali Yassine | Étudiant Ingénieur en IA & Logiciel";
-
-    } else {
-
-        languageBtn.textContent = "🇫🇷 FR";
-
-        document.documentElement.lang = "en";
-
-        document.title =
-            "Ali Yassine | AI & Software Engineering Student";
-
-    }
-
-}
+            if (!t) return;
 
 
-/* Language button */
+            /* Save language */
 
-languageBtn.addEventListener("click", () => {
-
-    if (currentLanguage === "en") {
-
-        changeLanguage("fr");
-
-    } else {
-
-        changeLanguage("en");
-
-    }
-
-});
+            localStorage.setItem(
+                "portfolioLanguage",
+                language
+            );
 
 
-</script>
+            /* HTML language */
 
+            document.documentElement.lang = language;
+
+
+            /* Buttons */
+
+            document
+                .getElementById("frBtn")
+                .classList
+                .toggle(
+                    "active",
+                    language === "fr"
+                );
+
+
+            document
+                .getElementById("enBtn")
+                .classList
+                .toggle(
+                    "active",
+                    language === "en"
+                );
+
+
+            /* Navigation */
+
+            setText("navHome", t.navHome);
+            setText("navAbout", t.navAbout);
+            setText("navSkills", t.navSkills);
+            setText("navProjects", t.navProjects);
+            setText("navExperience", t.navExperience);
+            setText("navEducation", t.navEducation);
+            setText("navContact", t.navContact);
+
+            setText("cvNav", t.cvNav);
+
+
+            /* Hero */
+
+            setText("available", t.available);
+
+            setText("heroTitle", t.heroTitle);
+
+            setText("heroRole", t.heroRole);
+
+            setText(
+                "heroDescription",
+                t.heroDescription
+            );
+
+            setText(
+                "projectsBtn",
+                t.projectsBtn
+            );
+
+            setText(
+                "cvBtn",
+                t.cvBtn
+            );
+
+            setText(
+                "githubBtn",
+                t.githubBtn
+            );
+
+
+            /* About */
+
+            setText(
+                "aboutTitle",
+                t.aboutTitle
+            );
+
+            setText(
+                "aboutSubtitle",
+                t.aboutSubtitle
+            );
+
+            setText(
+                "aboutP1",
+                t.aboutP1
+            );
+
+            setText(
+                "aboutP2",
+                t.aboutP2
+            );
+
+            setText(
+                "aboutP3",
+                t.aboutP3
+            );
+
+
+            /* Skills */
+
+            setText(
+                "skillsTitle",
+                t.skillsTitle
+            );
+
+            setText(
+                "skillsSubtitle",
+                t.skillsSubtitle
+            );
+
+            setText(
+                "skillAI",
+                t.skillAI
+            );
+
+            setText(
+                "skillWeb",
+                t.skillWeb
+            );
+
+            setText(
+                "skillEmbedded",
+                t.skillEmbedded
+            );
+
+            setText(
+                "skillTools",
+                t.skillTools
+            );
+
+
+            /* Projects */
+
+            setText(
+                "projectsTitle",
+                t.projectsTitle
+            );
+
+            setText(
+                "projectsSubtitle",
+                t.projectsSubtitle
+            );
+
+            setText(
+                "webProjectsTitle",
+                t.webProjectsTitle
+            );
+
+            setText(
+                "webProjectsSubtitle",
+                t.webProjectsSubtitle
+            );
+
+            setText(
+                "aiProjectsTitle",
+                t.aiProjectsTitle
+            );
+
+            setText(
+                "aiProjectsSubtitle",
+                t.aiProjectsSubtitle
+            );
+
+            setText(
+                "embeddedProjectsTitle",
+                t.embeddedProjectsTitle
+            );
+
+            setText(
+                "embeddedProjectsSubtitle",
+                t.embeddedProjectsSubtitle
+            );
+
+
+            const projectTranslations = [
+
+                ["projectBackendDesc", t.projectBackendDesc],
+
+                ["projectTodoFrontDesc", t.projectTodoFrontDesc],
+
+                ["projectTodoBackDesc", t.projectTodoBackDesc],
+
+                ["projectWeatherDesc", t.projectWeatherDesc],
+
+                ["projectTodoAysDesc", t.projectTodoAysDesc],
+
+                ["projectCarsDesc", t.projectCarsDesc],
+
+                ["projectCOPDDesc", t.projectCOPDDesc],
+
+                ["projectDPNDesc", t.projectDPNDesc],
+
+                ["projectMLDesc", t.projectMLDesc],
+
+                ["projectSTM32Desc", t.projectSTM32Desc],
+
+                ["projectSTM32SecondDesc", t.projectSTM32SecondDesc],
+
+                ["projectRobotDesc", t.projectRobotDesc],
+
+                ["projectRobotSecondDesc", t.projectRobotSecondDesc]
+
+            ];
+
+
+            projectTranslations.forEach(
+                item => setText(item[0], item[1])
+            );
+
+
+            /* Experience */
+
+            setText(
+                "experienceTitle",
+                t.experienceTitle
+            );
+
+            setText(
+                "expTitle",
+                t.expTitle
+            );
+
+            setText(
+                "expCompany",
+                t.expCompany
+            );
+
+            setText(
+                "expDescription",
+                t.expDescription
+            );
+
+            setText(
+                "expSecondTitle",
+                t.expSecondTitle
+            );
+
+            setText(
+                "expSecondCompany",
+                t.expSecondCompany
+            );
+
+            setText(
+                "expSecondDescription",
+                t.expSecondDescription
+            );
+
+
+            /* Education */
+
+            setText(
+                "educationTitle",
+                t.educationTitle
+            );
+
+            setText(
+                "educationENIB",
+                t.educationENIB
+            );
+
+            setText(
+                "educationUL",
+                t.educationUL
+            );
+
+
+            /* Contact */
+
+            setText(
+                "contactTitle",
+                t.contactTitle
+            );
+
+            setText(
+                "contactDescription",
+                t.contactDescription
+            );
+
+        }
+
+
+        /* =========================================================
+           HELPER
+        ========================================================= */
+
+        function setText(id, text) {
+
+            const element =
+                document.getElementById(id);
+
+            if (element) {
+                element.textContent = text;
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE MENU
+        ========================================================= */
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuBtn.addEventListener(
+            "click",
+            () => {
+
+                navLinks.classList.toggle("show");
+
+            }
+        );
+
+
+        /* Close mobile menu after click */
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        navLinks.classList.remove("show");
+
+                    }
+                );
+
+            });
+
+
+        /* =========================================================
+           SCROLL REVEAL
+        ========================================================= */
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target
+                                .classList
+                                .add("visible");
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        document
+            .querySelectorAll(".reveal")
+            .forEach(element => {
+
+                observer.observe(element);
+
+            });
+
+
+        /* =========================================================
+           INITIAL LANGUAGE
+        ========================================================= */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            () => {
+
+                const savedLanguage =
+                    localStorage.getItem(
+                        "portfolioLanguage"
+                    ) || "fr";
+
+                changeLanguage(
+                    savedLanguage
+                );
+
+            }
+        );
+
+    </script>
 
 </body>
+
 </html>
