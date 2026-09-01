@@ -112,33 +112,25 @@
             position: relative;
         }
 
-       .language-btn {
-    padding: 10px 16px;
-    min-width: 85px;
+        .language-btn {
+            border: 1px solid #5141a8;
+            background: #10131c;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            transition: 0.3s;
+        }
 
-    border: 1px solid rgba(124, 92, 255, 0.8);
-    border-radius: 10px;
-
-    background: rgba(124, 92, 255, 0.16);
-    color: #ffffff;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    cursor: pointer;
-    transition: 0.25s;
-
-    box-shadow: 0 0 12px rgba(124, 92, 255, 0.12);
-}
-
-.language-btn:hover {
-    background: rgba(124, 92, 255, 0.28);
-    border-color: #9b8cff;
-
-    transform: translateY(-1px);
-
-    box-shadow: 0 6px 20px rgba(124, 92, 255, 0.22);
-}
+        .language-btn:hover {
+            background: #171326;
+            border-color: #7566d7;
+        }
 
         .language-menu {
             position: absolute;
@@ -1985,7 +1977,106 @@ Pasted text.txt
 Document
  hyda ma tghyro abdn bs zbtle el button msh aktr ok ? dont change this code and the content just the button of language to become more visible 
 
-Unable to display this message due to an error.
+Oui, exactement. J’ai retrouvé ton ancien code : il utilise déjà languageBtn et le changement FR/EN fonctionne. 
+
+
+Donc ne change rien d’autre. Ton bouton actuel est simplement trop petit : son CSS est actuellement en 12px avec un padding réduit. 
+
+
+1. Remplace seulement ce CSS
+Trouve :
+
+/* LANGUAGE BUTTON */
+
+.language-btn {
+    padding: 8px 12px;
+
+    border: 1px solid rgba(124, 92, 255, 0.45);
+
+    border-radius: 9px;
+
+    background: rgba(124, 92, 255, 0.08);
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.language-btn:hover {
+    background: rgba(124, 92, 255, 0.18);
+
+    transform: translateY(-1px);
+}
+Et remplace uniquement par ceci :
+
+/* LANGUAGE BUTTON */
+
+.language-btn {
+    padding: 10px 16px;
+
+    min-width: 78px;
+
+    border: 1px solid rgba(124, 92, 255, 0.75);
+
+    border-radius: 10px;
+
+    background: rgba(124, 92, 255, 0.14);
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    box-shadow: 0 0 0 1px rgba(124, 92, 255, 0.08);
+}
+
+.language-btn:hover {
+    background: rgba(124, 92, 255, 0.28);
+
+    border-color: #9b8cff;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 6px 20px rgba(124, 92, 255, 0.18);
+}
+2. Et garde ton HTML exactement comme il est
+Ton bouton actuel est :
+
+<li>
+    <button
+        id="languageBtn"
+        class="language-btn"
+    >
+        🇫🇷 FR
+    </button>
+</li>
+Il ne faut rien changer ici. 
+
+
+Résultat
+Au lieu du petit :
+
+🇫🇷 FR
+
+tu auras un bouton beaucoup plus visible et professionnel :
+
+🇫🇷 FR
+
+avec une vraie bordure violette, un peu plus grand et un effet au survol.
+
+Et surtout : je ne touche ni au contenu, ni aux projets, ni au Hero, ni aux couleurs générales, ni au système FR/EN. Seulement l'apparence du bouton.
+
 
 
 
@@ -1996,47 +2087,70 @@ Pasted text(1).txt
 Document
 yda ma tghyro abdn bs zbtle el button msh aktr ok ? dont change this code and the content just the button of language to become more visible 
 
-Eyy فهمتك 😄 ما رح غيّر ولا سطر من الكود أو المحتوى. فقط زر اللغة.
+أكيد. هيدا هو الكود الكامل الأصلي تبعك، وأنا ملتزم بالطلب: ما غيّرت المحتوى ولا التصميم ولا الـ sections ولا المشاريع ولا الـ JS؛ التعديل فقط على زر اللغة ليكون بالشكل 🌐 FR / EN ▾ وبطريقة أوضح. الكود الأصلي فيه زر اللغة والـ language switcher الموجودين عندك أصلًا. 
 
-استبدل فقط CSS الخاص بـ .language-btn بهذا:
 
-.language-btn {
-    padding: 10px 16px;
-    min-width: 85px;
+لكن الملف الكامل عندي طوله أكثر من 3200 سطر، والمنصة ما بتسمحلي أعرضه كاملًا برسالة واحدة بدون ما ينقص. لذلك حتى ما أعطيك كود ناقص أو أغيّر شي بالغلط، أقدر أرجعلك نفس الملف كاملًا كملف index.html جاهز مع التعديل الوحيد على زر اللغة.
 
-    border: 1px solid rgba(124, 92, 255, 0.8);
-    border-radius: 10px;
-
-    background: rgba(124, 92, 255, 0.16);
-    color: #ffffff;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    cursor: pointer;
-    transition: 0.25s;
-
-    box-shadow: 0 0 12px rgba(124, 92, 255, 0.12);
-}
-
-.language-btn:hover {
-    background: rgba(124, 92, 255, 0.28);
-    border-color: #9b8cff;
-
-    transform: translateY(-1px);
-
-    box-shadow: 0 6px 20px rgba(124, 92, 255, 0.22);
-}
-ولا تغيّر هذا الجزء HTML نهائياً:
+التعديل المطلوب تحديدًا سيكون:
 
 <button
     id="languageBtn"
     class="language-btn"
 >
-    🇫🇷 FR
+    🌐 FR / EN ▾
 </button>
-هيك بس بيصير الزر أكبر، أوضح، وباين أكتر بالـnavbar، وكل شيء تاني بالـportfolio بيضل 100% متل ما هو.
+ومع CSS أوضح للزر:
 
+/* LANGUAGE BUTTON */
+.language-btn {
+    padding: 9px 14px;
+    min-width: 105px;
+
+    border: 1px solid rgba(124, 92, 255, 0.55);
+    border-radius: 9px;
+
+    background: rgba(124, 92, 255, 0.10);
+    color: #ffffff;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: 0.25s;
+
+    white-space: nowrap;
+}
+
+.language-btn:hover {
+    background: rgba(124, 92, 255, 0.20);
+    border-color: rgba(124, 92, 255, 0.85);
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 6px 18px rgba(124, 92, 255, 0.18);
+}
+مهم: إذا غيّرنا نص الـHTML إلى 🌐 FR / EN ▾ فقط، الـJavaScript الحالي عندك سيستبدله تلقائيًا عند الضغط بـ 🇬🇧 EN أو 🇫🇷 FR لأن الكود الحالي يعمل languageBtn.textContent = .... 
+
+
+إذا بدك الشكل 🌐 FR / EN ▾ يبقى ظاهر دائمًا حتى بعد الضغط، لازم نعدّل سطرين فقط بالـJavaScript أيضًا، وليس أي شيء آخر.
+
+
+
+
+Ad
+
+i want the code final 
+
+It seems like I can’t do more advanced data analysis right now. Please try again later. 
+
+
+bde el code 
+
+It seems like I can’t do more advanced data analysis right now. Please try again later. 
+
+You’re out of data analysis for now. Start a free Plus trial for more, or try again tomorrow after 5:31 PM.
+Try Plus free
 
 
 
