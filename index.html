@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Ali Yassine | AI & Software Engineering Student</title>
@@ -12,1117 +14,1212 @@
     >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
         rel="stylesheet"
     >
 
-    <style>
-
-        /* =====================================================
-           RESET
-        ===================================================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Inter", sans-serif;
-            background: #080b12;
-            color: #f5f7fb;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button {
-            font-family: inherit;
-        }
-
-        :root {
-            --bg: #080b12;
-            --bg-light: #0d111a;
-            --card: rgba(17, 23, 35, 0.75);
-            --border: rgba(255, 255, 255, 0.09);
-            --text: #f5f7fb;
-            --muted: #9ca7b8;
-            --accent: #7c5cff;
-            --accent-2: #00d4ff;
-            --green: #35d07f;
-            --max-width: 1180px;
-        }
-
-        ::selection {
-            background: var(--accent);
-            color: white;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            top: -250px;
-            left: -250px;
-            background: rgba(124, 92, 255, 0.13);
-            filter: blur(100px);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -2;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            right: -250px;
-            bottom: -200px;
-            background: rgba(0, 212, 255, 0.09);
-            filter: blur(100px);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -2;
-        }
-
-        .container {
-            width: min(var(--max-width), calc(100% - 40px));
-            margin: auto;
-        }
-
-
-        /* =====================================================
-           NAVBAR
-        ===================================================== */
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 76px;
-
-            display: flex;
-            align-items: center;
-
-            z-index: 1000;
-
-            background: rgba(8, 11, 18, 0.72);
-            backdrop-filter: blur(18px);
 
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
+<style>
 
-        .nav-container {
-            width: min(var(--max-width), calc(100% - 40px));
-            margin: auto;
+/* =====================================================
+   RESET
+===================================================== */
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .logo {
-            font-family: "JetBrains Mono", monospace;
-            font-size: 20px;
-            font-weight: 600;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .logo span {
-            color: var(--accent);
-        }
+body {
+    font-family: "Inter", sans-serif;
+    background: #080b12;
+    color: #f5f7fb;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-            list-style: none;
-        }
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-        .nav-links a {
-            color: #aeb7c7;
-            font-size: 14px;
-            font-weight: 500;
-            transition: 0.25s;
-        }
+button {
+    font-family: inherit;
+}
 
-        .nav-links a:hover {
-            color: white;
-        }
+:root {
+    --bg: #080b12;
+    --card: rgba(17, 23, 35, 0.75);
+    --border: rgba(255, 255, 255, 0.09);
+    --text: #f5f7fb;
+    --muted: #9ca7b8;
+    --accent: #7c5cff;
+    --accent-2: #00d4ff;
+    --green: #35d07f;
+    --max-width: 1180px;
+}
 
-        .nav-cv {
-            padding: 9px 16px;
-            border: 1px solid rgba(124,92,255,0.5);
-            border-radius: 9px;
-            color: white !important;
-        }
 
-        .nav-cv:hover {
-            background: rgba(124,92,255,0.15);
-        }
+/* =====================================================
+   BACKGROUND
+===================================================== */
 
-        .menu-btn {
-            display: none;
-            border: none;
-            background: transparent;
-            color: white;
-            font-size: 25px;
-            cursor: pointer;
-        }
+body::before {
+    content: "";
 
+    position: fixed;
 
-        /* =====================================================
-           HERO
-        ===================================================== */
+    width: 600px;
+    height: 600px;
 
-        .hero {
-            min-height: 100vh;
+    top: -250px;
+    left: -250px;
 
-            display: flex;
-            align-items: center;
+    background: rgba(124, 92, 255, 0.13);
 
-            padding: 130px 0 80px;
-        }
+    filter: blur(100px);
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
+    border-radius: 50%;
 
-            align-items: center;
+    pointer-events: none;
 
-            gap: 70px;
-        }
+    z-index: -2;
+}
 
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
+body::after {
+    content: "";
 
-            padding: 8px 13px;
+    position: fixed;
 
-            border-radius: 30px;
+    width: 500px;
+    height: 500px;
 
-            border: 1px solid rgba(53,208,127,0.2);
-            background: rgba(53,208,127,0.06);
+    right: -250px;
+    bottom: -200px;
 
-            color: #a8e9c6;
+    background: rgba(0, 212, 255, 0.09);
 
-            font-size: 13px;
+    filter: blur(100px);
 
-            margin-bottom: 24px;
-        }
+    border-radius: 50%;
 
-        .status-dot {
-            width: 7px;
-            height: 7px;
+    pointer-events: none;
 
-            background: var(--green);
+    z-index: -2;
+}
 
-            border-radius: 50%;
+.container {
+    width: min(var(--max-width), calc(100% - 40px));
+    margin: auto;
+}
 
-            box-shadow: 0 0 12px rgba(53,208,127,0.7);
-        }
 
-        .hero h1 {
-            font-size: clamp(48px, 7vw, 82px);
-            line-height: 0.98;
+/* =====================================================
+   NAVBAR
+===================================================== */
 
-            letter-spacing: -4px;
+nav {
+    position: fixed;
 
-            margin-bottom: 22px;
-        }
+    top: 0;
+    left: 0;
+    right: 0;
 
-        .hero h1 span {
-            background: linear-gradient(
-                100deg,
-                #ffffff,
-                #9c8aff 45%,
-                #5bdcff
-            );
+    height: 76px;
 
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    display: flex;
+    align-items: center;
 
-        .hero-subtitle {
-            font-size: 20px;
-            color: #c4cbd7;
+    z-index: 1000;
 
-            margin-bottom: 18px;
+    background: rgba(8, 11, 18, 0.72);
 
-            font-weight: 600;
-        }
+    backdrop-filter: blur(18px);
 
-        .hero-description {
-            max-width: 650px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
 
-            color: var(--muted);
+.nav-container {
+    width: min(var(--max-width), calc(100% - 40px));
 
-            font-size: 16px;
+    margin: auto;
 
-            margin-bottom: 32px;
-        }
+    display: flex;
 
-        .hero-buttons {
-            display: flex;
-            gap: 13px;
-            flex-wrap: wrap;
-        }
+    align-items: center;
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 9px;
+    justify-content: space-between;
+}
 
-            padding: 13px 19px;
+.logo {
+    font-family: "JetBrains Mono", monospace;
 
-            border-radius: 10px;
+    font-size: 20px;
 
-            font-size: 14px;
-            font-weight: 600;
+    font-weight: 600;
+}
 
-            transition: 0.25s;
+.logo span {
+    color: var(--accent);
+}
 
-            border: 1px solid var(--border);
-        }
+.nav-links {
+    display: flex;
 
-        .btn-primary {
-            background: white;
-            color: #080b12;
-        }
+    align-items: center;
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 35px rgba(255,255,255,0.13);
-        }
+    gap: 24px;
 
-        .btn-secondary {
-            color: white;
-            background: rgba(255,255,255,0.035);
-        }
+    list-style: none;
+}
 
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.08);
-            transform: translateY(-2px);
-        }
+.nav-links a {
+    color: #aeb7c7;
 
+    font-size: 13px;
 
-        /* =====================================================
-           CODE CARD
-        ===================================================== */
+    font-weight: 500;
 
-        .code-card {
-            border: 1px solid var(--border);
+    transition: 0.25s;
+}
 
-            background: rgba(12,16,25,0.82);
+.nav-links a:hover {
+    color: white;
+}
 
-            border-radius: 17px;
+.nav-cv {
+    padding: 9px 15px;
 
-            overflow: hidden;
+    border: 1px solid rgba(124,92,255,0.5);
 
-            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
-        }
+    border-radius: 9px;
 
-        .code-top {
-            height: 42px;
+    color: white !important;
+}
 
-            display: flex;
-            align-items: center;
+.nav-cv:hover {
+    background: rgba(124,92,255,0.15);
+}
 
-            padding: 0 15px;
 
-            gap: 7px;
+/* LANGUAGE BUTTON */
 
-            border-bottom: 1px solid var(--border);
-        }
+.language-btn {
+    padding: 8px 12px;
 
-        .code-dot {
-            width: 10px;
-            height: 10px;
+    border: 1px solid rgba(124, 92, 255, 0.45);
 
-            border-radius: 50%;
+    border-radius: 9px;
 
-            background: #5c6471;
-        }
+    background: rgba(124, 92, 255, 0.08);
 
-        .code-title {
-            margin-left: 8px;
+    color: white;
 
-            color: #737d8d;
+    font-size: 12px;
 
-            font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
 
-            font-size: 11px;
-        }
+    cursor: pointer;
 
-        pre {
-            padding: 28px 25px;
+    transition: 0.25s;
+}
 
-            overflow-x: auto;
+.language-btn:hover {
+    background: rgba(124, 92, 255, 0.18);
 
-            font-family: "JetBrains Mono", monospace;
+    transform: translateY(-1px);
+}
 
-            font-size: 13px;
 
-            color: #aeb9ca;
-        }
+.menu-btn {
+    display: none;
 
-        .keyword {
-            color: #c792ea;
-        }
+    border: none;
 
-        .property {
-            color: #82aaff;
-        }
+    background: transparent;
 
-        .string {
-            color: #c3e88d;
-        }
+    color: white;
 
+    font-size: 25px;
 
-        /* =====================================================
-           SECTIONS
-        ===================================================== */
+    cursor: pointer;
+}
 
-        section {
-            padding: 100px 0;
-        }
 
-        .section-label {
-            font-family: "JetBrains Mono", monospace;
+/* =====================================================
+   HERO
+===================================================== */
 
-            color: var(--accent);
+.hero {
+    min-height: 100vh;
 
-            font-size: 12px;
+    display: flex;
 
-            letter-spacing: 1px;
+    align-items: center;
 
-            text-transform: uppercase;
+    padding: 130px 0 80px;
+}
 
-            margin-bottom: 11px;
-        }
+.hero-grid {
+    display: grid;
 
-        .section-title {
-            font-size: 38px;
+    grid-template-columns: 1.15fr 0.85fr;
 
-            letter-spacing: -1.5px;
+    align-items: center;
 
-            margin-bottom: 14px;
-        }
+    gap: 70px;
+}
 
-        .section-description {
-            max-width: 680px;
+.status {
+    display: inline-flex;
 
-            color: var(--muted);
+    align-items: center;
 
-            font-size: 15px;
-        }
+    gap: 9px;
 
+    padding: 8px 13px;
 
-        /* =====================================================
-           ABOUT
-        ===================================================== */
+    border-radius: 30px;
 
-        .about-grid {
-            display: grid;
+    border: 1px solid rgba(53,208,127,0.2);
 
-            grid-template-columns: 1fr 1fr;
+    background: rgba(53,208,127,0.06);
 
-            gap: 60px;
+    color: #a8e9c6;
 
-            margin-top: 45px;
-        }
+    font-size: 13px;
 
-        .about-text p {
-            color: #aeb7c5;
+    margin-bottom: 24px;
+}
 
-            margin-bottom: 17px;
-        }
+.status-dot {
+    width: 7px;
+    height: 7px;
 
-        .info-grid {
-            display: grid;
+    background: var(--green);
 
-            grid-template-columns: 1fr 1fr;
+    border-radius: 50%;
 
-            gap: 13px;
-        }
+    box-shadow: 0 0 12px rgba(53,208,127,0.7);
+}
 
-        .info-card {
-            padding: 20px;
+.hero h1 {
+    font-size: clamp(48px, 7vw, 82px);
 
-            border: 1px solid var(--border);
+    line-height: 0.98;
 
-            border-radius: 13px;
+    letter-spacing: -4px;
 
-            background: rgba(255,255,255,0.025);
-        }
+    margin-bottom: 22px;
+}
 
-        .info-card small {
-            display: block;
+.hero h1 span {
+    background: linear-gradient(
+        100deg,
+        #ffffff,
+        #9c8aff 45%,
+        #5bdcff
+    );
 
-            color: #727d8e;
+    -webkit-background-clip: text;
 
-            font-size: 11px;
+    -webkit-text-fill-color: transparent;
+}
 
-            text-transform: uppercase;
+.hero-subtitle {
+    font-size: 20px;
 
-            letter-spacing: 0.7px;
+    color: #c4cbd7;
 
-            margin-bottom: 5px;
-        }
+    margin-bottom: 18px;
 
-        .info-card strong {
-            font-size: 14px;
+    font-weight: 600;
+}
 
-            color: #e6eaf1;
-        }
+.hero-description {
+    max-width: 650px;
 
+    color: var(--muted);
 
-        /* =====================================================
-           SKILLS
-        ===================================================== */
+    font-size: 16px;
 
-        .skills-grid {
-            margin-top: 45px;
+    margin-bottom: 32px;
+}
 
-            display: grid;
+.hero-buttons {
+    display: flex;
 
-            grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
 
-            gap: 17px;
-        }
+    flex-wrap: wrap;
+}
 
-        .skill-card {
-            border: 1px solid var(--border);
+.btn {
+    display: inline-flex;
 
-            background: var(--card);
+    align-items: center;
 
-            padding: 25px;
+    justify-content: center;
 
-            border-radius: 15px;
+    gap: 9px;
 
-            transition: 0.25s;
-        }
+    padding: 13px 19px;
 
-        .skill-card:hover {
-            transform: translateY(-4px);
+    border-radius: 10px;
 
-            border-color: rgba(124,92,255,0.35);
-        }
+    font-size: 14px;
 
-        .skill-icon {
-            width: 42px;
-            height: 42px;
+    font-weight: 600;
 
-            border-radius: 10px;
+    transition: 0.25s;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    border: 1px solid var(--border);
+}
 
-            background: rgba(124,92,255,0.12);
+.btn-primary {
+    background: white;
 
-            color: #a99cff;
+    color: #080b12;
+}
 
-            margin-bottom: 18px;
+.btn-primary:hover {
+    transform: translateY(-2px);
 
-            font-family: "JetBrains Mono", monospace;
+    box-shadow: 0 10px 35px rgba(255,255,255,0.13);
+}
 
-            font-weight: bold;
+.btn-secondary {
+    color: white;
 
-            font-size: 11px;
-        }
+    background: rgba(255,255,255,0.035);
+}
 
-        .skill-card h3 {
-            font-size: 17px;
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.08);
 
-            margin-bottom: 10px;
-        }
+    transform: translateY(-2px);
+}
 
-        .skill-card p {
-            color: var(--muted);
 
-            font-size: 13px;
+/* =====================================================
+   CODE CARD
+===================================================== */
 
-            line-height: 1.7;
-        }
+.code-card {
+    border: 1px solid var(--border);
 
+    background: rgba(12,16,25,0.82);
 
-        /* =====================================================
-           PROJECT CATEGORIES
-        ===================================================== */
+    border-radius: 17px;
 
-        .project-category {
-            margin-top: 70px;
-        }
+    overflow: hidden;
 
-        .category-header {
-            display: flex;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+}
 
-            align-items: center;
+.code-top {
+    height: 42px;
 
-            justify-content: space-between;
+    display: flex;
 
-            gap: 20px;
+    align-items: center;
 
-            margin-bottom: 25px;
+    padding: 0 15px;
 
-            padding-bottom: 14px;
+    gap: 7px;
 
-            border-bottom: 1px solid var(--border);
-        }
+    border-bottom: 1px solid var(--border);
+}
 
-        .category-title {
-            display: flex;
+.code-dot {
+    width: 10px;
+    height: 10px;
 
-            align-items: center;
+    border-radius: 50%;
 
-            gap: 12px;
+    background: #5c6471;
+}
 
-            font-size: 22px;
-        }
+.code-title {
+    margin-left: 8px;
 
-        .category-icon {
-            width: 38px;
-            height: 38px;
+    color: #737d8d;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    font-family: "JetBrains Mono", monospace;
 
-            border-radius: 9px;
+    font-size: 11px;
+}
 
-            background: rgba(124,92,255,0.12);
+pre {
+    padding: 28px 25px;
 
-            color: #a99cff;
+    overflow-x: auto;
 
-            font-family: "JetBrains Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
 
-            font-size: 11px;
-        }
+    font-size: 13px;
 
-        .category-description {
-            color: #727d8e;
+    color: #aeb9ca;
+}
 
-            font-size: 12px;
-        }
+.keyword {
+    color: #c792ea;
+}
 
+.property {
+    color: #82aaff;
+}
 
-        /* =====================================================
-           PROJECT CARDS
-        ===================================================== */
+.string {
+    color: #c3e88d;
+}
 
-        .projects-grid {
-            display: grid;
 
-            grid-template-columns: repeat(2, 1fr);
+/* =====================================================
+   SECTIONS
+===================================================== */
 
-            gap: 18px;
-        }
+section {
+    padding: 100px 0;
+}
 
-        .project {
-            position: relative;
+.section-label {
+    font-family: "JetBrains Mono", monospace;
 
-            padding: 27px;
+    color: var(--accent);
 
-            border-radius: 16px;
+    font-size: 12px;
 
-            border: 1px solid var(--border);
+    letter-spacing: 1px;
 
-            background: var(--card);
+    text-transform: uppercase;
 
-            overflow: hidden;
+    margin-bottom: 11px;
+}
 
-            transition: 0.3s;
-        }
+.section-title {
+    font-size: 38px;
 
-        .project:hover {
-            transform: translateY(-5px);
+    letter-spacing: -1.5px;
 
-            border-color: rgba(124,92,255,0.35);
-        }
+    margin-bottom: 14px;
+}
 
-        .project-top {
-            display: flex;
+.section-description {
+    max-width: 680px;
 
-            justify-content: space-between;
+    color: var(--muted);
 
-            align-items: center;
+    font-size: 15px;
+}
 
-            margin-bottom: 18px;
-        }
 
-        .project-number {
-            font-family: "JetBrains Mono", monospace;
+/* =====================================================
+   ABOUT
+===================================================== */
 
-            color: #626d7e;
+.about-grid {
+    display: grid;
 
-            font-size: 12px;
-        }
+    grid-template-columns: 1fr 1fr;
 
-        .project-type {
-            font-family: "JetBrains Mono", monospace;
+    gap: 60px;
 
-            font-size: 10px;
+    margin-top: 45px;
+}
 
-            color: #8993a3;
-        }
+.about-text p {
+    color: #aeb7c5;
 
-        .project h3 {
-            font-size: 20px;
+    margin-bottom: 17px;
+}
 
-            margin-bottom: 9px;
-        }
+.info-grid {
+    display: grid;
 
-        .project p {
-            color: var(--muted);
+    grid-template-columns: 1fr 1fr;
 
-            font-size: 13px;
+    gap: 13px;
+}
 
-            margin-bottom: 19px;
-        }
+.info-card {
+    padding: 20px;
 
-        .tags {
-            display: flex;
+    border: 1px solid var(--border);
 
-            flex-wrap: wrap;
+    border-radius: 13px;
 
-            gap: 7px;
+    background: rgba(255,255,255,0.025);
+}
 
-            margin-bottom: 21px;
-        }
+.info-card small {
+    display: block;
 
-        .tag {
-            font-family: "JetBrains Mono", monospace;
+    color: #727d8e;
 
-            padding: 5px 8px;
+    font-size: 11px;
 
-            border-radius: 6px;
+    text-transform: uppercase;
 
-            background: rgba(255,255,255,0.05);
+    letter-spacing: 0.7px;
 
-            color: #aab4c4;
+    margin-bottom: 5px;
+}
 
-            font-size: 10px;
-        }
+.info-card strong {
+    font-size: 14px;
 
-        .project-link {
-            display: inline-flex;
+    color: #e6eaf1;
+}
 
-            align-items: center;
 
-            gap: 7px;
+/* =====================================================
+   SKILLS
+===================================================== */
 
-            color: #b8adff;
+.skills-grid {
+    margin-top: 45px;
 
-            font-size: 13px;
+    display: grid;
 
-            font-weight: 600;
-        }
+    grid-template-columns: repeat(3, 1fr);
 
-        .project-link:hover {
-            color: white;
-        }
+    gap: 17px;
+}
 
+.skill-card {
+    border: 1px solid var(--border);
 
-        /* =====================================================
-           TIMELINE
-        ===================================================== */
+    background: var(--card);
 
-        .timeline {
-            margin-top: 45px;
+    padding: 25px;
 
-            border-left: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px;
 
-            padding-left: 30px;
-        }
+    transition: 0.25s;
+}
 
-        .timeline-item {
-            position: relative;
+.skill-card:hover {
+    transform: translateY(-4px);
 
-            padding-bottom: 45px;
-        }
+    border-color: rgba(124,92,255,0.35);
+}
 
-        .timeline-item:last-child {
-            padding-bottom: 0;
-        }
+.skill-icon {
+    width: 42px;
+    height: 42px;
 
-        .timeline-item::before {
-            content: "";
+    border-radius: 10px;
 
-            position: absolute;
+    display: flex;
 
-            width: 9px;
-            height: 9px;
+    align-items: center;
+    justify-content: center;
 
-            background: var(--accent);
+    background: rgba(124,92,255,0.12);
 
-            border-radius: 50%;
+    color: #a99cff;
 
-            left: -35px;
+    margin-bottom: 18px;
 
-            top: 7px;
+    font-family: "JetBrains Mono", monospace;
 
-            box-shadow: 0 0 0 5px rgba(124,92,255,0.09);
-        }
+    font-weight: bold;
 
-        .timeline-date {
-            color: var(--accent);
+    font-size: 11px;
+}
 
-            font-family: "JetBrains Mono", monospace;
+.skill-card h3 {
+    font-size: 17px;
 
-            font-size: 11px;
+    margin-bottom: 10px;
+}
 
-            margin-bottom: 6px;
-        }
+.skill-card p {
+    color: var(--muted);
 
-        .timeline-item h3 {
-            font-size: 18px;
+    font-size: 13px;
 
-            margin-bottom: 3px;
-        }
+    line-height: 1.7;
+}
 
-        .timeline-company {
-            color: #8d98a9;
 
-            font-size: 13px;
+/* =====================================================
+   PROJECT CATEGORIES
+===================================================== */
 
-            margin-bottom: 13px;
-        }
+.project-category {
+    margin-top: 70px;
+}
 
-        .timeline-item p {
-            color: var(--muted);
+.category-header {
+    display: flex;
 
-            font-size: 13px;
+    align-items: center;
 
-            max-width: 800px;
-        }
+    justify-content: space-between;
 
+    gap: 20px;
 
-        /* =====================================================
-           EDUCATION
-        ===================================================== */
+    margin-bottom: 25px;
 
-        .education-grid {
-            margin-top: 45px;
+    padding-bottom: 14px;
 
-            display: grid;
+    border-bottom: 1px solid var(--border);
+}
 
-            grid-template-columns: 1fr 1fr;
+.category-title {
+    display: flex;
 
-            gap: 18px;
-        }
+    align-items: center;
 
-        .education-card {
-            padding: 27px;
+    gap: 12px;
 
-            border: 1px solid var(--border);
+    font-size: 22px;
+}
 
-            border-radius: 15px;
+.category-icon {
+    width: 38px;
+    height: 38px;
 
-            background: var(--card);
-        }
+    display: flex;
 
-        .education-year {
-            font-family: "JetBrains Mono", monospace;
+    align-items: center;
+    justify-content: center;
 
-            color: var(--accent);
+    border-radius: 9px;
 
-            font-size: 11px;
+    background: rgba(124,92,255,0.12);
 
-            margin-bottom: 12px;
-        }
+    color: #a99cff;
 
-        .education-card h3 {
-            font-size: 18px;
+    font-family: "JetBrains Mono", monospace;
 
-            margin-bottom: 7px;
-        }
+    font-size: 11px;
+}
 
-        .education-card p {
-            color: var(--muted);
+.category-description {
+    color: #727d8e;
 
-            font-size: 13px;
-        }
+    font-size: 12px;
+}
 
 
-        /* =====================================================
-           CONTACT
-        ===================================================== */
+/* =====================================================
+   PROJECTS
+===================================================== */
 
-        .contact-box {
-            margin-top: 45px;
+.projects-grid {
+    display: grid;
 
-            padding: 50px;
+    grid-template-columns: repeat(2, 1fr);
 
-            border-radius: 20px;
+    gap: 18px;
+}
 
-            border: 1px solid var(--border);
+.project {
+    position: relative;
 
-            background:
-                radial-gradient(
-                    circle at top right,
-                    rgba(124,92,255,0.12),
-                    transparent 40%
-                ),
-                rgba(255,255,255,0.025);
+    padding: 27px;
 
-            text-align: center;
-        }
+    border-radius: 16px;
 
-        .contact-box h2 {
-            font-size: 35px;
+    border: 1px solid var(--border);
 
-            margin-bottom: 12px;
-        }
+    background: var(--card);
 
-        .contact-box p {
-            color: var(--muted);
+    overflow: hidden;
 
-            max-width: 600px;
+    transition: 0.3s;
+}
 
-            margin: auto auto 27px;
+.project:hover {
+    transform: translateY(-5px);
 
-            font-size: 14px;
-        }
+    border-color: rgba(124,92,255,0.35);
+}
 
-        .contact-links {
-            display: flex;
+.project-top {
+    display: flex;
 
-            justify-content: center;
+    justify-content: space-between;
 
-            flex-wrap: wrap;
+    align-items: center;
 
-            gap: 10px;
-        }
+    margin-bottom: 18px;
+}
 
-        .contact-link {
-            padding: 11px 15px;
+.project-number {
+    font-family: "JetBrains Mono", monospace;
 
-            border: 1px solid var(--border);
+    color: #626d7e;
 
-            border-radius: 9px;
+    font-size: 12px;
+}
 
-            background: rgba(255,255,255,0.035);
+.project-type {
+    font-family: "JetBrains Mono", monospace;
 
-            color: #c3cbd7;
+    font-size: 10px;
 
-            font-size: 13px;
+    color: #8993a3;
+}
 
-            transition: 0.25s;
-        }
+.project h3 {
+    font-size: 20px;
 
-        .contact-link:hover {
-            color: white;
+    margin-bottom: 9px;
+}
 
-            background: rgba(255,255,255,0.08);
+.project p {
+    color: var(--muted);
 
-            transform: translateY(-2px);
-        }
+    font-size: 13px;
 
+    margin-bottom: 19px;
+}
 
-        /* =====================================================
-           FOOTER
-        ===================================================== */
+.tags {
+    display: flex;
 
-        footer {
-            border-top: 1px solid var(--border);
+    flex-wrap: wrap;
 
-            padding: 30px 0;
+    gap: 7px;
 
-            margin-top: 30px;
-        }
+    margin-bottom: 21px;
+}
 
-        .footer-content {
-            display: flex;
+.tag {
+    font-family: "JetBrains Mono", monospace;
 
-            align-items: center;
+    padding: 5px 8px;
 
-            justify-content: space-between;
+    border-radius: 6px;
 
-            color: #6e7888;
+    background: rgba(255,255,255,0.05);
 
-            font-size: 12px;
-        }
+    color: #aab4c4;
 
-        .footer-socials {
-            display: flex;
+    font-size: 10px;
+}
 
-            gap: 20px;
-        }
+.project-link {
+    display: inline-flex;
 
-        .footer-socials a:hover {
-            color: white;
-        }
+    align-items: center;
 
+    gap: 7px;
 
-        /* =====================================================
-           ANIMATION
-        ===================================================== */
+    color: #b8adff;
 
-        .reveal {
-            opacity: 0;
+    font-size: 13px;
 
-            transform: translateY(25px);
+    font-weight: 600;
+}
 
-            transition: 0.7s ease;
-        }
+.project-link:hover {
+    color: white;
+}
 
-        .reveal.visible {
-            opacity: 1;
 
-            transform: translateY(0);
-        }
+/* =====================================================
+   TIMELINE
+===================================================== */
 
+.timeline {
+    margin-top: 45px;
 
-        /* =====================================================
-           MOBILE
-        ===================================================== */
+    border-left: 1px solid rgba(255,255,255,0.1);
 
-        @media (max-width: 900px) {
+    padding-left: 30px;
+}
 
-            .hero-grid {
-                grid-template-columns: 1fr;
+.timeline-item {
+    position: relative;
 
-                gap: 45px;
-            }
+    padding-bottom: 45px;
+}
 
-            .skills-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
 
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
+.timeline-item::before {
+    content: "";
 
-        }
+    position: absolute;
 
-        @media (max-width: 700px) {
+    width: 9px;
+    height: 9px;
 
-            .container,
-            .nav-container {
-                width: min(100% - 28px, var(--max-width));
-            }
+    background: var(--accent);
 
-            .nav-links {
-                position: absolute;
+    border-radius: 50%;
 
-                top: 76px;
+    left: -35px;
 
-                left: 14px;
-                right: 14px;
+    top: 7px;
 
-                display: none;
+    box-shadow: 0 0 0 5px rgba(124,92,255,0.09);
+}
 
-                flex-direction: column;
+.timeline-date {
+    color: var(--accent);
 
-                align-items: stretch;
+    font-family: "JetBrains Mono", monospace;
 
-                padding: 15px;
+    font-size: 11px;
 
-                background: rgba(10,14,22,0.97);
+    margin-bottom: 6px;
+}
 
-                border: 1px solid var(--border);
+.timeline-item h3 {
+    font-size: 18px;
 
-                border-radius: 12px;
+    margin-bottom: 3px;
+}
 
-                gap: 5px;
-            }
+.timeline-company {
+    color: #8d98a9;
 
-            .nav-links.active {
-                display: flex;
-            }
+    font-size: 13px;
 
-            .nav-links a {
-                display: block;
+    margin-bottom: 13px;
+}
 
-                padding: 11px;
-            }
+.timeline-item p {
+    color: var(--muted);
 
-            .menu-btn {
-                display: block;
-            }
+    font-size: 13px;
 
-            .hero h1 {
-                font-size: 52px;
+    max-width: 800px;
+}
 
-                letter-spacing: -2.5px;
-            }
 
-            .hero-subtitle {
-                font-size: 17px;
-            }
+/* =====================================================
+   EDUCATION
+===================================================== */
 
-            section {
-                padding: 75px 0;
-            }
+.education-grid {
+    margin-top: 45px;
 
-            .section-title {
-                font-size: 31px;
-            }
+    display: grid;
 
-            .skills-grid,
-            .projects-grid,
-            .education-grid {
-                grid-template-columns: 1fr;
-            }
+    grid-template-columns: 1fr 1fr;
 
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
+    gap: 18px;
+}
 
-            .category-header {
-                align-items: flex-start;
+.education-card {
+    padding: 27px;
 
-                flex-direction: column;
+    border: 1px solid var(--border);
 
-                gap: 5px;
-            }
+    border-radius: 15px;
 
-            .contact-box {
-                padding: 35px 20px;
-            }
+    background: var(--card);
+}
 
-            .contact-box h2 {
-                font-size: 28px;
-            }
+.education-year {
+    font-family: "JetBrains Mono", monospace;
 
-            .footer-content {
-                flex-direction: column;
+    color: var(--accent);
 
-                gap: 15px;
-            }
+    font-size: 11px;
 
-            pre {
-                font-size: 11px;
-            }
+    margin-bottom: 12px;
+}
 
-        }
+.education-card h3 {
+    font-size: 18px;
 
-    </style>
+    margin-bottom: 7px;
+}
+
+.education-card p {
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-box {
+    margin-top: 45px;
+
+    padding: 50px;
+
+    border-radius: 20px;
+
+    border: 1px solid var(--border);
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(124,92,255,0.12),
+            transparent 40%
+        ),
+        rgba(255,255,255,0.025);
+
+    text-align: center;
+}
+
+.contact-box h2 {
+    font-size: 35px;
+
+    margin-bottom: 12px;
+}
+
+.contact-box p {
+    color: var(--muted);
+
+    max-width: 600px;
+
+    margin: auto auto 27px;
+
+    font-size: 14px;
+}
+
+.contact-links {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.contact-link {
+    padding: 11px 15px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background: rgba(255,255,255,0.035);
+
+    color: #c3cbd7;
+
+    font-size: 13px;
+
+    transition: 0.25s;
+}
+
+.contact-link:hover {
+    color: white;
+
+    background: rgba(255,255,255,0.08);
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    border-top: 1px solid var(--border);
+
+    padding: 30px 0;
+
+    margin-top: 30px;
+}
+
+.footer-content {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    color: #6e7888;
+
+    font-size: 12px;
+}
+
+.footer-socials {
+    display: flex;
+
+    gap: 20px;
+}
+
+.footer-socials a:hover {
+    color: white;
+}
+
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition: 0.7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .container,
+    .nav-container {
+        width: min(100% - 28px, var(--max-width));
+    }
+
+    .nav-links {
+
+        position: absolute;
+
+        top: 76px;
+
+        left: 14px;
+        right: 14px;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        padding: 15px;
+
+        background: rgba(10,14,22,0.97);
+
+        border: 1px solid var(--border);
+
+        border-radius: 12px;
+
+        gap: 5px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+
+        padding: 11px;
+    }
+
+    .language-btn {
+        width: 100%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+
+        letter-spacing: -2.5px;
+    }
+
+    .hero-subtitle {
+        font-size: 17px;
+    }
+
+    section {
+        padding: 75px 0;
+    }
+
+    .section-title {
+        font-size: 31px;
+    }
+
+    .skills-grid,
+    .projects-grid,
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 5px;
+    }
+
+    .contact-box {
+        padding: 35px 20px;
+    }
+
+    .contact-box h2 {
+        font-size: 28px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    pre {
+        font-size: 11px;
+    }
+
+}
+
+</style>
+
 </head>
 
 
 <body>
 
 
-<!-- =========================================================
+<!-- =====================================================
      NAVIGATION
-========================================================= -->
+===================================================== -->
 
 <nav>
 
@@ -1132,38 +1229,68 @@
             ali<span>.</span>yassine
         </a>
 
+
         <button class="menu-btn" id="menuBtn">
             ☰
         </button>
 
+
         <ul class="nav-links" id="navLinks">
 
             <li>
-                <a href="#home">Home</a>
+                <a href="#home"
+                   data-en="Home"
+                   data-fr="Accueil">
+                    Home
+                </a>
             </li>
 
             <li>
-                <a href="#about">About</a>
+                <a href="#about"
+                   data-en="About"
+                   data-fr="À propos">
+                    About
+                </a>
             </li>
 
             <li>
-                <a href="#skills">Skills</a>
+                <a href="#skills"
+                   data-en="Skills"
+                   data-fr="Compétences">
+                    Skills
+                </a>
             </li>
 
             <li>
-                <a href="#projects">Projects</a>
+                <a href="#projects"
+                   data-en="Projects"
+                   data-fr="Projets">
+                    Projects
+                </a>
             </li>
 
             <li>
-                <a href="#experience">Experience</a>
+                <a href="#experience"
+                   data-en="Experience"
+                   data-fr="Expérience">
+                    Experience
+                </a>
             </li>
 
             <li>
-                <a href="#education">Education</a>
+                <a href="#education"
+                   data-en="Education"
+                   data-fr="Formation">
+                    Education
+                </a>
             </li>
 
             <li>
-                <a href="#contact">Contact</a>
+                <a href="#contact"
+                   data-en="Contact"
+                   data-fr="Contact">
+                    Contact
+                </a>
             </li>
 
             <li>
@@ -1171,9 +1298,22 @@
                     href="cv_ali_yassine.pdf"
                     target="_blank"
                     class="nav-cv"
+                    data-en="My CV"
+                    data-fr="Mon CV"
                 >
                     My CV
                 </a>
+            </li>
+
+            <li>
+
+                <button
+                    id="languageBtn"
+                    class="language-btn"
+                >
+                    🇫🇷 FR
+                </button>
+
             </li>
 
         </ul>
@@ -1184,9 +1324,9 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      HERO
-========================================================= -->
+===================================================== -->
 
 <main id="home">
 
@@ -1196,38 +1336,46 @@
 
         <div class="hero-grid">
 
+
             <div class="hero-content reveal">
 
                 <div class="status">
 
                     <span class="status-dot"></span>
 
-                    Open to opportunities
+                    <span
+                        data-en="Open to opportunities"
+                        data-fr="Ouvert aux opportunités"
+                    >
+                        Open to opportunities
+                    </span>
 
                 </div>
 
 
                 <h1>
-
                     Ali <span>Yassine</span>
-
                 </h1>
 
 
-                <div class="hero-subtitle">
-
+                <div
+                    class="hero-subtitle"
+                    data-en="Engineering Student · AI · Embedded Systems · Software"
+                    data-fr="Étudiant Ingénieur · IA · Systèmes Embarqués · Logiciel"
+                >
                     Engineering Student · AI · Embedded Systems · Software
-
                 </div>
 
 
-                <p class="hero-description">
-
-                    Engineering student passionate about Artificial
-                    Intelligence, Embedded Systems, Robotics and Web
-                    Development. I enjoy building intelligent software,
-                    connected systems and real-world technological solutions.
-
+                <p
+                    class="hero-description"
+                    data-en="Engineering student passionate about Artificial Intelligence, Embedded Systems, Robotics and Web Development. I enjoy building intelligent software, connected systems and real-world technological solutions."
+                    data-fr="Étudiant ingénieur passionné par l'Intelligence Artificielle, les Systèmes Embarqués, la Robotique et le Développement Web. J'aime concevoir des logiciels intelligents, des systèmes connectés et des solutions technologiques concrètes."
+                >
+                    Engineering student passionate about Artificial Intelligence,
+                    Embedded Systems, Robotics and Web Development. I enjoy building
+                    intelligent software, connected systems and real-world technological
+                    solutions.
                 </p>
 
 
@@ -1236,6 +1384,8 @@
                     <a
                         href="#projects"
                         class="btn btn-primary"
+                        data-en="Explore my projects →"
+                        data-fr="Découvrir mes projets →"
                     >
                         Explore my projects →
                     </a>
@@ -1245,6 +1395,8 @@
                         href="cv_ali_yassine.pdf"
                         target="_blank"
                         class="btn btn-secondary"
+                        data-en="Download CV"
+                        data-fr="Télécharger le CV"
                     >
                         Download CV
                     </a>
@@ -1269,7 +1421,9 @@
                 <div class="code-top">
 
                     <span class="code-dot"></span>
+
                     <span class="code-dot"></span>
+
                     <span class="code-dot"></span>
 
                     <span class="code-title">
@@ -1318,25 +1472,36 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      ABOUT
-========================================================= -->
+===================================================== -->
 
 <section id="about">
 
     <div class="container">
 
+
         <div class="reveal">
 
             <div class="section-label">
-                01 / About
+                01 / <span data-en="About" data-fr="À propos">About</span>
             </div>
 
-            <h2 class="section-title">
+
+            <h2
+                class="section-title"
+                data-en="A developer who likes to build."
+                data-fr="Un développeur qui aime construire."
+            >
                 A developer who likes to build.
             </h2>
 
-            <p class="section-description">
+
+            <p
+                class="section-description"
+                data-en="Combining Artificial Intelligence, embedded systems and software engineering to create practical solutions."
+                data-fr="Je combine l'Intelligence Artificielle, les systèmes embarqués et l'ingénierie logicielle pour créer des solutions concrètes."
+            >
                 Combining Artificial Intelligence, embedded systems
                 and software engineering to create practical solutions.
             </p>
@@ -1349,25 +1514,40 @@
 
             <div class="about-text reveal">
 
-                <p>
+                <p
+                    data-en="I am an engineering student with a strong interest in Artificial Intelligence, Embedded Systems, Robotics, IoT and Web Development."
+                    data-fr="Je suis étudiant ingénieur avec un fort intérêt pour l'Intelligence Artificielle, les Systèmes Embarqués, la Robotique, l'IoT et le Développement Web."
+                >
                     I am an engineering student with a strong interest
                     in Artificial Intelligence, Embedded Systems,
                     Robotics, IoT and Web Development.
                 </p>
 
-                <p>
+
+                <p
+                    data-en="My experience includes developing complete AI pipelines, embedded applications, communication systems and web applications."
+                    data-fr="Mon expérience comprend le développement de pipelines IA complets, d'applications embarquées, de systèmes de communication et d'applications web."
+                >
                     My experience includes developing complete AI
                     pipelines, embedded applications, communication
                     systems and web applications.
                 </p>
 
-                <p>
+
+                <p
+                    data-en="I have worked with technologies ranging from Machine Learning and Deep Learning to STM32, sensors, I2C, UART, Zigbee and MQTT."
+                    data-fr="J'ai travaillé avec des technologies allant du Machine Learning et du Deep Learning jusqu'aux STM32, capteurs, I2C, UART, Zigbee et MQTT."
+                >
                     I have worked with technologies ranging from
                     Machine Learning and Deep Learning to STM32,
                     sensors, I2C, UART, Zigbee and MQTT.
                 </p>
 
-                <p>
+
+                <p
+                    data-en="I am motivated, autonomous, rigorous and always interested in learning new technologies and transforming ideas into working systems."
+                    data-fr="Je suis motivé, autonome, rigoureux et toujours intéressé par l'apprentissage de nouvelles technologies et la transformation d'idées en systèmes fonctionnels."
+                >
                     I am motivated, autonomous, rigorous and always
                     interested in learning new technologies and
                     transforming ideas into working systems.
@@ -1378,9 +1558,15 @@
 
             <div class="info-grid reveal">
 
+
                 <div class="info-card">
 
-                    <small>Name</small>
+                    <small
+                        data-en="Name"
+                        data-fr="Nom"
+                    >
+                        Name
+                    </small>
 
                     <strong>
                         Ali Yassine
@@ -1391,7 +1577,12 @@
 
                 <div class="info-card">
 
-                    <small>Location</small>
+                    <small
+                        data-en="Location"
+                        data-fr="Localisation"
+                    >
+                        Location
+                    </small>
 
                     <strong>
                         Brest, France
@@ -1402,7 +1593,9 @@
 
                 <div class="info-card">
 
-                    <small>Email</small>
+                    <small>
+                        Email
+                    </small>
 
                     <strong>
                         aliyassine901@gmail.com
@@ -1413,7 +1606,12 @@
 
                 <div class="info-card">
 
-                    <small>Phone</small>
+                    <small
+                        data-en="Phone"
+                        data-fr="Téléphone"
+                    >
+                        Phone
+                    </small>
 
                     <strong>
                         +33 6 02 37 80 79
@@ -1424,7 +1622,12 @@
 
                 <div class="info-card">
 
-                    <small>Languages</small>
+                    <small
+                        data-en="Languages"
+                        data-fr="Langues"
+                    >
+                        Languages
+                    </small>
 
                     <strong>
                         Arabic · French · English
@@ -1435,7 +1638,12 @@
 
                 <div class="info-card">
 
-                    <small>Focus</small>
+                    <small
+                        data-en="Focus"
+                        data-fr="Domaines"
+                    >
+                        Focus
+                    </small>
 
                     <strong>
                         AI · Embedded · Web
@@ -1453,25 +1661,36 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      SKILLS
-========================================================= -->
+===================================================== -->
 
 <section id="skills">
 
     <div class="container">
 
+
         <div class="reveal">
 
             <div class="section-label">
-                02 / Skills
+                02 / <span data-en="Skills" data-fr="Compétences">Skills</span>
             </div>
 
-            <h2 class="section-title">
+
+            <h2
+                class="section-title"
+                data-en="Technical toolkit."
+                data-fr="Mes compétences techniques."
+            >
                 Technical toolkit.
             </h2>
 
-            <p class="section-description">
+
+            <p
+                class="section-description"
+                data-en="Technologies and tools I use to develop intelligent, connected and software-based systems."
+                data-fr="Technologies et outils que j'utilise pour développer des systèmes intelligents, connectés et logiciels."
+            >
                 Technologies and tools I use to develop intelligent,
                 connected and software-based systems.
             </p>
@@ -1482,19 +1701,23 @@
         <div class="skills-grid">
 
 
-            <!-- AI -->
-
             <div class="skill-card reveal">
 
                 <div class="skill-icon">
                     AI
                 </div>
 
-                <h3>
+                <h3
+                    data-en="Artificial Intelligence"
+                    data-fr="Intelligence Artificielle"
+                >
                     Artificial Intelligence
                 </h3>
 
-                <p>
+                <p
+                    data-en="Machine Learning, Deep Learning, data preprocessing, normalization, feature extraction, feature engineering, model training and evaluation."
+                    data-fr="Machine Learning, Deep Learning, prétraitement des données, normalisation, extraction et ingénierie des caractéristiques, entraînement et évaluation des modèles."
+                >
                     Machine Learning, Deep Learning, data preprocessing,
                     normalization, feature extraction, feature engineering,
                     model training and evaluation.
@@ -1503,20 +1726,23 @@
             </div>
 
 
-
-            <!-- Python -->
-
             <div class="skill-card reveal">
 
                 <div class="skill-icon">
                     PY
                 </div>
 
-                <h3>
+                <h3
+                    data-en="Python & Data Science"
+                    data-fr="Python & Data Science"
+                >
                     Python & Data Science
                 </h3>
 
-                <p>
+                <p
+                    data-en="Python, TensorFlow, Keras, Scikit-learn, Pandas, NumPy, Matplotlib, Tkinter and data processing."
+                    data-fr="Python, TensorFlow, Keras, Scikit-learn, Pandas, NumPy, Matplotlib, Tkinter et traitement des données."
+                >
                     Python, TensorFlow, Keras, Scikit-learn, Pandas,
                     NumPy, Matplotlib, Tkinter and data processing.
                 </p>
@@ -1524,20 +1750,23 @@
             </div>
 
 
-
-            <!-- Embedded -->
-
             <div class="skill-card reveal">
 
                 <div class="skill-icon">
                     MCU
                 </div>
 
-                <h3>
+                <h3
+                    data-en="Embedded Systems"
+                    data-fr="Systèmes Embarqués"
+                >
                     Embedded Systems
                 </h3>
 
-                <p>
+                <p
+                    data-en="STM32, embedded programming, sensor integration, I2C, UART, TMG39931, real-time sensor data processing and embedded communication."
+                    data-fr="STM32, programmation embarquée, intégration de capteurs, I2C, UART, TMG39931, traitement des données en temps réel et communication embarquée."
+                >
                     STM32, embedded programming, sensor integration,
                     I2C, UART, TMG39931, real-time sensor data processing
                     and embedded communication.
@@ -1546,20 +1775,23 @@
             </div>
 
 
-
-            <!-- Robotics -->
-
             <div class="skill-card reveal">
 
                 <div class="skill-icon">
                     IOT
                 </div>
 
-                <h3>
+                <h3
+                    data-en="Robotics & IoT"
+                    data-fr="Robotique & IoT"
+                >
                     Robotics & IoT
                 </h3>
 
-                <p>
+                <p
+                    data-en="TXT 4.0 robotics, MQTT, Zigbee, obstacle avoidance, wall following, line following, remote robot control and sensor-based systems."
+                    data-fr="Robotique TXT 4.0, MQTT, Zigbee, évitement d'obstacles, suivi de mur, suivi de ligne, contrôle robotique à distance et systèmes basés sur des capteurs."
+                >
                     TXT 4.0 robotics, MQTT, Zigbee, obstacle avoidance,
                     wall following, line following, remote robot control
                     and sensor-based systems.
@@ -1568,20 +1800,23 @@
             </div>
 
 
-
-            <!-- Web -->
-
             <div class="skill-card reveal">
 
                 <div class="skill-icon">
                     WEB
                 </div>
 
-                <h3>
+                <h3
+                    data-en="Web Development"
+                    data-fr="Développement Web"
+                >
                     Web Development
                 </h3>
 
-                <p>
+                <p
+                    data-en="HTML, CSS, JavaScript, TypeScript, PHP, Node.js, Express.js and ASP.NET."
+                    data-fr="HTML, CSS, JavaScript, TypeScript, PHP, Node.js, Express.js et ASP.NET."
+                >
                     HTML, CSS, JavaScript, TypeScript, PHP,
                     Node.js, Express.js and ASP.NET.
                 </p>
@@ -1589,20 +1824,23 @@
             </div>
 
 
-
-            <!-- Databases -->
-
             <div class="skill-card reveal">
 
                 <div class="skill-icon">
                     DB
                 </div>
 
-                <h3>
+                <h3
+                    data-en="Databases & Tools"
+                    data-fr="Bases de données & Outils"
+                >
                     Databases & Tools
                 </h3>
 
-                <p>
+                <p
+                    data-en="MongoDB, MySQL, SQLite, Git, NPM, VS Code, Anaconda, Spyder, Jupyter Notebook and WaveForms."
+                    data-fr="MongoDB, MySQL, SQLite, Git, NPM, VS Code, Anaconda, Spyder, Jupyter Notebook et WaveForms."
+                >
                     MongoDB, MySQL, SQLite, Git, NPM, VS Code,
                     Anaconda, Spyder, Jupyter Notebook and WaveForms.
                 </p>
@@ -1617,9 +1855,9 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      PROJECTS
-========================================================= -->
+===================================================== -->
 
 <section id="projects">
 
@@ -1629,14 +1867,24 @@
         <div class="reveal">
 
             <div class="section-label">
-                03 / Projects
+                03 / <span data-en="Projects" data-fr="Projets">Projects</span>
             </div>
 
-            <h2 class="section-title">
+
+            <h2
+                class="section-title"
+                data-en="Projects by domain."
+                data-fr="Projets par domaine."
+            >
                 Projects by domain.
             </h2>
 
-            <p class="section-description">
+
+            <p
+                class="section-description"
+                data-en="Explore my work across Artificial Intelligence, Web Development and Embedded Systems & Robotics."
+                data-fr="Découvrez mes projets en Intelligence Artificielle, Développement Web, Systèmes Embarqués et Robotique."
+            >
                 Explore my work across Artificial Intelligence,
                 Web Development and Embedded Systems & Robotics.
             </p>
@@ -1645,9 +1893,7 @@
 
 
 
-        <!-- =================================================
-             AI PROJECTS
-        ================================================= -->
+        <!-- AI -->
 
         <div class="project-category">
 
@@ -1659,13 +1905,20 @@
                         AI
                     </div>
 
-                    <span>
+                    <span
+                        data-en="AI & Data Science"
+                        data-fr="IA & Data Science"
+                    >
                         AI & Data Science
                     </span>
 
                 </div>
 
-                <span class="category-description">
+                <span
+                    class="category-description"
+                    data-en="Machine Learning · Deep Learning · Data"
+                    data-fr="Machine Learning · Deep Learning · Données"
+                >
                     Machine Learning · Deep Learning · Data
                 </span>
 
@@ -1674,8 +1927,6 @@
 
             <div class="projects-grid">
 
-
-                <!-- COPD -->
 
                 <article class="project reveal">
 
@@ -1692,54 +1943,49 @@
                     </div>
 
 
-                    <h3>
+                    <h3
+                        data-en="COPD Detection from Respiratory Sounds"
+                        data-fr="Détection de la BPCO à partir de sons respiratoires"
+                    >
                         COPD Detection from Respiratory Sounds
                     </h3>
 
 
-                    <p>
+                    <p
+                        data-en="Development of an automatic system for COPD detection using respiratory sounds, including audio preprocessing, respiratory-cycle segmentation, feature extraction and CNN encoder-decoder classification."
+                        data-fr="Développement d'un système automatique de détection de la BPCO à partir de sons respiratoires, comprenant le prétraitement audio, la segmentation des cycles respiratoires, l'extraction des caractéristiques et une classification basée sur un CNN encodeur-décodeur."
+                    >
                         Development of an automatic system for COPD
-                        detection using respiratory sounds, including
-                        audio preprocessing, respiratory-cycle segmentation,
-                        feature extraction and CNN encoder-decoder
-                        classification.
+                        detection using respiratory sounds.
                     </p>
 
 
                     <div class="tags">
 
-                        <span class="tag">
-                            Python
-                        </span>
+                        <span class="tag">Python</span>
 
-                        <span class="tag">
-                            TensorFlow
-                        </span>
+                        <span class="tag">TensorFlow</span>
 
-                        <span class="tag">
-                            CNN
-                        </span>
+                        <span class="tag">CNN</span>
 
-                        <span class="tag">
-                            Deep Learning
-                        </span>
+                        <span class="tag">Deep Learning</span>
 
-                        <span class="tag">
-                            Audio
-                        </span>
+                        <span class="tag">Audio</span>
 
                     </div>
 
 
-                    <span class="project-link">
+                    <span
+                        class="project-link"
+                        data-en="Academic AI Project"
+                        data-fr="Projet académique en IA"
+                    >
                         Academic AI Project
                     </span>
 
                 </article>
 
 
-
-                <!-- DPN -->
 
                 <article class="project reveal">
 
@@ -1756,12 +2002,18 @@
                     </div>
 
 
-                    <h3>
+                    <h3
+                        data-en="Diabetic Peripheral Neuropathy Detection"
+                        data-fr="Détection de la neuropathie périphérique diabétique"
+                    >
                         Diabetic Peripheral Neuropathy Detection
                     </h3>
 
 
-                    <p>
+                    <p
+                        data-en="AI project based on plantar pressure data. The pipeline includes preprocessing, feature engineering, Machine Learning, Deep Learning and SHAP-based analysis."
+                        data-fr="Projet d'IA basé sur des données de pression plantaire. Le pipeline comprend le prétraitement, l'ingénierie des caractéristiques, le Machine Learning, le Deep Learning et l'analyse avec SHAP."
+                    >
                         AI project based on plantar pressure data.
                         The pipeline includes preprocessing,
                         feature engineering, Machine Learning,
@@ -1771,30 +2023,24 @@
 
                     <div class="tags">
 
-                        <span class="tag">
-                            Python
-                        </span>
+                        <span class="tag">Python</span>
 
-                        <span class="tag">
-                            Scikit-learn
-                        </span>
+                        <span class="tag">Scikit-learn</span>
 
-                        <span class="tag">
-                            CNN
-                        </span>
+                        <span class="tag">CNN</span>
 
-                        <span class="tag">
-                            Random Forest
-                        </span>
+                        <span class="tag">Random Forest</span>
 
-                        <span class="tag">
-                            SHAP
-                        </span>
+                        <span class="tag">SHAP</span>
 
                     </div>
 
 
-                    <span class="project-link">
+                    <span
+                        class="project-link"
+                        data-en="Internship Project"
+                        data-fr="Projet de stage"
+                    >
                         Internship Project
                     </span>
 
@@ -1806,9 +2052,7 @@
 
 
 
-        <!-- =================================================
-             WEB PROJECTS
-        ================================================= -->
+        <!-- WEB -->
 
         <div class="project-category">
 
@@ -1820,13 +2064,20 @@
                         WEB
                     </div>
 
-                    <span>
+                    <span
+                        data-en="Web Development"
+                        data-fr="Développement Web"
+                    >
                         Web Development
                     </span>
 
                 </div>
 
-                <span class="category-description">
+                <span
+                    class="category-description"
+                    data-en="Frontend · Backend · APIs · Databases"
+                    data-fr="Frontend · Backend · APIs · Bases de données"
+                >
                     Frontend · Backend · APIs · Databases
                 </span>
 
@@ -1835,8 +2086,6 @@
 
             <div class="projects-grid">
 
-
-                <!-- Backend -->
 
                 <article class="project reveal">
 
@@ -1858,7 +2107,10 @@
                     </h3>
 
 
-                    <p>
+                    <p
+                        data-en="Backend application for managing users, categories and notes using TypeScript, Node.js and Express.js."
+                        data-fr="Application backend permettant de gérer des utilisateurs, des catégories et des notes avec TypeScript, Node.js et Express.js."
+                    >
                         Backend application for managing users,
                         categories and notes using TypeScript,
                         Node.js and Express.js.
@@ -1867,21 +2119,13 @@
 
                     <div class="tags">
 
-                        <span class="tag">
-                            TypeScript
-                        </span>
+                        <span class="tag">TypeScript</span>
 
-                        <span class="tag">
-                            Node.js
-                        </span>
+                        <span class="tag">Node.js</span>
 
-                        <span class="tag">
-                            Express.js
-                        </span>
+                        <span class="tag">Express.js</span>
 
-                        <span class="tag">
-                            Backend
-                        </span>
+                        <span class="tag">Backend</span>
 
                     </div>
 
@@ -1891,14 +2135,12 @@
                         target="_blank"
                         class="project-link"
                     >
-                        View on GitHub →
+                        GitHub →
                     </a>
 
                 </article>
 
 
-
-                <!-- Todo Frontend -->
 
                 <article class="project reveal">
 
@@ -1920,7 +2162,10 @@
                     </h3>
 
 
-                    <p>
+                    <p
+                        data-en="Interactive frontend application for creating, managing and organizing tasks."
+                        data-fr="Application frontend interactive permettant de créer, gérer et organiser des tâches."
+                    >
                         Interactive frontend application for creating,
                         managing and organizing tasks.
                     </p>
@@ -1928,17 +2173,11 @@
 
                     <div class="tags">
 
-                        <span class="tag">
-                            JavaScript
-                        </span>
+                        <span class="tag">JavaScript</span>
 
-                        <span class="tag">
-                            HTML
-                        </span>
+                        <span class="tag">HTML</span>
 
-                        <span class="tag">
-                            CSS
-                        </span>
+                        <span class="tag">CSS</span>
 
                     </div>
 
@@ -1948,14 +2187,12 @@
                         target="_blank"
                         class="project-link"
                     >
-                        View on GitHub →
+                        GitHub →
                     </a>
 
                 </article>
 
 
-
-                <!-- Todo Backend -->
 
                 <article class="project reveal">
 
@@ -1977,29 +2214,24 @@
                     </h3>
 
 
-                    <p>
-                        Server-side project providing backend functionality
-                        for a Todo List application.
+                    <p
+                        data-en="Server-side project providing backend functionality for a Todo List application."
+                        data-fr="Projet côté serveur fournissant les fonctionnalités backend d'une application Todo List."
+                    >
+                        Server-side project providing backend
+                        functionality for a Todo List application.
                     </p>
 
 
                     <div class="tags">
 
-                        <span class="tag">
-                            JavaScript
-                        </span>
+                        <span class="tag">JavaScript</span>
 
-                        <span class="tag">
-                            Node.js
-                        </span>
+                        <span class="tag">Node.js</span>
 
-                        <span class="tag">
-                            Backend
-                        </span>
+                        <span class="tag">Backend</span>
 
-                        <span class="tag">
-                            API
-                        </span>
+                        <span class="tag">API</span>
 
                     </div>
 
@@ -2009,14 +2241,12 @@
                         target="_blank"
                         class="project-link"
                     >
-                        View on GitHub →
+                        GitHub →
                     </a>
 
                 </article>
 
 
-
-                <!-- Weather -->
 
                 <article class="project reveal">
 
@@ -2038,7 +2268,10 @@
                     </h3>
 
 
-                    <p>
+                    <p
+                        data-en="Weather application integrating an external API to retrieve and display weather information."
+                        data-fr="Application météo intégrant une API externe pour récupérer et afficher les informations météorologiques."
+                    >
                         Weather application integrating an external API
                         to retrieve and display weather information.
                     </p>
@@ -2046,21 +2279,13 @@
 
                     <div class="tags">
 
-                        <span class="tag">
-                            JavaScript
-                        </span>
+                        <span class="tag">JavaScript</span>
 
-                        <span class="tag">
-                            API
-                        </span>
+                        <span class="tag">API</span>
 
-                        <span class="tag">
-                            HTML
-                        </span>
+                        <span class="tag">HTML</span>
 
-                        <span class="tag">
-                            CSS
-                        </span>
+                        <span class="tag">CSS</span>
 
                     </div>
 
@@ -2070,14 +2295,12 @@
                         target="_blank"
                         class="project-link"
                     >
-                        View on GitHub →
+                        GitHub →
                     </a>
 
                 </article>
 
 
-
-                <!-- Todo -->
 
                 <article class="project reveal">
 
@@ -2099,7 +2322,10 @@
                     </h3>
 
 
-                    <p>
+                    <p
+                        data-en="Web-based Todo List demonstrating frontend development and interactive task management."
+                        data-fr="Todo List web démontrant le développement frontend et la gestion interactive des tâches."
+                    >
                         Web-based Todo List demonstrating frontend
                         development and interactive task management.
                     </p>
@@ -2107,17 +2333,11 @@
 
                     <div class="tags">
 
-                        <span class="tag">
-                            HTML
-                        </span>
+                        <span class="tag">HTML</span>
 
-                        <span class="tag">
-                            CSS
-                        </span>
+                        <span class="tag">CSS</span>
 
-                        <span class="tag">
-                            JavaScript
-                        </span>
+                        <span class="tag">JavaScript</span>
 
                     </div>
 
@@ -2127,14 +2347,12 @@
                         target="_blank"
                         class="project-link"
                     >
-                        View on GitHub →
+                        GitHub →
                     </a>
 
                 </article>
 
 
-
-                <!-- Knights -->
 
                 <article class="project reveal">
 
@@ -2156,7 +2374,10 @@
                     </h3>
 
 
-                    <p>
+                    <p
+                        data-en="Web project focused on creating a structured and visually organized website."
+                        data-fr="Projet web axé sur la création d'un site structuré et visuellement organisé."
+                    >
                         Web project focused on creating a structured
                         and visually organized website.
                     </p>
@@ -2164,17 +2385,11 @@
 
                     <div class="tags">
 
-                        <span class="tag">
-                            HTML
-                        </span>
+                        <span class="tag">HTML</span>
 
-                        <span class="tag">
-                            Frontend
-                        </span>
+                        <span class="tag">Frontend</span>
 
-                        <span class="tag">
-                            Web
-                        </span>
+                        <span class="tag">Web</span>
 
                     </div>
 
@@ -2184,7 +2399,7 @@
                         target="_blank"
                         class="project-link"
                     >
-                        View on GitHub →
+                        GitHub →
                     </a>
 
                 </article>
@@ -2195,9 +2410,7 @@
 
 
 
-        <!-- =================================================
-             EMBEDDED SYSTEMS
-        ================================================= -->
+        <!-- EMBEDDED -->
 
         <div class="project-category">
 
@@ -2209,13 +2422,20 @@
                         MCU
                     </div>
 
-                    <span>
+                    <span
+                        data-en="Embedded Systems & Robotics"
+                        data-fr="Systèmes Embarqués & Robotique"
+                    >
                         Embedded Systems & Robotics
                     </span>
 
                 </div>
 
-                <span class="category-description">
+                <span
+                    class="category-description"
+                    data-en="STM32 · Sensors · MQTT · Robotics · IoT"
+                    data-fr="STM32 · Capteurs · MQTT · Robotique · IoT"
+                >
                     STM32 · Sensors · MQTT · Robotics · IoT
                 </span>
 
@@ -2224,8 +2444,6 @@
 
             <div class="projects-grid">
 
-
-                <!-- STM32 Gesture -->
 
                 <article class="project reveal">
 
@@ -2242,54 +2460,41 @@
                     </div>
 
 
-                    <h3>
+                    <h3
+                        data-en="Gesture Detection with STM32"
+                        data-fr="Détection de gestes avec STM32"
+                    >
                         Gesture Detection with STM32
                     </h3>
 
 
-                    <p>
-                        Embedded system for real-time hand gesture detection
-                        using an STM32 microcontroller and TMG39931 sensor.
-                        The sensor communicates with STM32 through I2C.
-                        Gesture data is processed from the sensor FIFO and
-                        transmitted through UART and Zigbee to a Python
-                        graphical interface.
+                    <p
+                        data-en="Embedded system for real-time hand gesture detection using an STM32 microcontroller and TMG39931 sensor. The sensor communicates with STM32 through I2C. Gesture data is processed and transmitted through UART and Zigbee to a Python graphical interface."
+                        data-fr="Système embarqué de détection de gestes en temps réel utilisant un microcontrôleur STM32 et un capteur TMG39931. Le capteur communique avec le STM32 via I2C. Les données sont traitées puis transmises via UART et Zigbee vers une interface graphique Python."
+                    >
+                        Embedded system for real-time hand gesture
+                        detection using an STM32 microcontroller
+                        and TMG39931 sensor.
                     </p>
 
 
                     <div class="tags">
 
-                        <span class="tag">
-                            STM32
-                        </span>
+                        <span class="tag">STM32</span>
 
-                        <span class="tag">
-                            TMG39931
-                        </span>
+                        <span class="tag">TMG39931</span>
 
-                        <span class="tag">
-                            I2C
-                        </span>
+                        <span class="tag">I2C</span>
 
-                        <span class="tag">
-                            UART
-                        </span>
+                        <span class="tag">UART</span>
 
-                        <span class="tag">
-                            Zigbee
-                        </span>
+                        <span class="tag">Zigbee</span>
 
-                        <span class="tag">
-                            Python
-                        </span>
+                        <span class="tag">Python</span>
 
-                        <span class="tag">
-                            Tkinter
-                        </span>
+                        <span class="tag">Tkinter</span>
 
-                        <span class="tag">
-                            SQLite
-                        </span>
+                        <span class="tag">SQLite</span>
 
                     </div>
 
@@ -2298,6 +2503,8 @@
                         href="https://www.linkedin.com/posts/ali-yassine-ays_stm32-embeddedsystems-i2c-activity-7474558970465177600-zsnW"
                         target="_blank"
                         class="project-link"
+                        data-en="View project on LinkedIn →"
+                        data-fr="Voir le projet sur LinkedIn →"
                     >
                         View project on LinkedIn →
                     </a>
@@ -2305,8 +2512,6 @@
                 </article>
 
 
-
-                <!-- STM32 Demo -->
 
                 <article class="project reveal">
 
@@ -2323,45 +2528,36 @@
                     </div>
 
 
-                    <h3>
+                    <h3
+                        data-en="STM32 Gesture Detection Demo"
+                        data-fr="Démonstration de détection de gestes STM32"
+                    >
                         STM32 Gesture Detection Demo
                     </h3>
 
 
-                    <p>
-                        Real-time demonstration of gesture detection using
-                        TMG39931 and STM32. The complete chain includes
-                        sensor acquisition, I2C communication, embedded
-                        processing, UART/Zigbee transmission and real-time
-                        Python visualization.
+                    <p
+                        data-en="Real-time demonstration of gesture detection using TMG39931 and STM32. The complete chain includes sensor acquisition, I2C communication, embedded processing, UART/Zigbee transmission and real-time Python visualization."
+                        data-fr="Démonstration en temps réel de détection de gestes avec TMG39931 et STM32. La chaîne complète comprend l'acquisition des données, la communication I2C, le traitement embarqué, la transmission UART/Zigbee et la visualisation Python en temps réel."
+                    >
+                        Real-time demonstration of gesture detection
+                        using TMG39931 and STM32.
                     </p>
 
 
                     <div class="tags">
 
-                        <span class="tag">
-                            STM32
-                        </span>
+                        <span class="tag">STM32</span>
 
-                        <span class="tag">
-                            I2C
-                        </span>
+                        <span class="tag">I2C</span>
 
-                        <span class="tag">
-                            UART
-                        </span>
+                        <span class="tag">UART</span>
 
-                        <span class="tag">
-                            Zigbee
-                        </span>
+                        <span class="tag">Zigbee</span>
 
-                        <span class="tag">
-                            Sensors
-                        </span>
+                        <span class="tag">Sensors</span>
 
-                        <span class="tag">
-                            Python
-                        </span>
+                        <span class="tag">Python</span>
 
                     </div>
 
@@ -2370,6 +2566,8 @@
                         href="https://www.linkedin.com/posts/ali-yassine-ays_stm32-embeddedsystems-i2c-activity-7474562191636123648-SXzj"
                         target="_blank"
                         class="project-link"
+                        data-en="View demonstration →"
+                        data-fr="Voir la démonstration →"
                     >
                         View demonstration →
                     </a>
@@ -2377,8 +2575,6 @@
                 </article>
 
 
-
-                <!-- Robot MQTT -->
 
                 <article class="project reveal">
 
@@ -2395,44 +2591,36 @@
                     </div>
 
 
-                    <h3>
+                    <h3
+                        data-en="TXT 4.0 Robot Control via MQTT"
+                        data-fr="Contrôle d'un robot TXT 4.0 via MQTT"
+                    >
                         TXT 4.0 Robot Control via MQTT
                     </h3>
 
 
-                    <p>
-                        Robotic control system based on a TXT 4.0 mobile robot.
-                        A Python interface communicates with the robot through
-                        MQTT, allowing manual control and automatic modes such
-                        as obstacle avoidance, wall following and line following.
+                    <p
+                        data-en="Robotic control system based on a TXT 4.0 mobile robot. A Python interface communicates with the robot through MQTT, allowing manual control and automatic modes such as obstacle avoidance, wall following and line following."
+                        data-fr="Système de contrôle robotique basé sur un robot mobile TXT 4.0. Une interface Python communique avec le robot via MQTT et permet le contrôle manuel ainsi que des modes automatiques comme l'évitement d'obstacles, le suivi de mur et le suivi de ligne."
+                    >
+                        Robotic control system based on a TXT 4.0
+                        mobile robot and MQTT communication.
                     </p>
 
 
                     <div class="tags">
 
-                        <span class="tag">
-                            TXT 4.0
-                        </span>
+                        <span class="tag">TXT 4.0</span>
 
-                        <span class="tag">
-                            MQTT
-                        </span>
+                        <span class="tag">MQTT</span>
 
-                        <span class="tag">
-                            Python
-                        </span>
+                        <span class="tag">Python</span>
 
-                        <span class="tag">
-                            Tkinter
-                        </span>
+                        <span class="tag">Tkinter</span>
 
-                        <span class="tag">
-                            IoT
-                        </span>
+                        <span class="tag">IoT</span>
 
-                        <span class="tag">
-                            Robotics
-                        </span>
+                        <span class="tag">Robotics</span>
 
                     </div>
 
@@ -2441,6 +2629,8 @@
                         href="https://www.linkedin.com/posts/ali-yassine-ays_robotique-systaeymesembarquaezs-mqtt-activity-7474571972295872513-ZIfT"
                         target="_blank"
                         class="project-link"
+                        data-en="View project on LinkedIn →"
+                        data-fr="Voir le projet sur LinkedIn →"
                     >
                         View project on LinkedIn →
                     </a>
@@ -2448,8 +2638,6 @@
                 </article>
 
 
-
-                <!-- Robot Demo -->
 
                 <article class="project reveal">
 
@@ -2466,44 +2654,36 @@
                     </div>
 
 
-                    <h3>
+                    <h3
+                        data-en="Robot MQTT Real-Time Monitoring"
+                        data-fr="Monitoring robotique en temps réel avec MQTT"
+                    >
                         Robot MQTT Real-Time Monitoring
                     </h3>
 
 
-                    <p>
-                        Demonstration of remote robot control and real-time
-                        sensor monitoring. The Python interface displays
-                        MQTT data, robot status, commands and sensor values,
-                        with temporal graphs and CSV export.
+                    <p
+                        data-en="Demonstration of remote robot control and real-time sensor monitoring. The Python interface displays MQTT data, robot status, commands and sensor values, with temporal graphs and CSV export."
+                        data-fr="Démonstration du contrôle d'un robot à distance et du suivi des capteurs en temps réel. L'interface Python affiche les données MQTT, l'état du robot, les commandes et les valeurs des capteurs, avec graphiques temporels et export CSV."
+                    >
+                        Demonstration of remote robot control and
+                        real-time sensor monitoring.
                     </p>
 
 
                     <div class="tags">
 
-                        <span class="tag">
-                            MQTT
-                        </span>
+                        <span class="tag">MQTT</span>
 
-                        <span class="tag">
-                            Python
-                        </span>
+                        <span class="tag">Python</span>
 
-                        <span class="tag">
-                            Tkinter
-                        </span>
+                        <span class="tag">Tkinter</span>
 
-                        <span class="tag">
-                            Sensors
-                        </span>
+                        <span class="tag">Sensors</span>
 
-                        <span class="tag">
-                            CSV
-                        </span>
+                        <span class="tag">CSV</span>
 
-                        <span class="tag">
-                            IoT
-                        </span>
+                        <span class="tag">IoT</span>
 
                     </div>
 
@@ -2512,6 +2692,8 @@
                         href="https://www.linkedin.com/posts/ali-yassine-ays_robotique-systaeymesembarquaezs-mqtt-activity-7474573993107394561-1C-T"
                         target="_blank"
                         class="project-link"
+                        data-en="View demonstration →"
+                        data-fr="Voir la démonstration →"
                     >
                         View demonstration →
                     </a>
@@ -2528,25 +2710,36 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      EXPERIENCE
-========================================================= -->
+===================================================== -->
 
 <section id="experience">
 
     <div class="container">
 
+
         <div class="reveal">
 
             <div class="section-label">
-                04 / Experience
+                04 / <span data-en="Experience" data-fr="Expérience">Experience</span>
             </div>
 
-            <h2 class="section-title">
+
+            <h2
+                class="section-title"
+                data-en="Experience."
+                data-fr="Expérience."
+            >
                 Experience.
             </h2>
 
-            <p class="section-description">
+
+            <p
+                class="section-description"
+                data-en="Internships and professional experience in AI, web development and IT."
+                data-fr="Stages et expériences professionnelles en IA, développement web et informatique."
+            >
                 Internships and professional experience in AI,
                 web development and IT.
             </p>
@@ -2563,7 +2756,10 @@
                     MAR 2025 — JUN 2025
                 </div>
 
-                <h3>
+                <h3
+                    data-en="AI Intern"
+                    data-fr="Stagiaire en Intelligence Artificielle"
+                >
                     AI Intern
                 </h3>
 
@@ -2571,12 +2767,12 @@
                     Together For Chehim — Chehim, Lebanon
                 </div>
 
-                <p>
+                <p
+                    data-en="Worked on early detection of diabetic peripheral neuropathy using plantar pressure data. Developed a complete AI pipeline including preprocessing, feature engineering, Machine Learning, Deep Learning and SHAP analysis."
+                    data-fr="Travail sur la détection précoce de la neuropathie périphérique diabétique à partir de données de pression plantaire. Développement d'un pipeline IA complet comprenant le prétraitement, l'ingénierie des caractéristiques, le Machine Learning, le Deep Learning et l'analyse SHAP."
+                >
                     Worked on early detection of diabetic peripheral
-                    neuropathy using plantar pressure data. Developed
-                    a complete AI pipeline including preprocessing,
-                    feature engineering, Machine Learning,
-                    Deep Learning and SHAP analysis.
+                    neuropathy using plantar pressure data.
                 </p>
 
             </div>
@@ -2589,7 +2785,10 @@
                     JUL 2024 — SEP 2024
                 </div>
 
-                <h3>
+                <h3
+                    data-en="Web Development Intern"
+                    data-fr="Stagiaire en Développement Web"
+                >
                     Web Development Intern
                 </h3>
 
@@ -2597,11 +2796,12 @@
                     Libanux Software Solutions — Nabatieh, Lebanon
                 </div>
 
-                <p>
+                <p
+                    data-en="Developed frontend and backend applications using HTML, CSS, JavaScript, TypeScript and Express.js. Worked with MongoDB and MySQL, integrated APIs and managed dependencies with NPM."
+                    data-fr="Développement d'applications frontend et backend avec HTML, CSS, JavaScript, TypeScript et Express.js. Travail avec MongoDB et MySQL, intégration d'APIs et gestion des dépendances avec NPM."
+                >
                     Developed frontend and backend applications using
                     HTML, CSS, JavaScript, TypeScript and Express.js.
-                    Worked with MongoDB and MySQL, integrated APIs
-                    and managed dependencies with NPM.
                 </p>
 
             </div>
@@ -2614,7 +2814,10 @@
                     DEC 2023 — FEB 2024
                 </div>
 
-                <h3>
+                <h3
+                    data-en="IT Technologies Intern"
+                    data-fr="Stagiaire en Technologies Informatiques"
+                >
                     IT Technologies Intern
                 </h3>
 
@@ -2622,7 +2825,10 @@
                     Lebanese University — Saida, Lebanon
                 </div>
 
-                <p>
+                <p
+                    data-en="Worked on computer maintenance and troubleshooting, network configuration, testing and server management."
+                    data-fr="Travail sur la maintenance et le dépannage informatique, la configuration réseau, les tests et la gestion des serveurs."
+                >
                     Worked on computer maintenance and troubleshooting,
                     network configuration, testing and server management.
                 </p>
@@ -2637,21 +2843,27 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      EDUCATION
-========================================================= -->
+===================================================== -->
 
 <section id="education">
 
     <div class="container">
 
+
         <div class="reveal">
 
             <div class="section-label">
-                05 / Education
+                05 / <span data-en="Education" data-fr="Formation">Education</span>
             </div>
 
-            <h2 class="section-title">
+
+            <h2
+                class="section-title"
+                data-en="Education."
+                data-fr="Formation."
+            >
                 Education.
             </h2>
 
@@ -2667,7 +2879,10 @@
                     2025 — PRESENT
                 </div>
 
-                <h3>
+                <h3
+                    data-en="Engineering Degree"
+                    data-fr="Diplôme d'Ingénieur"
+                >
                     Engineering Degree
                 </h3>
 
@@ -2685,7 +2900,10 @@
                     2022 — 2025
                 </div>
 
-                <h3>
+                <h3
+                    data-en="Licence in Networks & Telecommunications"
+                    data-fr="Licence en Réseaux & Télécommunications"
+                >
                     Licence in Networks & Telecommunications
                 </h3>
 
@@ -2703,13 +2921,14 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      CONTACT
-========================================================= -->
+===================================================== -->
 
 <section id="contact">
 
     <div class="container">
+
 
         <div class="contact-box reveal">
 
@@ -2717,11 +2936,19 @@
                 06 / Contact
             </div>
 
-            <h2>
+
+            <h2
+                data-en="Let's build something."
+                data-fr="Construisons quelque chose."
+            >
                 Let's build something.
             </h2>
 
-            <p>
+
+            <p
+                data-en="Interested in AI, embedded systems, robotics, software development or collaboration? Feel free to contact me."
+                data-fr="Vous êtes intéressé par l'IA, les systèmes embarqués, la robotique, le développement logiciel ou une collaboration ? N'hésitez pas à me contacter."
+            >
                 Interested in AI, embedded systems, robotics,
                 software development or collaboration?
                 Feel free to contact me.
@@ -2769,6 +2996,8 @@
                     href="cv_ali_yassine.pdf"
                     target="_blank"
                     class="contact-link"
+                    data-en="My CV"
+                    data-fr="Mon CV"
                 >
                     My CV
                 </a>
@@ -2785,9 +3014,9 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      FOOTER
-========================================================= -->
+===================================================== -->
 
 <footer>
 
@@ -2797,7 +3026,12 @@
 
             <span>
                 © <span id="year"></span> Ali Yassine.
-                All rights reserved.
+                <span
+                    data-en="All rights reserved."
+                    data-fr="Tous droits réservés."
+                >
+                    All rights reserved.
+                </span>
             </span>
 
 
@@ -2831,93 +3065,172 @@
 
 
 
-<!-- =========================================================
+<!-- =====================================================
      JAVASCRIPT
-========================================================= -->
+===================================================== -->
 
 <script>
 
 
-    /* Current year */
+/* =====================================================
+   YEAR
+===================================================== */
 
-    document.getElementById("year").textContent =
-        new Date().getFullYear();
-
-
-
-    /* Mobile menu */
-
-    const menuBtn =
-        document.getElementById("menuBtn");
-
-    const navLinks =
-        document.getElementById("navLinks");
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
 
-    menuBtn.addEventListener("click", () => {
 
-        navLinks.classList.toggle("active");
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuBtn.addEventListener("click", () => {
+
+    navLinks.classList.toggle("active");
+
+});
+
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("active");
+
+        });
 
     });
 
 
 
-    /* Close menu */
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
 
-    document
-        .querySelectorAll(".nav-links a")
-        .forEach(link => {
+const revealElements =
+    document.querySelectorAll(".reveal");
 
-            link.addEventListener("click", () => {
 
-                navLinks.classList.remove("active");
+const observer =
+    new IntersectionObserver(
+
+        (entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    observer.unobserve(entry.target);
+
+                }
 
             });
+
+        },
+
+        {
+            threshold: 0.12
+        }
+
+    );
+
+
+revealElements.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+
+/* =====================================================
+   LANGUAGE SWITCHER
+===================================================== */
+
+let currentLanguage = "en";
+
+const languageBtn =
+    document.getElementById("languageBtn");
+
+
+function changeLanguage(language) {
+
+    currentLanguage = language;
+
+
+    document
+        .querySelectorAll("[data-en]")
+        .forEach(element => {
+
+            if (language === "fr") {
+
+                element.textContent =
+                    element.dataset.fr;
+
+            } else {
+
+                element.textContent =
+                    element.dataset.en;
+
+            }
 
         });
 
 
+    if (language === "fr") {
 
-    /* Scroll reveal */
+        languageBtn.textContent = "🇬🇧 EN";
 
-    const revealElements =
-        document.querySelectorAll(".reveal");
+        document.documentElement.lang = "fr";
 
+        document.title =
+            "Ali Yassine | Étudiant Ingénieur en IA & Logiciel";
 
-    const observer =
-        new IntersectionObserver(
+    } else {
 
-            (entries) => {
+        languageBtn.textContent = "🇫🇷 FR";
 
-                entries.forEach(entry => {
+        document.documentElement.lang = "en";
 
-                    if (entry.isIntersecting) {
+        document.title =
+            "Ali Yassine | AI & Software Engineering Student";
 
-                        entry.target.classList.add("visible");
+    }
 
-                        observer.unobserve(entry.target);
-
-                    }
-
-                });
-
-            },
-
-            {
-                threshold: 0.12
-            }
-
-        );
+}
 
 
-    revealElements.forEach(element => {
+/* Language button */
 
-        observer.observe(element);
+languageBtn.addEventListener("click", () => {
 
-    });
+    if (currentLanguage === "en") {
+
+        changeLanguage("fr");
+
+    } else {
+
+        changeLanguage("en");
+
+    }
+
+});
 
 
 </script>
+
 
 </body>
 </html>
